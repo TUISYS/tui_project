@@ -12,7 +12,7 @@
 
 ## TUI接口介绍：
 
-### 弧形控件
+### * 弧形控件
 ```c
 static void arc_loader(tui_timer_t * t);
 static void arc_loader2(tui_timer_t * t);
@@ -32,13 +32,13 @@ void tui_arc_set_angles(tui_obj_t * arc, uint16_t start, uint16_t end);
           .180
  ```
  
-### 标签控件
+### * 标签控件
 ```c
 tui_label_set_txt(txt_obj, txt_str);
 ```
 通过TUI标签接口函数，实现标签的文本动态变化
 
-### 定时器
+### * 定时器
 ```c
 this_timer = tui_timer_create(arc_loader, 10, TUI_TIMER_PRIO_LOWEST, NULL);
 this_timer2 = tui_timer_create(arc_loader2, 10, TUI_TIMER_PRIO_LOWEST, NULL);
@@ -46,7 +46,7 @@ this_timer3 = tui_timer_create(num_anim, 2000, TUI_TIMER_PRIO_LOWEST, NULL);
 ```
 进入APP里面创建了3个定时器，前两个分别用于弧形旋转，最后一个用于数字图片翻页动画
 
-### 数字图片翻页动画
+### * 数字图片翻页动画
 ```c
 static void arc_app0_show_num2(int num)
 ```
