@@ -27,7 +27,7 @@
 </p>
 
 ### 弧形应用（arc_app0）
-todo
+* 跳转到对于的目录查看[弧形应用说明](https://github.com/TUISYS/tui_project/blob/main/apps/arc_app0/README.md)
 ### 按钮应用（button_app1）
 todo
 ### 直线应用（line_app2）
