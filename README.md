@@ -1,6 +1,7 @@
-<h1 align="center"> TUI是一套服务HMI人机交互的GUI系统 </h1>
+<h1 align="center"> TUI是一套人机交互的GUI系统 </h1>
 
 ## 介绍：
+* TUI是一款小巧精致的GUI，可以由于HMI、教育类故事机、广告机、游戏机等应用场景。
 * TUI作为嵌入式GUI，致力于软件夸平台的开发，不同平台间代码需要99%的兼容性，目前tui_project支持Windows、Melis、eos嵌入式平台。
 * TUI提供了uistudio工具，通过工具可以实现界面的可视化编辑。整个应用的开发，实现了视图和逻辑的分离。
 * TUI内核不单单包含了GUI的相关功能和丰富控件，里面实现了消息机制、定时器、多国语言、资源的打包、编码转换、串口接口，时间等。
@@ -18,6 +19,12 @@
 
 ## 应用介绍：
 由于个人开发时间比较仓促，应用里面的所有图片均来自互联网，没有经过特殊处理（不用于商业用途），图片稍加利用，来实现TUI的接口功能。下面我们队每个app一一做个简单的介绍，然后结合tui.h里面的接口做相关说明。
+<p align="center">
+<img src="https://github.com/TUISYS/image/blob/main/home.gif">
+</p>
+<p align="center">
+所有APP应用例子展示
+</p>
 
 ### 弧形应用（arc_app0）
 todo
