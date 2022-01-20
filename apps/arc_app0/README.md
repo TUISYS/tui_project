@@ -57,3 +57,4 @@ tui_obj_anim_mov_y(img_0u_2, 800, 300, 300 + 135, TUI_ANIM_PATH_LINEAR, NULL);
 ```
 这两个TUI接口函数，配合使用，实现了图片的翻页效果
 
+
