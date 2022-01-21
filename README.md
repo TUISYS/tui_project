@@ -29,24 +29,24 @@
 ### 弧形应用（arc_app0）
 * 跳转到对应的目录查看[“弧形应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/arc_app0/)
 ### 按钮应用（button_app1）
-todo
+* 跳转到对应的目录查看[“按钮应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/button_app1/)
 ### 直线应用（line_app2）
-todo
+* 跳转到对应的目录查看[“直线应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/line_app2/)
 ### 滑条应用（bar_app3）
-todo
+* 跳转到对应的目录查看[“滑条应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/bar_app3/)
 ### 动画应用（animation_app4）
-todo
+* 跳转到对应的目录查看[“动画应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/animation_app4/)
 ### 表盘应用（dashboard_app5）
-todo
+* 跳转到对应的目录查看[“表盘应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/dashboard_app5/)
 ### 窗口应用（window_app6）
-todo
+* 跳转到对应的目录查看[“窗口应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/window_app6/)
 ### 串口应用（serial_app7）
-todo
+* 跳转到对应的目录查看[“串口应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/serial_app7/)
 ### 页容器应用（page_app8）
-todo
+* 跳转到对应的目录查看[“页容应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/page_app8/)
 ### 画板应用（draw_app9）
-todo
+* 跳转到对应的目录查看[“画板应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/draw_app9/)
 ### 设置应用（setting_app10）
-todo
+* 跳转到对应的目录查看[“设置应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/setting_app10/)
 ### 登陆应用（logon_app11）
-todo
+* 跳转到对应的目录查看[“登陆应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/logon_app11/)
