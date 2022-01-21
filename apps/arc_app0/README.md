@@ -17,7 +17,7 @@
 static void arc_loader(tui_timer_t * t);
 static void arc_loader2(tui_timer_t * t);
 ```
-通过定时器，每10ms执行一次，最后通过TUI接口函数
+通过定时器，每10ms执行一次上面的回调函数，最后通过下面的TUI接口函数
 ```c
 void tui_arc_set_angles(tui_obj_t * arc, uint16_t start, uint16_t end);
 ```
@@ -31,6 +31,8 @@ void tui_arc_set_angles(tui_obj_t * arc, uint16_t start, uint16_t end);
  
           .180
  ```
+ 其中```tui_arc_set_rounded(tui_get_obj_from_id(this_app_obj, ARC_APP0_ARC_VIEW_ARC_28), 1);``` 函数设置弧形的两端是否有弧度圆滑效果
+ 其中```tui_arc_set_anim_loading(tui_get_obj_from_id(this_app_obj, ARC_APP0_ARC_VIEW_ARC_29), 2000, 1);```函数设置弧形自动旋转，一般用于加载动画
  
 ### * 标签控件
 ```c
