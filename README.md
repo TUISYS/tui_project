@@ -10,7 +10,7 @@
 ---
 
 ## 目录介绍：
-* ***apps**			文件夹，里面存放了用户的逻辑代码，其中每个app里面的view视图代码是uistudio工具自动生成。
+* **apps**			文件夹，里面存放了用户的逻辑代码，其中每个app里面的view视图代码是uistudio工具自动生成。
 * **includes**	文件夹，里面存放了TUI所有接口函数头文件[“查看相关详细说明”](https://github.com/TUISYS/tui_project/blob/main/includes/)。
 * **platform**	文件夹，里面存放各个OS系统平台的工程编译入口文件夹（melis、eos、vc++）。
 * **res**				文件夹，里面存放app开发的资源字体、图片、多国语言、视图布局结构、声音等其它应用资源。
