@@ -22,7 +22,7 @@
 下拉菜单控件比较简单，可以查看相关的接口函数。
 
 ### * 多国语言使用
-通过设置全局语言索引``` c tui_set_language(index) ```，获取每一个一语言的值就将会发生改变``` c tui_get_language_utf8_string("STR_SETTINGS_SYSTEM") ```。
+通过设置全局语言索引``` tui_set_language(index) ```，获取每一个一语言的值就将会发生改变``` tui_get_language_utf8_string("STR_SETTINGS_SYSTEM") ```。
 
 
 
