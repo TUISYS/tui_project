@@ -1,7 +1,7 @@
 <h1 align="center"> 页控件app </h1>
 
 ## 介绍：
-这个app里面有弧形控件、图片控件动画、标签控件、以及定时器的使用。
+这个app里面有页控件，里面嵌套了不同的控件，展示其效果。
 
 <p align="center">
 <img src="https://github.com/TUISYS/image/blob/main/page.gif">
@@ -11,9 +11,12 @@
 </p>
 
 ## TUI接口介绍：
+页控件可以理解是一个容器，里面可以存放不同类型的控件
 
-### * 弧形控件
+### * 页控件
+页控件里面如果放置按钮，需要通过函数``` c tui_obj_set_glue_obj(tui_get_obj_from_id(this_app_obj, PAGE_APP8_PAGE_VIEW_IMAGE_BTN_236), 1); ```设置和页控件进行粘连。不然拖拽移动到按钮上的时候会出现断层。
 
-### * 标签控件
+### * 二维码控件
+二维码控件比较简单，可以查看其接口函数，设置二维码的颜色、大小、和内容等。
 
 
