@@ -11,7 +11,7 @@
 
 ## 目录介绍：
 * apps			文件夹，里面存放了用户的逻辑代码，其中每个app里面的view视图代码是uistudio工具自动生成。
-* includes	文件夹，里面存放了TUI接口函数头文件tui.h；用户自定义消息枚举sys_msg_def.h；uistudio工具生成的控件ID文件tui_id.h；跨平台系统函数接口头文件stdxxx.h。
+* includes	文件夹，里面存放了TUI所有接口函数头文件[“查看相关详细说明”](https://github.com/TUISYS/tui_project/blob/main/includes/)。
 * platform	文件夹，里面存放各个OS系统平台的工程编译入口文件夹（melis、eos、vc++）。
 * res				文件夹，里面存放app开发的资源字体、图片、多国语言、视图布局结构、声音等其它应用资源。
 * uistudio	文件夹，里面存放所见即所得工具所需要的工程文件。
