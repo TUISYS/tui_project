@@ -5,7 +5,7 @@
 tui.h里面包含：TUI控件接口函数头文件tui.h；用户自定义消息枚举sys_msg_def.h；uistudio工具生成的控件ID文件tui_id.h；跨平台系统函数接口头文件stdxxx.h（包含stdio.h、string.h、stdlib.h）。
 
 ## TUI内核接口（tui.h）
-里面的接口如下，每一个都是按照如下注释分类
+里面的接口如下，每一类都是按照如下注释分类，下面按照顺序说明：
 ```
 /*------------------------
  *  xxxxxxxxxxxxxxxxx
