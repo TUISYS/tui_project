@@ -1,9 +1,7 @@
 #include "tui.h"
 
-//#define SERIAL_TEST
-
 /*
- * ¾²Ì¬±äÁ¿¿ØÖÆ
+ * é™æ€å˜é‡æ§åˆ¶
  */
 static int g_loop_flag;
 static int g_exit_flag;
@@ -17,7 +15,7 @@ static uint8_t cur_app_index;
 static tui_timer_t * date_timer;
 
 /*
- * logo¡¢Ö÷½çÃæ¡¢×´Ì¬À¸ÊÓÍ¼´´½¨
+ * logoã€ä¸»ç•Œé¢ã€çŠ¶æ€æ è§†å›¾åˆ›å»º
  */
 tui_obj_t * logo_logo_view_view_create(void);
 tui_obj_t * home_main_view_view_create(void);
@@ -25,7 +23,7 @@ tui_obj_t * home_login_view_view_create(void);
 tui_obj_t * global_bar_status_bar_view_create(void);
 
 /*
- * ¸÷¸öappµÄÈë¿Úº¯Êı
+ * å„ä¸ªappçš„å…¥å£å‡½æ•°
  */
 tui_obj_t * arc_app0_enter(void);
 tui_obj_t * button_app1_enter(void);
@@ -41,25 +39,7 @@ tui_obj_t * setting_app10_enter(void);
 tui_obj_t * logon_app11_enter(void);
 
 /*
- * ´®¿Ú½ÓÊÕÊı¾İ»Øµ÷º¯Êı
- */
-#ifdef SERIAL_TEST
-static int serial_port_read_cb(const char *read_buff, int buf_len)
-{
-	int i = 0;
-
-	printf("serial_port_read data length=%d ", buf_len);
-	for (i = 0; i < buf_len; i++)
-		printf("0x%x ", read_buff[i]);
-
-	printf("\n");
-
-	return 0;
-}
-#endif
-
-/*
- * ×´Ì¬À¸Ê±¼äË¢ĞÂ¶¨Ê±Æ÷»Øµ÷º¯Êı
+ * çŠ¶æ€æ æ—¶é—´åˆ·æ–°å®šæ—¶å™¨å›è°ƒå‡½æ•°
  */
 static void home_date_ref_cb(tui_timer_t * t)
 {
@@ -89,7 +69,7 @@ static void yu_animation_object_anim_cb(tui_obj_t * obj)
 }
 
 /*
- * home½çÃæÏµÍ³ÏûÏ¢½ÓÊÕ»Øµ÷º¯Êı
+ * homeç•Œé¢ç³»ç»Ÿæ¶ˆæ¯æ¥æ”¶å›è°ƒå‡½æ•°
  */
 static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 {
@@ -327,148 +307,36 @@ static int get_file_last_time(char *path)
 	return ret;
 }
 
-static void draw_line(void)
-{
-	int x0, y0, x1, y1;
-	tui_obj_t *line1_obj, *line2_obj, *line3_obj, *line4_obj;
-	tui_obj_t *line5_obj, *line6_obj, *line7_obj;
-	tui_line_attri_t line1_attr = { 0 }, line2_attr = { 0 }, line3_attr = { 0 }, line4_attr = { 0 };
-	tui_line_attri_t line5_attr = { 0 }, line6_attr = { 0 }, line7_attr = { 0 };
-	tui_point_t pt0 = { 100, 50 }, /* pt2, pt4,*/ pt6 = {50,  200};
-	tui_point_t pt1 = { 200, 50 }, /* pt3, pt5,*/ pt7 = {250, 200};
-
-	line1_attr.color = 0xFFFF0000;
-	line1_attr.width = 2;
-	line1_attr.pts[0] = pt0;
-	line1_attr.pts[1] = pt1;
-	line1_obj = tui_line_create(tui_layer_normal());
-	tui_line_set_attri(line1_obj, &line1_attr);
-
-	line2_attr.color = 0xFFFF0000;
-	line2_attr.width = 2;
-	line2_attr.pts[0] = pt6;
-	line2_attr.pts[1] = pt7;
-	line2_obj = tui_line_create(tui_layer_normal());
-	tui_line_set_attri(line2_obj, &line2_attr);
-
-	line3_attr.color = 0xFFFF0000;
-	line3_attr.width = 2;
-	line3_attr.pts[0] = pt0;
-	line3_attr.pts[1] = pt6;
-	line3_obj = tui_line_create(tui_layer_normal());
-	tui_line_set_attri(line3_obj, &line3_attr);
-
-	line4_attr.color = 0xFFFF0000;
-	line4_attr.width = 2;
-	line4_attr.pts[0] = pt1;
-	line4_attr.pts[1] = pt7;
-	line4_obj = tui_line_create(tui_layer_normal());
-	tui_line_set_attri(line4_obj, &line4_attr);
-
-
-
-
-	x0 = pt0.x;
-	y0 = pt0.y;
-	x1 = pt6.x;
-	y1 = pt6.y;
-	line5_attr.color = 0xFF00FF00;
-	line5_attr.width = 1;
-	line5_attr.pts[0].y = 70;
-	line5_attr.pts[0].x = ((line5_attr.pts[0].y - y0)*(x1 - x0) + x0*(y1 - y0)) / (y1 - y0);
-	x0 = pt1.x;
-	y0 = pt1.y;
-	x1 = pt7.x;
-	y1 = pt7.y;
-	line5_attr.pts[1].y = 70;
-	line5_attr.pts[1].x = ((line5_attr.pts[1].y - y0)*(x1 - x0) + x0*(y1 - y0)) / (y1 - y0);
-	line5_obj = tui_line_create(tui_layer_normal());
-	tui_line_set_attri(line5_obj, &line5_attr);
-
-
-
-	x0 = pt0.x;
-	y0 = pt0.y;
-	x1 = pt6.x;
-	y1 = pt6.y;
-	line6_attr.color = 0xFF0000FF;
-	line6_attr.width = 1;
-	line6_attr.pts[0].y = 95;
-	line6_attr.pts[0].x = ((line6_attr.pts[0].y - y0)*(x1 - x0) + x0*(y1 - y0)) / (y1 - y0);
-	x0 = pt1.x;
-	y0 = pt1.y;
-	x1 = pt7.x;
-	y1 = pt7.y;
-	line6_attr.pts[1].y = 95;
-	line6_attr.pts[1].x = ((line6_attr.pts[1].y - y0)*(x1 - x0) + x0*(y1 - y0)) / (y1 - y0);
-	line6_obj = tui_line_create(tui_layer_normal());
-	tui_line_set_attri(line6_obj, &line6_attr);
-
-
-
-	x0 = pt0.x;
-	y0 = pt0.y;
-	x1 = pt6.x;
-	y1 = pt6.y;
-	line7_attr.color = 0xFFFFFF00;
-	line7_attr.width = 1;
-	line7_attr.pts[0].y = 133;
-	line7_attr.pts[0].x = ((line7_attr.pts[0].y - y0)*(x1 - x0) + x0*(y1 - y0)) / (y1 - y0);
-	x0 = pt1.x;
-	y0 = pt1.y;
-	x1 = pt7.x;
-	y1 = pt7.y;
-	line7_attr.pts[1].y = 133;
-	line7_attr.pts[1].x = ((line7_attr.pts[1].y - y0)*(x1 - x0) + x0*(y1 - y0)) / (y1 - y0);
-	line7_obj = tui_line_create(tui_layer_normal());
-	tui_line_set_attri(line7_obj, &line7_attr);
-}
 
 /*
- * Ó¦ÓÃÈë¿Úº¯Êı
+ * åº”ç”¨å…¥å£å‡½æ•°
  */
-int gauge_create(const char *soc_str, const char *km_str, const char *tm_str, const char *bottom_str);
 int home_create(void)
 {
-	//return gauge_create("0.0v 000A", "000000 km", "2021-07-08 19:49", "TRIP 000.6 km");
-	//get_file_last_time("D:\\Kingvan");
-	/* ³õÊ¼»¯TUI×ÊÔ´ */
+	/* åˆå§‹åŒ–TUIèµ„æº */
 #ifdef __EOS__
 	tui_start_init("/mnt/sdcard/res.disk", -1, -1);
 #else
 	tui_start_init("./tdemo/res.disk", -1, -1);
 #endif
 
-#ifdef SERIAL_TEST
-	/* ³õÊ¼»¯Ó²¼ş´®¿Ú */
-	serial_port_open("COM3", -1, -1, -1, -1, serial_port_read_cb);
-
-	/* ²âÊÔ·¢ËÍ´®¿ÚÊı¾İ */
-	serial_port_write("hello world\n", 1);
-
-#endif
 
 	g_exit_flag = 0;
 	g_loop_flag = 1;
 
-	/* ´´½¨logo½çÃæÊÓÍ¼ */
+	/* åˆ›å»ºlogoç•Œé¢è§†å›¾ */
 	this_logo_obj = logo_logo_view_view_create();
 	tui_obj_anim_mov_x(tui_get_obj_from_id(this_logo_obj, LOGO_LOGO_VIEW_IMAGE_245), 1000, 400, 500, TUI_ANIM_PATH_EASE_OUT, yu_animation_object_anim_cb);
 	
-	/* ×¢²áhome½çÃæÏµÍ³ÏûÏ¢»Øµ÷º¯Êı */
+	/* æ³¨å†Œhomeç•Œé¢ç³»ç»Ÿæ¶ˆæ¯å›è°ƒå‡½æ•° */
 	tui_sys_msg_reg(home_sys_msg_cb);
 
-	/* TUI´¦ÀíÆ÷ */
+	/* TUIå¤„ç†å™¨ */
 	while (g_loop_flag) {
 		tui_run_loop();
 	}
 
-#ifdef SERIAL_TEST
-	/* ¹Ø±ÕÓ²¼ş´®¿Ú */
-	serial_port_close();
-#endif
-
-	/* ÊÍ·ÅTUI×ÊÔ´ÍË³ö */
+	/* é‡Šæ”¾TUIèµ„æºé€€å‡º */
 	tui_end_uninit();
 	
 	return 0;
