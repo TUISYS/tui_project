@@ -20,7 +20,7 @@
 
 ## 应用APP介绍：
 由于个人开发时间比较仓促，应用里面的所有图片均来自互联网，没有经过特殊处理（不用于商业用途），图片稍加利用，来实现TUI的接口功能。<br>
-下面我们对每个app做个简单的介绍，然后结合tui.h里面的接口，做相关说明。<br>
+下面我们对每个app做个简单的介绍，然后结合tui.h里面的接口，做相关说明。<br><br>
 <p align="center">
 <img src="https://github.com/TUISYS/image/blob/main/home.gif">
 </p>
