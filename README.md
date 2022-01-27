@@ -15,7 +15,7 @@
 * :file_folder:**“platform”**&ensp;文件夹，里面存放各个OS系统平台的工程编译入口文件夹（melis、eos、vc++）。
 * :file_folder:**“res”**&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;文件夹，里面存放app开发的资源字体、图片、多国语言、视图布局结构、声音等其它应用资源。
 * :file_folder:**“uistudio”**&ensp;&ensp;文件夹，里面存放所见即所得工具所需要的工程文件。
-* :handbag:**“res.disk”**&ensp;&ensp;镜像文件，该文件是uistudio工具，把res里面的资源处理后打包制作成一个**镜像资源文件**。<br>
+* :handbag:**“res.disk”**&ensp;&ensp;镜像包，该文件是uistudio工具，把res里面的资源处理后打包制作成一个**镜像资源文件**。<br>
                        最后被映射到tui内核里面，成为一个**V:盘符**。
 
 ## 应用APP介绍：
