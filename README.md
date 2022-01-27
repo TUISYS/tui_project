@@ -7,8 +7,6 @@
 * TUI内核不单单包含了GUI的相关功能和丰富控件，里面还实现了消息机制、定时器、多国语言、资源的盘符打包、编码转换、串口封装接口，时间等。
 * TUI的设计非常严谨，可以把它看成一个非常独立的模块，TUI整个生命周期由三步，初始化（tui_start_init）、运行（tui_run_loop）、销毁（tui_end_uninit）三个函数控制。里面有完整地调试debug功能，退出的时候不会有内存泄漏和异常问题。
 
----
-
 ## 结构目录：
 * :file_folder:**“apps”**&ensp;&ensp;&ensp;&ensp;文件夹，里面存放了用户的逻辑代码，其中每个app里面的view视图代码是uistudio工具自动生成。
 * :file_folder:**“includes”**&ensp;文件夹，里面存放了TUI所有接口函数头文件[“查看相关详细说明”](https://github.com/TUISYS/tui_project/blob/main/includes/)。
