@@ -10,12 +10,12 @@
 ---
 
 ## 结构目录：
-* **apps**			文件夹，里面存放了用户的逻辑代码，其中每个app里面的view视图代码是uistudio工具自动生成。
-* **includes**	文件夹，里面存放了TUI所有接口函数头文件[“查看相关详细说明”](https://github.com/TUISYS/tui_project/blob/main/includes/)。
-* **platform**	文件夹，里面存放各个OS系统平台的工程编译入口文件夹（melis、eos、vc++）。
-* **res**				文件夹，里面存放app开发的资源字体、图片、多国语言、视图布局结构、声音等其它应用资源。
-* **uistudio**	文件夹，里面存放所见即所得工具所需要的工程文件。
-* **res.disk**	文件	，该文件是uistudio工具，把res里面的资源处理后打包制作成一个**镜像资源文件**。<br>
+* :file_folder:**“apps”**&ensp;&ensp;&ensp;&ensp;文件夹，里面存放了用户的逻辑代码，其中每个app里面的view视图代码是uistudio工具自动生成。
+* :file_folder:**“includes”**&ensp;文件夹，里面存放了TUI所有接口函数头文件[“查看相关详细说明”](https://github.com/TUISYS/tui_project/blob/main/includes/)。
+* :file_folder:**“platform”**&ensp;文件夹，里面存放各个OS系统平台的工程编译入口文件夹（melis、eos、vc++）。
+* :file_folder:**“res”**&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;文件夹，里面存放app开发的资源字体、图片、多国语言、视图布局结构、声音等其它应用资源。
+* :file_folder:**“uistudio”**&ensp;&ensp;文件夹，里面存放所见即所得工具所需要的工程文件。
+* :handbag:**“res.disk”**&ensp;&ensp;镜像文件，该文件是uistudio工具，把res里面的资源处理后打包制作成一个**镜像资源文件**。<br>
                        最后被映射到tui内核里面，成为一个**V:盘符**。
 
 ## 应用APP介绍：
