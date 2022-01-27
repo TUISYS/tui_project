@@ -5,12 +5,12 @@
 * TUI作为嵌入式GUI，致力于软件跨平台的开发，不同平台间代码满足99%的兼容性，目前tui_project支持Windows、Melis、eos嵌入式平台。
 * TUI提供了uistudio工具，通过工具可以实现界面的可视化编辑。整个应用的UI开发类似搭积木的拖拽控件，并且实现了视图、资源和逻辑的分离。
 * TUI内核不单单包含了GUI的相关功能和丰富控件，里面还实现了消息机制、定时器、多国语言、资源的盘符打包、编码转换、串口封装接口，时间等。
-* TUI的设计非常严谨，可以把它看成一个非常独立的模块，TUI整个生命周期由三步，初始化（tui_start_init）、运行（tui_run_loop）、销毁（tui_end_uninit）三个函数控制。里面有完整地调试debug功能，退出的时候不会有内存泄漏和异常问题。
+* TUI的设计非常严谨，可以把它看成一个非常独立的模块，TUI整个生命周期由三步，初始化（*tui_start_init*）、运行（*tui_run_loop*）、销毁（*tui_end_uninit*）三个函数控制。里面有完整地调试debug功能，退出的时候不会有内存泄漏和异常问题。
 
 ## 结构目录：
 * :file_folder:**“apps”**&ensp;&ensp;&ensp;&ensp;文件夹，里面存放了用户的逻辑代码，其中每个app里面的view视图代码是uistudio工具自动生成。
 * :file_folder:**“includes”**&ensp;文件夹，里面存放了TUI所有接口函数头文件[“查看相关详细说明”](https://github.com/TUISYS/tui_project/blob/main/includes/)。
-* :file_folder:**“platform”**&ensp;文件夹，里面存放各个OS系统平台的工程编译入口文件夹（melis、eos、vc++）。
+* :file_folder:**“platform”**&ensp;文件夹，里面存放各个OS系统平台的工程编译入口文件夹（*melis、eos、vc++*）。
 * :file_folder:**“res”**&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;文件夹，里面存放app开发的资源字体、图片、多国语言、视图布局结构、声音等其它应用资源。
 * :file_folder:**“uistudio”**&ensp;&ensp;文件夹，里面存放所见即所得工具所需要的工程文件。
 * :handbag:**“res.disk”**&ensp;&ensp;镜像包，该文件是uistudio工具，把res里面的资源处理后打包制作成一个**镜像资源文件**。<br>
