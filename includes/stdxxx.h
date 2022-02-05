@@ -49,8 +49,6 @@ typedef struct __STDDIRENT
 	char      d_name[1024];
 }STD_DIRENT;
 
-#define NULL 0
-
 extern void std_time_gmt(unsigned int *t);
 extern int std_atoi(const char *s);
 extern void  std_Sleep(size_t dly);

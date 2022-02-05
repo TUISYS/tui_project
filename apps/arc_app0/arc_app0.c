@@ -73,7 +73,7 @@ static int32_t arc_app0_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 
 static void arc_app0_anim1_cb(tui_obj_t * obj)
 {
-	tui_image_anim_height(img_1d_1, 800, 0, 135, TUI_ANIM_PATH_LINEAR, NULL);
+	tui_image_anim_height(img_1d_1, 800, 0, 79, TUI_ANIM_PATH_LINEAR, NULL);
 }
 
 static void arc_app0_show_num1(int num)
@@ -111,8 +111,8 @@ static void arc_app0_show_num1(int num)
 		img_1d_1 = tui_image_create(this_app_obj);
 
 	/* 设置属性 */
-	attri.obj.pt.x = 330;
-	attri.obj.pt.y = 300;
+	attri.obj.pt.x = 280;
+	attri.obj.pt.y = 400;
 	attri.img_num = 1;
 	tui_image_set_attri(img_1u_1, &attri);
 	sprintf(path, "V:\\image\\%du.png", num);
@@ -120,8 +120,8 @@ static void arc_app0_show_num1(int num)
 	tui_image_set_cur_img_index(img_1u_1, 0);
 
 	/* 设置属性 */
-	attri.obj.pt.x = 330;
-	attri.obj.pt.y = 300;
+	attri.obj.pt.x = 280;
+	attri.obj.pt.y = 400;
 	attri.img_num = 1;
 	tui_image_set_attri(img_0u_1, &attri);
 	if (num == 0)
@@ -132,8 +132,8 @@ static void arc_app0_show_num1(int num)
 	tui_image_set_cur_img_index(img_0u_1, 0);
 
 	/* 设置属性 */
-	attri.obj.pt.x = 330;
-	attri.obj.pt.y = 300 + 135;
+	attri.obj.pt.x = 280;
+	attri.obj.pt.y = 400 + 79;
 	attri.img_num = 1;
 	tui_image_set_attri(img_0d_1, &attri);
 	if (num == 0)
@@ -144,22 +144,22 @@ static void arc_app0_show_num1(int num)
 	tui_image_set_cur_img_index(img_0d_1, 0);
 
 	/* 设置属性 */
-	attri.obj.pt.x = 330;
-	attri.obj.pt.y = 300 + 135;
+	attri.obj.pt.x = 280;
+	attri.obj.pt.y = 400 + 79;
 	attri.img_num = 1;
 	tui_image_set_attri(img_1d_1, &attri);
 	sprintf(path, "V:\\image\\%dd.png", num);
 	tui_image_set_image_src(img_1d_1, 0, path);
 	tui_image_set_cur_img_index(img_1d_1, 0);
-	tui_image_set_size(img_1d_1, 170, 0);
+	tui_image_set_size(img_1d_1, 100, 0);
 
-	tui_image_anim_height(img_0u_1, 800, 135, 0, TUI_ANIM_PATH_LINEAR, arc_app0_anim1_cb);
-	tui_obj_anim_mov_y(img_0u_1, 800, 300, 300 + 135, TUI_ANIM_PATH_LINEAR, NULL);
+	tui_image_anim_height(img_0u_1, 800, 79, 0, TUI_ANIM_PATH_LINEAR, arc_app0_anim1_cb);
+	tui_obj_anim_mov_y(img_0u_1, 800, 400, 400 + 79, TUI_ANIM_PATH_LINEAR, NULL);
 }
 
 static void arc_app0_anim2_cb(tui_obj_t * obj)
 {
-	tui_image_anim_height(img_1d_2, 800, 0, 135, TUI_ANIM_PATH_LINEAR, NULL);
+	tui_image_anim_height(img_1d_2, 800, 0, 79, TUI_ANIM_PATH_LINEAR, NULL);
 }
 
 static void arc_app0_show_num2(int num)
@@ -198,7 +198,7 @@ static void arc_app0_show_num2(int num)
 
 	/* 设置属性 */
 	attri.obj.pt.x = 150;
-	attri.obj.pt.y = 300;
+	attri.obj.pt.y = 400;
 	attri.img_num = 1;
 	tui_image_set_attri(img_1u_2, &attri);
 	sprintf(path, "V:\\image\\%du.png", num);
@@ -207,7 +207,7 @@ static void arc_app0_show_num2(int num)
 
 	/* 设置属性 */
 	attri.obj.pt.x = 150;
-	attri.obj.pt.y = 300;
+	attri.obj.pt.y = 400;
 	attri.img_num = 1;
 	tui_image_set_attri(img_0u_2, &attri);
 	if (num == 0)
@@ -219,7 +219,7 @@ static void arc_app0_show_num2(int num)
 
 	/* 设置属性 */
 	attri.obj.pt.x = 150;
-	attri.obj.pt.y = 300 + 135;
+	attri.obj.pt.y = 400 + 79;
 	attri.img_num = 1;
 	tui_image_set_attri(img_0d_2, &attri);
 	if (num == 0)
@@ -231,16 +231,16 @@ static void arc_app0_show_num2(int num)
 
 	/* 设置属性 */
 	attri.obj.pt.x = 150;
-	attri.obj.pt.y = 300 + 135;
+	attri.obj.pt.y = 400 + 79;
 	attri.img_num = 1;
 	tui_image_set_attri(img_1d_2, &attri);
 	sprintf(path, "V:\\image\\%dd.png", num);
 	tui_image_set_image_src(img_1d_2, 0, path);
 	tui_image_set_cur_img_index(img_1d_2, 0);
-	tui_image_set_size(img_1d_2, 170, 0);
+	tui_image_set_size(img_1d_2, 100, 0);
 
-	tui_image_anim_height(img_0u_2, 800, 135, 0, TUI_ANIM_PATH_LINEAR, arc_app0_anim2_cb);
-	tui_obj_anim_mov_y(img_0u_2, 800, 300, 300 + 135, TUI_ANIM_PATH_LINEAR, NULL);
+	tui_image_anim_height(img_0u_2, 800, 79, 0, TUI_ANIM_PATH_LINEAR, arc_app0_anim2_cb);
+	tui_obj_anim_mov_y(img_0u_2, 800, 400, 400 + 79, TUI_ANIM_PATH_LINEAR, NULL);
 }
 
 static void num_anim(tui_timer_t * t)

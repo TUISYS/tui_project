@@ -99,7 +99,7 @@ static int32_t window_app6_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 		if (this_wind3_obj == NULL) {
 			wind3_cnt = 5;
 			this_wind3_obj = window_app6_window3_view_view_create();
-			this_timer = tui_timer_create(window_app6_wind3, 1000, TUI_TIMER_PRIO_LOWEST, NULL);
+			this_timer = tui_timer_create((tui_timer_cb_t)window_app6_wind3, 1000, TUI_TIMER_PRIO_LOWEST, NULL);
 		}
 		break;
 	case TUI_USER_MSG_APP6_WIND4:
@@ -148,7 +148,7 @@ static void window_app6_exit(void)
 		this_timer = NULL;
 	}
 
-	indev_point_trigger_cb_unreg();
+	indev_point_trigger_cb_unreg(window_app6_indev_point_trigger_cb);
 
 	tui_sys_msg_unreg(window_app6_sys_msg_cb);
 }

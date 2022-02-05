@@ -1,0 +1,41 @@
+import os
+import shutil
+Import('RTT_ROOT')
+#Import('rtconfig')
+from building import *
+
+cwd     = GetCurrentDir()
+
+LIBPATH = os.path.join(cwd, "lib")
+LIBS    = ["libtui.a"]
+
+src     = []
+
+for r, d, files in os.walk(cwd):
+    #print files
+    for i in files:
+        if os.path.join(r,i)[-2:] == ".c":
+            src.append(os.path.join(r,i)[:-2]+'.c')
+            
+for r, d, files in os.walk(cwd+"/../../apps/"):
+    #print files
+    for i in files:
+        if os.path.join(r,i)[-2:] == ".c":
+            src.append(os.path.join(r,i)[:-2]+'.c')
+
+objs = []
+CPPPATH = [cwd,
+            cwd+'/../../includes/',
+            str(Dir('#'))]
+            
+
+group = DefineGroup('apps', src, depend = [''], CPPPATH = CPPPATH, LIBS = LIBS, LIBPATH = LIBPATH)
+
+#list = os.listdir(cwd)
+#for d in list:
+#    path = os.path.join(cwd, d)
+#    if os.path.isfile(os.path.join(path, 'SConscript')):
+#        objs = objs + SConscript(os.path.join(d, 'SConscript'))
+#group = group + objs
+
+Return('group')

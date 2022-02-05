@@ -31,7 +31,6 @@ tui_obj_t * page_app8_enter(void)
 	//tui_obj_set_click(tui_get_obj_from_id(this_app_obj, PAGE_APP8_PAGE_VIEW_IMAGE_153), 1);
 	//tui_obj_set_click(tui_get_obj_from_id(this_app_obj, PAGE_APP8_PAGE_VIEW_IMAGE_154), 1);
 	//tui_obj_set_click(tui_get_obj_from_id(this_app_obj, PAGE_APP8_PAGE_VIEW_IMAGE_155), 1);
-	tui_obj_set_glue_obj(tui_get_obj_from_id(this_app_obj, PAGE_APP8_PAGE_VIEW_IMAGE_BTN_236), 1);
 	
 	return this_app_obj;
 }

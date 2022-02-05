@@ -1,0 +1,36 @@
+{
+  "screen": {
+    "width": 800,
+    "height": 600
+  },
+  "port": {
+    "baudrate": 16,
+    "bytesize": 4,
+    "parity": 2,
+    "stopbits": 0
+  },
+  "language": 1,
+  "ers_id": "VjIuMA==",
+  "ass_id": "MTIzNDU2Nzg=",
+  "view_order": "tui_demo//home//main_view,tui_demo//home//login_view,tui_demo//arc_app0//arc_view,tui_demo//global_bar//status_bar,tui_demo//button_app1//button_view,tui_demo//bar_app3//bar_view,tui_demo//line_app2//line_view,tui_demo//animation_app4//animation_view,tui_demo//dashboard_app5//dashboard_view,tui_demo//window_app6//window_view,tui_demo//window_app6//window1_view,tui_demo//window_app6//window2_view,tui_demo//window_app6//window3_view,tui_demo//window_app6//window4_view,tui_demo//uart_app7//uart_view,tui_demo//page_app8//page_view,tui_demo//setting_app10//setting_view,tui_demo//logo//logo_view,tui_demo//logon_app11//logon_view,tui_demo//draw_app9//draw_view,tui_demo//adjust//adjust_view",
+  "fonts": {
+    "vector_font": {
+      "font": "D://Kingvan//lvgl_7.x//lvgl7.x//lvgl7.x//tdemo//res//font//fzlth_YS_GB2312.ttf"
+    },
+    "dot_font1": {
+      "size": 15,
+      "str": "D://Kingvan'sDocuments//Kingvan//c200_hmi_release_tui//livedesk//beetles//tui_demo//res//language//lang.xls",
+      "font": "D://Kingvan'sDocuments//Kingvan//c200_hmi_release_tui//livedesk//beetles//tui_demo//res//font//Alibaba-PuHuiTi-Regular.ttf"
+    },
+    "dot_font2": {
+      "size": 30,
+      "str": "D://Kingvan'sDocuments//Kingvan//c200_hmi_release_tui//livedesk//beetles//tui_demo//res//language//lang.xls",
+      "font": "D://Kingvan'sDocuments//Kingvan//c200_hmi_release_tui//livedesk//beetles//tui_demo//res//font//Alibaba-PuHuiTi-Regular.ttf"
+    },
+    "dot_font3": {
+      "size": 60,
+      "str": "1234567890:.*",
+      "font": "D://Kingvan//lvgl_7.x//lvgl7.x//lvgl7.x//tdemo//res//font//Alibaba-PuHuiTi-Regular.ttf"
+    }
+  }
+}

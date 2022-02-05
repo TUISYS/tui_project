@@ -1,6 +1,6 @@
 #include "tui.h"
 
-#define LIST_MAX	3000
+#define LIST_MAX	512
 
 typedef struct fs_item_info_tag {
 	int type;
@@ -218,7 +218,7 @@ tui_obj_t * setting_app10_enter(void)
 
 	this_app_obj = setting_app10_setting_view_view_create();
 
-	this_app_list_obj = tui_get_obj_from_id(this_app_obj, SETTING_APP10_SETTING_VIEW_LIST_231);
+	this_app_list_obj = tui_get_obj_from_id(this_app_obj, SETTING_APP10_SETTING_VIEW_LIST_245);
 
 	strcpy(cur_path, "D:");
 

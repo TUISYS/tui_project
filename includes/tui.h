@@ -261,9 +261,9 @@ int serial_port_write(char *write_buff, int buf_len);
 typedef void (*indev_point_trigger_cb_t)(uint8_t state, int32_t x, int32_t y);
 typedef void (*indev_key_trigger_cb_t)(uint8_t state, uint32_t key_value);
 void indev_point_trigger_cb_reg(indev_point_trigger_cb_t cb);
-void indev_point_trigger_cb_unreg(void);
+void indev_point_trigger_cb_unreg(indev_point_trigger_cb_t cb);
 void indev_key_trigger_cb_reg(indev_key_trigger_cb_t cb);
-void indev_key_trigger_cb_unreg(void);
+void indev_key_trigger_cb_unreg(indev_key_trigger_cb_t cb);
 void indev_get_point_value(uint8_t *st, int32_t *x, int32_t *y);
 void indev_get_key_value(uint8_t *st, uint32_t *key_value);
 
@@ -456,7 +456,7 @@ typedef struct {
         tui_label_long_mode_e mode;             /* 外部配置，标签显示模式（其中有滚动显示） */
         tui_label_align_e align;                /* 外部配置，标签对齐方式 */
         bool input_able;                        /* 外部配置，支持标签字符输入 */
-		bool ttf_font;                          /* 外部配置，支持TTF字体 */
+        bool ttf_font;                          /* 外部配置，支持TTF字体 */
         uint32_t border_color;                  /* 外部配置，标签的边框颜色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
 } tui_label_attri_t;
 tui_obj_t * tui_label_create(tui_obj_t * par);

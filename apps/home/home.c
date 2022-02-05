@@ -1,10 +1,11 @@
 #include "tui.h"
 
 /*
- * é™æ€å˜é‡æ§åˆ¶
+ * ¾²Ì¬±äÁ¿¿ØÖÆ
  */
 static int g_loop_flag;
 static int g_exit_flag;
+static tui_obj_t * this_adjust_obj;
 static tui_obj_t * this_logo_obj;
 static tui_obj_t * this_login_obj;
 static tui_obj_t * this_home_obj;
@@ -15,7 +16,7 @@ static uint8_t cur_app_index;
 static tui_timer_t * date_timer;
 
 /*
- * logoã€ä¸»ç•Œé¢ã€çŠ¶æ€æ è§†å›¾åˆ›å»º
+ * logo¡¢Ö÷½çÃæ¡¢×´Ì¬À¸ÊÓÍ¼´´½¨
  */
 tui_obj_t * logo_logo_view_view_create(void);
 tui_obj_t * home_main_view_view_create(void);
@@ -23,8 +24,9 @@ tui_obj_t * home_login_view_view_create(void);
 tui_obj_t * global_bar_status_bar_view_create(void);
 
 /*
- * å„ä¸ªappçš„å…¥å£å‡½æ•°
+ * ¸÷¸öappµÄÈë¿Úº¯Êı
  */
+tui_obj_t * adjust_enter(void);
 tui_obj_t * arc_app0_enter(void);
 tui_obj_t * button_app1_enter(void);
 tui_obj_t * line_app2_enter(void);
@@ -32,14 +34,14 @@ tui_obj_t * bar_app3_enter(void);
 tui_obj_t * animation_app4_enter(void);
 tui_obj_t * dashboard_app5_enter(void);
 tui_obj_t * window_app6_enter(void);
-tui_obj_t * sound_app7_enter(void);
+tui_obj_t * uart_app7_enter(void);
 tui_obj_t * page_app8_enter(void);
 tui_obj_t * draw_app9_enter(void);
 tui_obj_t * setting_app10_enter(void);
 tui_obj_t * logon_app11_enter(void);
 
 /*
- * çŠ¶æ€æ æ—¶é—´åˆ·æ–°å®šæ—¶å™¨å›è°ƒå‡½æ•°
+ * ×´Ì¬À¸Ê±¼äË¢ĞÂ¶¨Ê±Æ÷»Øµ÷º¯Êı
  */
 static void home_date_ref_cb(tui_timer_t * t)
 {
@@ -52,51 +54,39 @@ static void home_date_ref_cb(tui_timer_t * t)
 	}
 }
 
-static void home_animation_object_anim_cb(tui_obj_t * obj)
-{
-	tui_obj_anim_mov_x(tui_get_obj_from_id(this_home_obj, HOME_MAIN_VIEW_MULTI_SCREEN_3), 300, -100, 0, TUI_ANIM_PATH_EASE_IN, NULL);
-}
-
-static void app4_animation_object_anim_cb(tui_obj_t * obj)
-{
-	tui_sys_msg_send(TUI_USER_MSG_APP4_START, NULL, NULL);
-}
-
 static void yu_animation_object_anim_cb(tui_obj_t * obj)
 {
-	tui_image_set_hor_mirror(tui_get_obj_from_id(this_logo_obj, LOGO_LOGO_VIEW_IMAGE_245), 1);
-	tui_obj_anim_mov_x(tui_get_obj_from_id(this_logo_obj, LOGO_LOGO_VIEW_IMAGE_245), 1000, 500, 400, TUI_ANIM_PATH_LINEAR, NULL);
+	tui_image_set_hor_mirror(tui_get_obj_from_id(this_logo_obj, LOGO_LOGO_VIEW_IMAGE_255), 1);
+	tui_obj_anim_mov_x(tui_get_obj_from_id(this_logo_obj, LOGO_LOGO_VIEW_IMAGE_255), 1000, 480, 300, TUI_ANIM_PATH_LINEAR, NULL);
 }
 
 /*
- * homeç•Œé¢ç³»ç»Ÿæ¶ˆæ¯æ¥æ”¶å›è°ƒå‡½æ•°
+ * home½çÃæÏµÍ³ÏûÏ¢½ÓÊÕ»Øµ÷º¯Êı
  */
 static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
-{
-	//printf("home system message:0x%x\n", cmd);
-	
+{	
 	switch (cmd)
 	{
-	case TUI_USER_MSG_APP_LOGO:
-		if (this_logo_obj) {
-			tui_obj_del(this_logo_obj);
-			this_logo_obj = NULL;
+	case TUI_USER_MSG_APP_ADJUT_OK:
+		if (this_adjust_obj) {
+			tui_obj_del(this_adjust_obj);
+			this_adjust_obj = NULL;
 		}
 
 		if (tui_config_password_compare("")) {
 			this_login_obj = home_login_view_view_create();
-			tui_label_set_txt(tui_get_obj_from_id(this_login_obj, HOME_LOGIN_VIEW_LABEL_244), tui_config_get_version());
+			tui_label_set_txt(tui_get_obj_from_id(this_login_obj, HOME_LOGIN_VIEW_LABEL_256), tui_config_get_version());
 		} else {
-			tui_sys_msg_send(TUI_USER_MSG_APP_LOGIN_OK, NULL, NULL);
+			tui_sys_msg_send_dly(TUI_USER_MSG_APP_LOGIN_OK, 800, NULL, NULL);
 		}
 		break;
 	case TUI_USER_MSG_APP_LOGIN_CHECK:
-		if (tui_config_password_compare(tui_textbox_get_text(tui_get_obj_from_id(this_login_obj, HOME_LOGIN_VIEW_TEXTBOX_239)))) {
-			tui_label_set_txt(tui_get_obj_from_id(this_login_obj, HOME_LOGIN_VIEW_LABEL_243), "Fail");
-			tui_obj_anim_fade_in(tui_get_obj_from_id(this_login_obj, HOME_LOGIN_VIEW_LABEL_243), 400, NULL);
+		if (tui_config_password_compare(tui_textbox_get_text(tui_get_obj_from_id(this_login_obj, HOME_LOGIN_VIEW_TEXTBOX_251)))) {
+			tui_label_set_txt(tui_get_obj_from_id(this_login_obj, HOME_LOGIN_VIEW_LABEL_257), "Fail");
+			tui_obj_anim_fade_in(tui_get_obj_from_id(this_login_obj, HOME_LOGIN_VIEW_LABEL_257), 400, NULL);
 		} else {
-			tui_label_set_txt(tui_get_obj_from_id(this_login_obj, HOME_LOGIN_VIEW_LABEL_243), "Success");
-			tui_obj_anim_fade_in(tui_get_obj_from_id(this_login_obj, HOME_LOGIN_VIEW_LABEL_243), 800, NULL);
+			tui_label_set_txt(tui_get_obj_from_id(this_login_obj, HOME_LOGIN_VIEW_LABEL_257), "Success");
+			tui_obj_anim_fade_in(tui_get_obj_from_id(this_login_obj, HOME_LOGIN_VIEW_LABEL_257), 800, NULL);
 			tui_sys_msg_send_dly(TUI_USER_MSG_APP_LOGIN_OK, 800, NULL, NULL);
 		}
 		break;
@@ -105,17 +95,24 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 			tui_obj_del(this_login_obj);
 			this_login_obj = NULL;
 		}
-
+		this_logo_obj = logo_logo_view_view_create();
+		tui_obj_anim_mov_x(tui_get_obj_from_id(this_logo_obj, LOGO_LOGO_VIEW_IMAGE_255), 1000, 300, 480, TUI_ANIM_PATH_EASE_OUT, yu_animation_object_anim_cb);
+		break;
+	case TUI_USER_MSG_APP_LOGO:
 		if (this_bar_status_obj == NULL) {
 			this_bar_status_obj = global_bar_status_bar_view_create();
-			date_timer = tui_timer_create(home_date_ref_cb, 500, TUI_TIMER_PRIO_HIGH, NULL);
+			date_timer = tui_timer_create((tui_timer_cb_t)home_date_ref_cb, 500, TUI_TIMER_PRIO_MID, NULL);
 		}
 		if (this_home_obj == NULL)
 			this_home_obj = home_main_view_view_create();
 
-		tui_obj_anim_mov_x(tui_get_obj_from_id(this_home_obj, HOME_MAIN_VIEW_MULTI_SCREEN_3), 300, 0, -100, TUI_ANIM_PATH_EASE_OUT, home_animation_object_anim_cb);
+		//tui_group_focus_obj(tui_get_obj_from_id(this_home_obj, HOME_MAIN_VIEW_APP_1)); 
 
-		tui_group_focus_obj(tui_get_obj_from_id(this_home_obj, HOME_MAIN_VIEW_APP_1));
+		if (this_logo_obj) {
+			tui_obj_del(this_logo_obj);
+			this_logo_obj = NULL;
+		}
+		tui_sleep(1000);
 		break;
 	case TUI_USER_MSG_APP_POWER_DOWN:
 		if (this_home_obj == NULL) {
@@ -207,7 +204,7 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 	case TUI_USER_MSG_APP4:
 		if (this_app_obj == NULL) {
 			this_app_obj = animation_app4_enter();
-			tui_screen_load_anim(this_app_obj, this_home_obj, TUI_SCR_LOAD_ANIM_MOVE_LEFT, 300, 1, app4_animation_object_anim_cb);
+			tui_screen_load_anim(this_app_obj, this_home_obj, TUI_SCR_LOAD_ANIM_MOVE_LEFT, 300, 1, NULL);
 			this_home_obj = NULL;
 			cur_screen_index = 0;
 			cur_app_index = HOME_MAIN_VIEW_APP_5;
@@ -233,7 +230,7 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 		break;
 	case TUI_USER_MSG_APP7:
 		if (this_app_obj == NULL) {
-			this_app_obj = sound_app7_enter();
+			this_app_obj = uart_app7_enter();
 			tui_screen_load_anim(this_app_obj, this_home_obj, TUI_SCR_LOAD_ANIM_MOVE_LEFT, 300, 1, NULL);
 			this_home_obj = NULL;
 			cur_screen_index = 1;
@@ -276,75 +273,85 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 			cur_app_index = HOME_MAIN_VIEW_APP_12;
 		}
 		break;
-	case TUI_USER_MSG_HOME_SCREEN_SWITCH:
-		if (0 == tui_multi_screen_set_cur_screen_index(tui_get_obj_from_id(this_home_obj, HOME_MAIN_VIEW_MULTI_SCREEN_3), (uint8_t)param1, 1)) {
-			cur_screen_index = (uint8_t)param1;
-		}
 	default:
 		break;
 	}
 	return 0;
 }
-static int get_file_last_time(char *path)
+
+static tui_obj_t * sound_tone;
+static int sound_play_f;
+static void create_key_tone(void)
 {
-	char str_temp[256];
-	int ret = -1;
-	STD_DIR *dir = NULL;
-	STD_DIRENT *ptr = NULL;
-
-	dir = opendir(path);
-	if (dir == NULL) {
-		return -1;
-	}
-	
-	while ((ptr = readdir(dir)) != NULL) {
-		strcpy(str_temp, ptr->d_name);
-		printf("%d:%s\n", ptr->fatdirattr, str_temp);
-	}
-
-	closedir(dir);
-
-	return ret;
+	/* Create an sound */
+	tui_sound_attri_t attri_sound = { 0 };
+	/* ´´½¨¶ÔÏó */
+	sound_play_f = 0;
+	sound_tone = tui_sound_create(tui_layer_normal());
+	/* ÉèÖÃÊôĞÔ */
+	tui_sound_set_attri(sound_tone, &attri_sound);
+	/* ÉèÖÃÒôÔ´ */
+	tui_sound_set_sound_src(sound_tone, "V:\\sound\\tone.wav");/* È·±£¼ÓÔØÁËres.iso£¬²¢ÇÒÂ·¾¶ÎÄ¼ş´æÔÚ */
 }
 
+static void indev_point_trigger(uint8_t state, int32_t x, int32_t y)
+{
+	if (state == 1 && sound_play_f == 0) {
+		sound_play_f = 1;
+		tui_sound_play(sound_tone);
+	}
+
+	if (state == 0)
+		sound_play_f = 0;
+}
 
 /*
- * åº”ç”¨å…¥å£å‡½æ•°
+ * Ó¦ÓÃÈë¿Úº¯Êı
  */
 int home_create(void)
 {
-	/* åˆå§‹åŒ–TUIèµ„æº */
+	FILE* tp_config;
+	
+	/* ³õÊ¼»¯TUI×ÊÔ´ */
 #ifdef __EOS__
 	tui_start_init("/mnt/sdcard/res.disk", -1, -1);
+#elif defined (AW_MELIS)
+	tui_start_init("D:\\apps\\res.disk", -1, -1);
+	//tui_start_init("F:\\res.disk", -1, -1);
 #else
-	tui_start_init("./tdemo/res.disk", -1, -1);
+	tui_start_init("../../res.disk", -1, -1);
 #endif
-
-
+	
 	g_exit_flag = 0;
 	g_loop_flag = 1;
 
-	/* åˆ›å»ºlogoç•Œé¢è§†å›¾ */
-	this_logo_obj = logo_logo_view_view_create();
-	tui_obj_anim_mov_x(tui_get_obj_from_id(this_logo_obj, LOGO_LOGO_VIEW_IMAGE_245), 1000, 400, 500, TUI_ANIM_PATH_EASE_OUT, yu_animation_object_anim_cb);
+	tp_config = fopen("E:\\tpcfg.ini", "rb");
+
+	if (tp_config) {
+		fclose(tp_config);
+		this_logo_obj = logo_logo_view_view_create();
+	} else {
+		/* ´´½¨logo½çÃæÊÓÍ¼ */
+		this_adjust_obj = adjust_enter();
+	}
 	
-	/* æ³¨å†Œhomeç•Œé¢ç³»ç»Ÿæ¶ˆæ¯å›è°ƒå‡½æ•° */
+	/* ×¢²áhome½çÃæÏµÍ³ÏûÏ¢»Øµ÷º¯Êı */
 	tui_sys_msg_reg(home_sys_msg_cb);
 
-	/* TUIå¤„ç†å™¨ */
+	create_key_tone();
+	indev_point_trigger_cb_reg(indev_point_trigger);
+
+	/* TUI´¦ÀíÆ÷ */
 	while (g_loop_flag) {
 		tui_run_loop();
 	}
+	
+	if (sound_tone)
+		tui_obj_del(sound_tone);
 
-	/* é‡Šæ”¾TUIèµ„æºé€€å‡º */
+	/* ÊÍ·ÅTUI×ÊÔ´ÍË³ö */
 	tui_end_uninit();
 	
 	return 0;
 }
 
-#ifdef __EOS__
-void home_destorty(void)
-{
-	tui_sys_msg_send(TUI_USER_MSG_APP_POWER_DOWN, NULL, NULL);
-}
-#endif

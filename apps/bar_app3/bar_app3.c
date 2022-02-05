@@ -1,7 +1,6 @@
 #include "tui.h"
 
 static tui_obj_t * this_app_obj;
-static int g_val = 0;
 
 static void bar_app3_exit(void);
 extern tui_obj_t * bar_app3_bar_view_view_create(void);
@@ -38,7 +37,6 @@ static int32_t bar_app3_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 
 tui_obj_t * bar_app3_enter(void)
 {
-	g_val = 0;
 
 	tui_sys_msg_reg(bar_app3_sys_msg_cb);
 

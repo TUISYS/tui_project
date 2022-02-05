@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <RootNamespace>{C01F2E4D-3613-45B6-95EE-7C6282115462}</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>tui_demo</RootNamespace>
+    <ProjectGuid>{B4C23730-90CE-4E8B-83A4-8E454B7C9168}</ProjectGuid>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>.\lib\x86;.\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\includes;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>tui.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\..\..\..\Kingvan%27sDocuments\Kingvan\c200_hmi_release_tui\livedesk\beetles\tui_demo\apps\home\view\login_view.c" />
+    <ClCompile Include="..\..\apps\uart_app7\uart_app7.c" />
+    <ClCompile Include="..\..\apps\uart_app7\view\uart_view.c" />
+    <ClCompile Include="..\..\apps\adjust\adjust.c" />
+    <ClCompile Include="..\..\apps\adjust\view\adjust_view.c" />
+    <ClCompile Include="..\..\apps\animation_app4\animation_app4.c" />
+    <ClCompile Include="..\..\apps\animation_app4\view\animation_view.c" />
+    <ClCompile Include="..\..\apps\arc_app0\arc_app0.c" />
+    <ClCompile Include="..\..\apps\arc_app0\view\arc_view.c" />
+    <ClCompile Include="..\..\apps\bar_app3\bar_app3.c" />
+    <ClCompile Include="..\..\apps\bar_app3\view\bar_view.c" />
+    <ClCompile Include="..\..\apps\button_app1\button_app1.c" />
+    <ClCompile Include="..\..\apps\button_app1\view\button_view.c" />
+    <ClCompile Include="..\..\apps\dashboard_app5\dashboard_app5.c" />
+    <ClCompile Include="..\..\apps\dashboard_app5\view\dashboard_view.c" />
+    <ClCompile Include="..\..\apps\draw_app9\draw9_app.c" />
+    <ClCompile Include="..\..\apps\draw_app9\view\draw_view.c" />
+    <ClCompile Include="..\..\apps\global_bar\view\status_bar.c" />
+    <ClCompile Include="..\..\apps\home\home.c" />
+    <ClCompile Include="..\..\apps\home\view\main_view.c" />
+    <ClCompile Include="..\..\apps\line_app2\line_app2.c" />
+    <ClCompile Include="..\..\apps\line_app2\view\line_view.c" />
+    <ClCompile Include="..\..\apps\logon_app11\logon_app11.c" />
+    <ClCompile Include="..\..\apps\logon_app11\view\logon_view.c" />
+    <ClCompile Include="..\..\apps\logo\view\logo_view.c" />
+    <ClCompile Include="..\..\apps\page_app8\page_app8.c" />
+    <ClCompile Include="..\..\apps\page_app8\view\page_view.c" />
+    <ClCompile Include="..\..\apps\setting_app10\setting_app10.c" />
+    <ClCompile Include="..\..\apps\setting_app10\view\setting_view.c" />
+    <ClCompile Include="..\..\apps\window_app6\view\window1_view.c" />
+    <ClCompile Include="..\..\apps\window_app6\view\window2_view.c" />
+    <ClCompile Include="..\..\apps\window_app6\view\window3_view.c" />
+    <ClCompile Include="..\..\apps\window_app6\view\window4_view.c" />
+    <ClCompile Include="..\..\apps\window_app6\view\window_view.c" />
+    <ClCompile Include="..\..\apps\window_app6\window_app6.c" />
+    <ClCompile Include=".\main.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\includes\stdxxx.h" />
+    <ClInclude Include="..\..\includes\sys_msg_def.h" />
+    <ClInclude Include="..\..\includes\tui.h" />
+    <ClInclude Include="..\..\apps\tui_id.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

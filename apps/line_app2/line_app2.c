@@ -20,8 +20,8 @@ static int32_t line_app2_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 		tui_sys_msg_send(TUI_USER_MSG_APP_ENTER_HOME, NULL, NULL);
 		break;
 	case TUI_USER_MSG_APP2_BTN1:
-		point_0.x = (tui_coord_t)param0 + 10;
-		point_0.y = (tui_coord_t)param1 + 10;
+		point_0.x = (tui_coord_t)param0 + 23;
+		point_0.y = (tui_coord_t)param1 + 23;
 
 		line = tui_get_obj_from_id(this_app_obj, LINE_APP2_LINE_VIEW_LINE_50);
 		if (line)
@@ -29,8 +29,8 @@ static int32_t line_app2_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 
 		break;
 	case TUI_USER_MSG_APP2_BTN2:
-		point_1.x = (tui_coord_t)param0 + 10;
-		point_1.y = (tui_coord_t)param1 + 10;
+		point_1.x = (tui_coord_t)param0 + 23;
+		point_1.y = (tui_coord_t)param1 + 23;
 
 		line = tui_get_obj_from_id(this_app_obj, LINE_APP2_LINE_VIEW_LINE_50);
 		if (line)
