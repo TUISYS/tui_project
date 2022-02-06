@@ -112,7 +112,6 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 			tui_obj_del(this_logo_obj);
 			this_logo_obj = NULL;
 		}
-		tui_sleep(1000);
 		break;
 	case TUI_USER_MSG_APP_POWER_DOWN:
 		if (this_home_obj == NULL) {
@@ -329,7 +328,7 @@ int home_create(void)
 
 	if (tp_config) {
 		fclose(tp_config);
-		this_logo_obj = logo_logo_view_view_create();
+		tui_sys_msg_send(TUI_USER_MSG_APP_ADJUT_OK, NULL, NULL);
 	} else {
 		/* 创建logo界面视图 */
 		this_adjust_obj = adjust_enter();
