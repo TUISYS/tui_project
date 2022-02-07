@@ -4,7 +4,7 @@
 这个app里面有三种动画效果图片控件动画、animation控件动画、以及gif控件的使用。
 
 <p align="center">
-<img src="https://github.com/TUISYS/image/raw/main/animation.gif">
+<img src="https://raw.githubusercontent.com/TUISYS/image/main/animation.gif">
 </p>
 <p align="center">
 各个动画控件应用例子展示
