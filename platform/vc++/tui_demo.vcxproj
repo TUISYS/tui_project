@@ -83,7 +83,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\..\..\Kingvan%27sDocuments\Kingvan\c200_hmi_release_tui\livedesk\beetles\tui_demo\apps\home\view\login_view.c" />
+    <ClCompile Include="..\..\apps\home\view\login_view.c" />
     <ClCompile Include="..\..\apps\uart_app7\uart_app7.c" />
     <ClCompile Include="..\..\apps\uart_app7\view\uart_view.c" />
     <ClCompile Include="..\..\apps\adjust\adjust.c" />
