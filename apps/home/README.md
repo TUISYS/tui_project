@@ -4,7 +4,7 @@
 该界面是所有app的入口界面，home同时也管理所有app应用的生死存亡，home应用采用一个多屏控件容器，将所有应用的app放入控件里面。<br><br>
 
 <p align="center">
-<img src="https://github.com/TUISYS/image/raw/main/home.gif">
+<img src="https://raw.githubusercontent.com/TUISYS/image/main/home.gif">
 </p>
 <p align="center">
 多屏主界面、顶部Bar视图例子展示
