@@ -4,7 +4,7 @@
 这个app里面有视图控件、控件动画、标签控件、以及定时器的使用。
 
 <p align="center">
-<img src="https://github.com/TUISYS/image/raw/main/windows.gif">
+<img src="https://raw.githubusercontent.com/TUISYS/image/main/windows.gif">
 </p>
 <p align="center">
 各个控件应用例子展示
