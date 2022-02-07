@@ -4,7 +4,7 @@
 这个app里面有水平和垂直进度条控件、水平和垂直滑块控件、标签控件。
 
 <p align="center">
-<img src="https://github.com/TUISYS/image/raw/main/bar.gif">
+<img src="https://raw.githubusercontent.com/TUISYS/image/main/bar.gif">
 </p>
 <p align="center">
 各个控件应用例子展示
