@@ -4,7 +4,7 @@
 这个app里面使用了比较多得控件主要有文本输入框控件、复选框控件、表格控件、以及标签中文输入发的使用。
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/TUISYS/image/main/logon.gif">
+<img src="https://gitee.com/tuisys/image/raw/main/logon.gif">
 </p>
 <p align="center">
 各个控件应用例子展示
