@@ -9,7 +9,7 @@
 
 ## 结构目录：
 * :file_folder:**“apps”**&ensp;&ensp;&ensp;&ensp;文件夹，里面存放了用户的逻辑代码，其中每个app里面的view视图代码是uistudio工具自动生成。
-* :file_folder:**“includes”**&ensp;文件夹，里面存放了TUI所有接口函数头文件[“查看相关详细说明”](https://github.com/TUISYS/tui_project/blob/main/includes/)。
+* :file_folder:**“includes”**&ensp;文件夹，里面存放了TUI所有接口函数头文件[“查看相关详细说明”](./includes/)。
 * :file_folder:**“platform”**&ensp;文件夹，里面存放各个OS系统平台的工程编译入口文件夹（*melis、eos、vc++*）。
 * :file_folder:**“res”**&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;文件夹，里面存放app开发的资源字体、图片、多国语言、视图布局结构、声音等其它应用资源。
 * :file_folder:**“uistudio”**&ensp;&ensp;文件夹，里面存放所见即所得工具所需要的工程文件。
@@ -20,33 +20,33 @@
 由于不是专业美工、开发时间有限，应用里面的所有图片均来自互联网，没有经过特殊处理（不用于商业用途），图片稍加利用，来实现TUI的接口功能。<br>
 下面我们对每个app做个简单的介绍，然后结合tui.h里面的接口，做相关说明。<br><br>
 <p align="center">
-<img src="https://raw.githubusercontent.com/TUISYS/image/main/home.gif">
+<img src="https://gitee.com/tuisys/image/raw/main/home.gif">
 </p>
 <p align="center">
 所有APP应用例子展示
 </p>
 
 ### 弧形应用（arc_app0）
-* 跳转到对应的目录查看[“弧形应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/arc_app0/)
+* 跳转到对应的目录查看[“弧形应用说明”](./apps/arc_app0/)
 ### 按钮应用（button_app1）
-* 跳转到对应的目录查看[“按钮应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/button_app1/)
+* 跳转到对应的目录查看[“按钮应用说明”](./apps/button_app1/)
 ### 直线应用（line_app2）
-* 跳转到对应的目录查看[“直线应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/line_app2/)
+* 跳转到对应的目录查看[“直线应用说明”](./apps/line_app2/)
 ### 滑条应用（bar_app3）
-* 跳转到对应的目录查看[“滑条应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/bar_app3/)
+* 跳转到对应的目录查看[“滑条应用说明”](./apps/bar_app3/)
 ### 动画应用（animation_app4）
-* 跳转到对应的目录查看[“动画应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/animation_app4/)
+* 跳转到对应的目录查看[“动画应用说明”](./apps/animation_app4/)
 ### 表盘应用（dashboard_app5）
-* 跳转到对应的目录查看[“表盘应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/dashboard_app5/)
+* 跳转到对应的目录查看[“表盘应用说明”](./apps/dashboard_app5/)
 ### 窗口应用（window_app6）
-* 跳转到对应的目录查看[“窗口应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/window_app6/)
+* 跳转到对应的目录查看[“窗口应用说明”](./apps/window_app6/)
 ### 串口应用（serial_app7）
-* 跳转到对应的目录查看[“串口应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/serial_app7/)
+* 跳转到对应的目录查看[“串口应用说明”](./apps/serial_app7/)
 ### 页容器应用（page_app8）
-* 跳转到对应的目录查看[“页容应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/page_app8/)
+* 跳转到对应的目录查看[“页容应用说明”](./apps/page_app8/)
 ### 画板应用（draw_app9）
-* 跳转到对应的目录查看[“画板应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/draw_app9/)
+* 跳转到对应的目录查看[“画板应用说明”](./apps/draw_app9/)
 ### 设置应用（setting_app10）
-* 跳转到对应的目录查看[“设置应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/setting_app10/)
+* 跳转到对应的目录查看[“设置应用说明”](./apps/setting_app10/)
 ### 登陆应用（logon_app11）
-* 跳转到对应的目录查看[“登陆应用说明”](https://github.com/TUISYS/tui_project/blob/main/apps/logon_app11/)
+* 跳转到对应的目录查看[“登陆应用说明”](./apps/logon_app11/)
