@@ -4,7 +4,7 @@
 这个app里面有页控件，里面嵌套了不同的控件，展示其效果。
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/TUISYS/image/main/page.gif">
+<img src="https://gitee.com/tuisys/image/raw/main/page.gif">
 </p>
 <p align="center">
 各个控件应用例子展示
