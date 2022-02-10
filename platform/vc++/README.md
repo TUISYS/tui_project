@@ -8,3 +8,12 @@
 开发者可以根据UIStudio创建视图和逻辑代码，自己手动添加代码`.c`文件进入工程视图里面。
 * 几个关键的库文件：TUI内核库`tui.lib`；Windows显示和输入库`SDL2.lib、SDL2main.lib`。
 * 最后正常编译调试。
+
+## 演示操作动画：
+动画链接：https://gitee.com/tuisys/image/raw/main/hello_vc.gif
+<br>
+<br>
+<p align="left">
+<img src="https://gitee.com/tuisys/image/raw/main/hello_vc.gif">
+</p>
+<br>
