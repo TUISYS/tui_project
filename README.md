@@ -41,7 +41,7 @@
 ### 窗口应用（window_app6）
 * 跳转到对应的目录查看[“窗口应用说明”](./apps/window_app6/)
 ### 串口应用（serial_app7）
-* 跳转到对应的目录查看[“串口应用说明”](./apps/serial_app7/)
+* 跳转到对应的目录查看[“串口应用说明”](./apps/uart_app7/)
 ### 页容器应用（page_app8）
 * 跳转到对应的目录查看[“页容应用说明”](./apps/page_app8/)
 ### 画板应用（draw_app9）
