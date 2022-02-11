@@ -7,7 +7,7 @@
 <img src="https://gitee.com/tuisys/image/raw/main/dashboard.gif">
 </p>
 <p align="center">
-各个控件应用例子展示（tuisys/image/dashboard.gif）
+各个控件应用例子展示（https://gitee.com/tuisys/image/raw/main/dashboard.gif）
 </p>
 
 ## TUI接口介绍：
