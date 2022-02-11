@@ -12,7 +12,7 @@
 ## 演示操作动画：
 <br>
 <br>
-<p align="left">
+<p align="center">
 <img src="https://gitee.com/tuisys/image/raw/main/hello_vc.gif">
 </p>
 <br>
