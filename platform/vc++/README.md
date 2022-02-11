@@ -10,10 +10,13 @@
 * 最后正常编译调试。
 
 ## 演示操作动画：
-动画链接：https://gitee.com/tuisys/image/raw/main/hello_vc.gif
 <br>
 <br>
 <p align="left">
 <img src="https://gitee.com/tuisys/image/raw/main/hello_vc.gif">
 </p>
 <br>
+<p align="center">
+动画链接：（https://gitee.com/tuisys/image/raw/main/hello_vc.gif）
+</p>
+
