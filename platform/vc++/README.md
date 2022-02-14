@@ -13,7 +13,7 @@
 <br>
 <br>
 <p align="center">
-<img src="https://gitee.com/tuisys/image/raw/main/hello_vc.gif">
+<img src="https://raw.githubusercontent.com/TUISYS/image/main/hello_vc.gif">
 </p>
 <br>
 <p align="center">
