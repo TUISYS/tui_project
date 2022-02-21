@@ -25,7 +25,7 @@
 <img src="https://gitee.com/tuisys/image/raw/main/home.gif">
 </p>
 <p align="center">
-主界面应用例子展示
+主界面应用例子展示 
 </p>
 
 ### 弧形应用（arc_app0）
