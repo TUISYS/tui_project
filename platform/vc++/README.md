@@ -8,6 +8,8 @@
 开发者可以根据UIStudio创建视图和逻辑代码，自己手动添加代码`.c`文件进入工程视图里面。
 * 几个关键的库文件：TUI内核库`tui.lib`；Windows显示和输入库`SDL2.lib、SDL2main.lib`。
 * 最后正常编译调试。
+* 在使用`VS2015`编译的时候会报这样的错误`tui.lib(stdxxx.obj) : error LNK2001: 无法解析的外部符号 __imp__vprintf`，<br>
+这时候需要在`属性`->`链接器`->`输入`->`附加依赖项`里面添加`legacy_stdio_definitions.lib`即可
 
 ## 演示操作动画：
 <br>
