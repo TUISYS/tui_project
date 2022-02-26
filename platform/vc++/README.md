@@ -19,6 +19,6 @@
 </p>
 <br>
 
-动画链接：（https://gitee.com/tuisys/image/raw/main/hello_vc.gif）
+动画链接：（https://gitee.com/tuisys/image/blob/main/hello_vc.gif）
 
 
