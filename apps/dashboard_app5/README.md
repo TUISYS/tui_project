@@ -4,10 +4,10 @@
 这个app里面有图片控件、按钮控件、标签控件的使用。
 
 <p align="center">
-<img src="https://gitee.com/tuisys/image/blob/main/dashboard.gif">
+<img src="https://raw.githubusercontent.com/TUISYS/image/main/dashboard.gif">
 </p>
 <br>
-各个控件应用例子展示（https://gitee.com/tuisys/image/raw/main/dashboard.gif）
+各个控件应用例子展示（https://gitee.com/tuisys/image/blob/main/dashboard.gif）
 
 
 ## TUI接口介绍：
