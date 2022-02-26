@@ -6,9 +6,9 @@
 <p align="center">
 <img src="https://raw.githubusercontent.com/TUISYS/image/main/dashboard.gif">
 </p>
-<p align="center">
+<br>
 各个控件应用例子展示（https://gitee.com/tuisys/image/raw/main/dashboard.gif）
-</p>
+
 
 ## TUI接口介绍：
 该应用大量使用图片控件的动画接口，图片指针的旋转、缩放、宽缩放动画，高缩放动画等
