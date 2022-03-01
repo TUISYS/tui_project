@@ -32,7 +32,7 @@ static int32_t button_app1_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 		tui_obj_set_hidden(obj, (int)param0);
 		obj = tui_get_obj_from_id(this_app_obj, BUTTON_APP1_BUTTON_VIEW_BUTTON_36);
 		tui_obj_set_hidden(obj, (int)param0);
-		obj = tui_search_obj_from_id(GLOBAL_BAR_STATUS_BAR);
+		obj = TUI_OBJ(GLOBAL_BAR_STATUS_BAR);
 		if (param0 == 0)
 			tui_obj_anim_fade_in(obj, 300, NULL);
 		else
