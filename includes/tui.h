@@ -1003,6 +1003,7 @@ tui_obj_t * tui_sound_create(tui_obj_t * par);
 int tui_sound_set_attri(tui_obj_t *sound, tui_sound_attri_t *attri);
 int tui_sound_get_attri(tui_obj_t *sound, tui_sound_attri_t *attri);
 int tui_sound_set_sound_src(tui_obj_t *sound, const char *path);
+int tui_sound_set_sound_src_one_hz(tui_obj_t *sound, const char *gb2312_one_zh);
 int tui_sound_play(tui_obj_t *sound);
 int tui_sound_stop(tui_obj_t *sound);
 bool tui_sound_is_play(tui_obj_t *sound);
