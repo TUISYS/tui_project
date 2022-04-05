@@ -207,6 +207,7 @@ int32_t tui_sys_msg_send_dly(uint32_t cmd, uint32_t dly_ms, void *param0, void *
  *------------------------*/
 typedef void(*tui_timer_cb_t)(tui_timer_t * timer);
 tui_timer_t * tui_timer_create(tui_timer_cb_t timer_cb, uint32_t period, tui_timer_prio_e prio, void * user_data);
+void tui_timer_reset(tui_timer_t * timer);
 void tui_timer_set_cb(tui_timer_t * timer, tui_timer_cb_t timer_cb);
 void tui_timer_set_period(tui_timer_t * timer, uint32_t period);
 void tui_timer_set_prio(tui_timer_t * timer, tui_timer_prio_e prio);
@@ -239,6 +240,7 @@ int tui_free_buffer_from_fs(void *buf);
  *------------------------*/
 int tui_utf8_to_gb2312(char *gb2312_str, int len_gb2312, char *utf8_str, int len_utf8);
 int tui_gb2312_to_utf8(char *utf8_str, int len_utf8, char *gb2312_str, int len_gb2312);
+int tui_gb2312_to_utf8_need_size(char *gb2312_str);
 
 /*------------------------
  *  获取系统运行时间、RTC日期、休眠
@@ -370,6 +372,8 @@ typedef void (*tui_container_cb_t)(tui_obj_t *obj, tui_event_e event);
 typedef struct {
         /* 通用属性 */
         tui_object_attri_t obj;
+		/* 组件属性 */
+		void *attri_com;
         /* 容器回调函数，返回当前事件 */
         tui_container_cb_t cb;
 
@@ -464,6 +468,7 @@ tui_obj_t * tui_label_create(tui_obj_t * par);
 int tui_label_set_attri(tui_obj_t *label, tui_label_attri_t *attri);
 int tui_label_get_attri(tui_obj_t *label, tui_label_attri_t *attri);
 int tui_label_set_txt(tui_obj_t *label, const char *txt);
+void tui_label_set_txt_color(tui_obj_t *label, uint32_t color);
 void tui_label_set_long_mode(tui_obj_t * label, tui_label_long_mode_e long_mode);
 void tui_label_set_align(tui_obj_t * label, tui_label_align_e align);
 void tui_label_set_align_mid(tui_obj_t * label, bool able);
@@ -755,7 +760,13 @@ typedef struct {
         /* 通用属性 */
         tui_object_attri_t obj;
         /* 线回调函数，返回当事件 */
-        tui_line_cb_t cb;
+		tui_line_cb_t cb;
+		/* 多点线，供内部使用 */
+		tui_point_t *point_a[2];
+		/* 多点线，供内部使用 */
+		uint16_t point_num;
+		/* 多点线，供内部使用 */
+		uint16_t point_index;
 
         uint32_t width;                         /* 外部配置，线的宽度 */
         uint32_t color;                         /* 外部配置，线的颜色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
@@ -768,6 +779,7 @@ void tui_line_set_points(tui_obj_t * line, tui_point_t point_a, tui_point_t poin
 void tui_line_set_line_width(tui_obj_t * line, uint32_t width);
 void tui_line_set_line_color(tui_obj_t * line, uint32_t color);
 void tui_line_set_point0_angle(tui_obj_t * line, int radius, int angle);
+void tui_line_set_some_points_line(tui_obj_t * line, tui_point_t *point_a, uint16_t point_num, bool is_bezier);
 
 /*------------------------
  *  switch_btn切换开关
