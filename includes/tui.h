@@ -44,157 +44,157 @@ typedef struct tag_tui_map_cb {
 } tui_map_cb_t;
 
 typedef struct tag_tui_time {
-        int sec;                                /* ç§’ - [0,59] */
-        int min;                                /* åˆ† - [0,59] */
-        int hour;                               /* æ—¶ - [0,23] */
-        int mday;                               /* æ—¥ - [1,31] */
-        int mon;                                /* æœˆ - [0,11] */
-        int year;                               /* å¹´  */
-        int wday;                               /* æ˜ŸæœŸï¼Œ0æ˜¯æ˜ŸæœŸæ—¥ - [0,6] */
+        int sec;                                /* Ãë - [0,59] */
+        int min;                                /* ·Ö - [0,59] */
+        int hour;                               /* Ê± - [0,23] */
+        int mday;                               /* ÈÕ - [1,31] */
+        int mon;                                /* ÔÂ - [0,11] */
+        int year;                               /* Äê  */
+        int wday;                               /* ĞÇÆÚ£¬0ÊÇĞÇÆÚÈÕ - [0,6] */
 } tui_time_t;
 
 typedef enum tag_obj_event {
-        TUI_EVENT_PRESSED             = 0,      /* å¯¹è±¡è§¦æ‘¸æŒ‰ä¸‹ */
-        TUI_EVENT_PRESSING            = 1,      /* å¯¹è±¡è§¦æ‘¸æŒç»­æŒ‰ä¸‹ */
-        TUI_EVENT_PRESS_LOST          = 2,      /* å¯¹è±¡è§¦æ‘¸æŒ‰ä¸‹ä¸¢å¤± */
-        TUI_EVENT_SHORT_CLICKED       = 3,      /* å¯¹è±¡çŸ­æ—¶é—´æŒ‰ä¸‹ */
-        TUI_EVENT_LONG_PRESSED        = 4,      /* å¯¹è±¡é•¿æ—¶é—´æŒ‰ä¸‹ */
-        TUI_EVENT_LONG_PRESSED_REPEAT = 5,      /* å¯¹è±¡é‡å¤é•¿æ—¶é—´æŒ‰ä¸‹ */
-        TUI_EVENT_CLICKED             = 6,      /* å¯¹è±¡ç‚¹å‡»æŒ‰ä¸‹ */
-        TUI_EVENT_RELEASED            = 7,      /* å¯¹è±¡è§¦æ‘¸æŠ¬èµ· */
-        TUI_EVENT_DRAG_BEGIN          = 8,      /* å¯¹è±¡è§¦æ‘¸æ‹–æ‹½å¼€å§‹ */
-        TUI_EVENT_DRAG_END            = 9,      /* å¯¹è±¡è§¦æ‘¸æ‹–æ‹½ç»“æŸ */
-        TUI_EVENT_DRAG_THROW_BEGIN    = 10,     /* å¯¹è±¡è§¦æ‘¸æŠ›æ‹½å¼€å§‹ */
-        TUI_EVENT_GESTURE             = 11,     /* å¯¹è±¡çš„æ‰‹åŠ¿äº‹ä»¶ */
-        TUI_EVENT_KEY                 = 12,     /* å¯¹è±¡çš„é”®ç›˜äº‹ä»¶ */
-        TUI_EVENT_FOCUSED             = 13,     /* å¯¹è±¡ç„¦ç‚¹çŠ¶æ€äº‹ä»¶ */
-        TUI_EVENT_DEFOCUSED           = 14,     /* å¯¹è±¡å¤±å»ç„¦ç‚¹çŠ¶æ€äº‹ä»¶ */
-        TUI_EVENT_LEAVE               = 15,     /* å¯¹è±¡ç¦»å¼€äº‹ä»¶ */
-        TUI_EVENT_VALUE_CHANGED       = 16,     /* å¯¹è±¡çš„å€¼å‘ç”Ÿæ”¹å˜äº‹ä»¶ */
-        TUI_EVENT_INSERT              = 17,     /* å¯¹è±¡æ’å…¥äº‹ä»¶ */
-        TUI_EVENT_REFRESH             = 18,     /* å¯¹è±¡åˆ·æ–°äº‹ä»¶ */
-        TUI_EVENT_APPLY               = 19,     /* å¯¹è±¡åº”ç”¨äº‹ä»¶ */
-        TUI_EVENT_CANCEL              = 20,     /* å¯¹è±¡é€€å‡ºäº‹ä»¶ */
-        TUI_EVENT_DELETE              = 21,     /* å¯¹è±¡åˆ é™¤äº‹ä»¶ */
-        TUI_EVENT_LAST                = 22,     /* ä¿ç•™äº‹ä»¶ */
-        TUI_EVENT_USER_DEF            = 23,     /* ä¿ç•™äº‹ä»¶ */
-        TUI_EVENT_OBJECT_INIT         = 24,     /* å¯¹è±¡åˆ›å»ºåˆå§‹åŒ–äº‹ä»¶ */
-        TUI_EVENT_SOUND_PLAY_END      = 25,     /* å£°éŸ³å¯¹è±¡æ’­æ”¾ç»“æŸäº‹ä»¶ */
-        TUI_EVENT_IMAGE_ANIMATION_END = 26,     /* å¯¹è±¡åŠ¨ç”»æ’­æ”¾ç»“æŸäº‹ä»¶ */
+        TUI_EVENT_PRESSED             = 0,      /* ¶ÔÏó´¥Ãş°´ÏÂ */
+        TUI_EVENT_PRESSING            = 1,      /* ¶ÔÏó´¥Ãş³ÖĞø°´ÏÂ */
+        TUI_EVENT_PRESS_LOST          = 2,      /* ¶ÔÏó´¥Ãş°´ÏÂ¶ªÊ§ */
+        TUI_EVENT_SHORT_CLICKED       = 3,      /* ¶ÔÏó¶ÌÊ±¼ä°´ÏÂ */
+        TUI_EVENT_LONG_PRESSED        = 4,      /* ¶ÔÏó³¤Ê±¼ä°´ÏÂ */
+        TUI_EVENT_LONG_PRESSED_REPEAT = 5,      /* ¶ÔÏóÖØ¸´³¤Ê±¼ä°´ÏÂ */
+        TUI_EVENT_CLICKED             = 6,      /* ¶ÔÏóµã»÷°´ÏÂ */
+        TUI_EVENT_RELEASED            = 7,      /* ¶ÔÏó´¥ÃşÌ§Æğ */
+        TUI_EVENT_DRAG_BEGIN          = 8,      /* ¶ÔÏó´¥ÃşÍÏ×§¿ªÊ¼ */
+        TUI_EVENT_DRAG_END            = 9,      /* ¶ÔÏó´¥ÃşÍÏ×§½áÊø */
+        TUI_EVENT_DRAG_THROW_BEGIN    = 10,     /* ¶ÔÏó´¥ÃşÅ××§¿ªÊ¼ */
+        TUI_EVENT_GESTURE             = 11,     /* ¶ÔÏóµÄÊÖÊÆÊÂ¼ş */
+        TUI_EVENT_KEY                 = 12,     /* ¶ÔÏóµÄ¼üÅÌÊÂ¼ş */
+        TUI_EVENT_FOCUSED             = 13,     /* ¶ÔÏó½¹µã×´Ì¬ÊÂ¼ş */
+        TUI_EVENT_DEFOCUSED           = 14,     /* ¶ÔÏóÊ§È¥½¹µã×´Ì¬ÊÂ¼ş */
+        TUI_EVENT_LEAVE               = 15,     /* ¶ÔÏóÀë¿ªÊÂ¼ş */
+        TUI_EVENT_VALUE_CHANGED       = 16,     /* ¶ÔÏóµÄÖµ·¢Éú¸Ä±äÊÂ¼ş */
+        TUI_EVENT_INSERT              = 17,     /* ¶ÔÏó²åÈëÊÂ¼ş */
+        TUI_EVENT_REFRESH             = 18,     /* ¶ÔÏóË¢ĞÂÊÂ¼ş */
+        TUI_EVENT_APPLY               = 19,     /* ¶ÔÏóÓ¦ÓÃÊÂ¼ş */
+        TUI_EVENT_CANCEL              = 20,     /* ¶ÔÏóÍË³öÊÂ¼ş */
+        TUI_EVENT_DELETE              = 21,     /* ¶ÔÏóÉ¾³ıÊÂ¼ş */
+        TUI_EVENT_LAST                = 22,     /* ±£ÁôÊÂ¼ş */
+        TUI_EVENT_USER_DEF            = 23,     /* ±£ÁôÊÂ¼ş */
+        TUI_EVENT_OBJECT_INIT         = 24,     /* ¶ÔÏó´´½¨³õÊ¼»¯ÊÂ¼ş */
+        TUI_EVENT_SOUND_PLAY_END      = 25,     /* ÉùÒô¶ÔÏó²¥·Å½áÊøÊÂ¼ş */
+        TUI_EVENT_IMAGE_ANIMATION_END = 26,     /* ¶ÔÏó¶¯»­²¥·Å½áÊøÊÂ¼ş */
 } tui_event_e;
 
 typedef enum tag_timer_prio {
         TUI_TIMER_PRIO_OFF = 0,
-        TUI_TIMER_PRIO_LOWEST,                  /* æœ€ä½ä¼˜å…ˆçº§ */
-        TUI_TIMER_PRIO_LOW,                     /* ä½ä¼˜å…ˆçº§ */
-        TUI_TIMER_PRIO_MID,                     /* ä¸­ç­‰ä¼˜å…ˆçº§ */
-        TUI_TIMER_PRIO_HIGH,                    /* é«˜ä¼˜å…ˆçº§ */
-        TUI_TIMER_PRIO_HIGHEST,                 /* æœ€é«˜ä¼˜å…ˆçº§ */
+        TUI_TIMER_PRIO_LOWEST,                  /* ×îµÍÓÅÏÈ¼¶ */
+        TUI_TIMER_PRIO_LOW,                     /* µÍÓÅÏÈ¼¶ */
+        TUI_TIMER_PRIO_MID,                     /* ÖĞµÈÓÅÏÈ¼¶ */
+        TUI_TIMER_PRIO_HIGH,                    /* ¸ßÓÅÏÈ¼¶ */
+        TUI_TIMER_PRIO_HIGHEST,                 /* ×î¸ßÓÅÏÈ¼¶ */
         TUI_TIMER_PRIO_NUM,
 } tui_timer_prio_e;
 
 typedef enum tag_tui_align {
-        TUI_ALIGN_CENTER = 0,                   /* å±…ä¸­å¯¹é½ */
-        TUI_ALIGN_IN_TOP_LEFT,                  /* åœ¨å¯¹è±¡å†…éƒ¨é¡¶ç«¯é å·¦å¯¹é½ */
-        TUI_ALIGN_IN_TOP_MID,                   /* åœ¨å¯¹è±¡å†…éƒ¨é¡¶ç«¯ä¸­é—´å¯¹é½ */
-        TUI_ALIGN_IN_TOP_RIGHT,                 /* åœ¨å¯¹è±¡å†…éƒ¨é¡¶ç«¯é å³å¯¹é½ */
-        TUI_ALIGN_IN_BOTTOM_LEFT,               /* åœ¨å¯¹è±¡å†…éƒ¨åº•ç«¯é å·¦å¯¹é½ */
-        TUI_ALIGN_IN_BOTTOM_MID,                /* åœ¨å¯¹è±¡å†…éƒ¨åº•ç«¯é é—´å¯¹é½ */
-        TUI_ALIGN_IN_BOTTOM_RIGHT,              /* åœ¨å¯¹è±¡å†…éƒ¨åº•ç«¯é å³å¯¹é½ */
-        TUI_ALIGN_IN_LEFT_MID,                  /* åœ¨å¯¹è±¡å†…éƒ¨é å·¦å±…ä¸­å¯¹é½ */
-        TUI_ALIGN_IN_RIGHT_MID,                 /* åœ¨å¯¹è±¡å†…éƒ¨é å³å±…ä¸­å¯¹é½ */
-        TUI_ALIGN_OUT_TOP_LEFT,                 /* åœ¨å¯¹è±¡å¤–éƒ¨é¡¶ç«¯é å·¦å¯¹é½ */
-        TUI_ALIGN_OUT_TOP_MID,                  /* åœ¨å¯¹è±¡å¤–éƒ¨é¡¶ç«¯ä¸­é—´å¯¹é½ */
-        TUI_ALIGN_OUT_TOP_RIGHT,                /* åœ¨å¯¹è±¡å¤–éƒ¨é¡¶ç«¯é å³å¯¹é½ */
-        TUI_ALIGN_OUT_BOTTOM_LEFT,              /* åœ¨å¯¹è±¡å¤–éƒ¨åº•ç«¯é å·¦å¯¹é½ */
-        TUI_ALIGN_OUT_BOTTOM_MID,               /* åœ¨å¯¹è±¡å¤–éƒ¨åº•ç«¯é é—´å¯¹é½ */
-        TUI_ALIGN_OUT_BOTTOM_RIGHT,             /* åœ¨å¯¹è±¡å¤–éƒ¨åº•ç«¯é å³å¯¹é½ */
-        TUI_ALIGN_OUT_LEFT_TOP,                 /* åœ¨å¯¹è±¡å¤–éƒ¨é å·¦é¡¶éƒ¨å¯¹é½ */
-        TUI_ALIGN_OUT_LEFT_MID,                 /* åœ¨å¯¹è±¡å¤–éƒ¨é å·¦å±…ä¸­å¯¹é½ */
-        TUI_ALIGN_OUT_LEFT_BOTTOM,              /* åœ¨å¯¹è±¡å¤–éƒ¨é å·¦åº•éƒ¨å¯¹é½ */
-        TUI_ALIGN_OUT_RIGHT_TOP,                /* åœ¨å¯¹è±¡å¤–éƒ¨é å³é¡¶éƒ¨å¯¹é½ */
-        TUI_ALIGN_OUT_RIGHT_MID,                /* åœ¨å¯¹è±¡å¤–éƒ¨é å³å±…ä¸­å¯¹é½ */
-        TUI_ALIGN_OUT_RIGHT_BOTTOM,             /* åœ¨å¯¹è±¡å¤–éƒ¨é å³åº•éƒ¨å¯¹é½ */
+        TUI_ALIGN_CENTER = 0,                   /* ¾ÓÖĞ¶ÔÆë */
+        TUI_ALIGN_IN_TOP_LEFT,                  /* ÔÚ¶ÔÏóÄÚ²¿¶¥¶Ë¿¿×ó¶ÔÆë */
+        TUI_ALIGN_IN_TOP_MID,                   /* ÔÚ¶ÔÏóÄÚ²¿¶¥¶ËÖĞ¼ä¶ÔÆë */
+        TUI_ALIGN_IN_TOP_RIGHT,                 /* ÔÚ¶ÔÏóÄÚ²¿¶¥¶Ë¿¿ÓÒ¶ÔÆë */
+        TUI_ALIGN_IN_BOTTOM_LEFT,               /* ÔÚ¶ÔÏóÄÚ²¿µ×¶Ë¿¿×ó¶ÔÆë */
+        TUI_ALIGN_IN_BOTTOM_MID,                /* ÔÚ¶ÔÏóÄÚ²¿µ×¶Ë¿¿¼ä¶ÔÆë */
+        TUI_ALIGN_IN_BOTTOM_RIGHT,              /* ÔÚ¶ÔÏóÄÚ²¿µ×¶Ë¿¿ÓÒ¶ÔÆë */
+        TUI_ALIGN_IN_LEFT_MID,                  /* ÔÚ¶ÔÏóÄÚ²¿¿¿×ó¾ÓÖĞ¶ÔÆë */
+        TUI_ALIGN_IN_RIGHT_MID,                 /* ÔÚ¶ÔÏóÄÚ²¿¿¿ÓÒ¾ÓÖĞ¶ÔÆë */
+        TUI_ALIGN_OUT_TOP_LEFT,                 /* ÔÚ¶ÔÏóÍâ²¿¶¥¶Ë¿¿×ó¶ÔÆë */
+        TUI_ALIGN_OUT_TOP_MID,                  /* ÔÚ¶ÔÏóÍâ²¿¶¥¶ËÖĞ¼ä¶ÔÆë */
+        TUI_ALIGN_OUT_TOP_RIGHT,                /* ÔÚ¶ÔÏóÍâ²¿¶¥¶Ë¿¿ÓÒ¶ÔÆë */
+        TUI_ALIGN_OUT_BOTTOM_LEFT,              /* ÔÚ¶ÔÏóÍâ²¿µ×¶Ë¿¿×ó¶ÔÆë */
+        TUI_ALIGN_OUT_BOTTOM_MID,               /* ÔÚ¶ÔÏóÍâ²¿µ×¶Ë¿¿¼ä¶ÔÆë */
+        TUI_ALIGN_OUT_BOTTOM_RIGHT,             /* ÔÚ¶ÔÏóÍâ²¿µ×¶Ë¿¿ÓÒ¶ÔÆë */
+        TUI_ALIGN_OUT_LEFT_TOP,                 /* ÔÚ¶ÔÏóÍâ²¿¿¿×ó¶¥²¿¶ÔÆë */
+        TUI_ALIGN_OUT_LEFT_MID,                 /* ÔÚ¶ÔÏóÍâ²¿¿¿×ó¾ÓÖĞ¶ÔÆë */
+        TUI_ALIGN_OUT_LEFT_BOTTOM,              /* ÔÚ¶ÔÏóÍâ²¿¿¿×óµ×²¿¶ÔÆë */
+        TUI_ALIGN_OUT_RIGHT_TOP,                /* ÔÚ¶ÔÏóÍâ²¿¿¿ÓÒ¶¥²¿¶ÔÆë */
+        TUI_ALIGN_OUT_RIGHT_MID,                /* ÔÚ¶ÔÏóÍâ²¿¿¿ÓÒ¾ÓÖĞ¶ÔÆë */
+        TUI_ALIGN_OUT_RIGHT_BOTTOM,             /* ÔÚ¶ÔÏóÍâ²¿¿¿ÓÒµ×²¿¶ÔÆë */
 } tui_align_e;
 
 typedef enum tag_tui_label_long_mode {
-        TUI_LABEL_LONG_EXPAND = 0,              /* å¤§å°ä¸æ–‡æœ¬ä¸€è‡´ */
-        TUI_LABEL_LONG_BREAK,                   /* ä¿æŒå®½åº¦ï¼Œå°†æ–‡æœ¬è¿‡é•¿çš„æ¢è¡Œï¼Œå¢åŠ é«˜åº¦ */
-        TUI_LABEL_LONG_DOT,                     /* è¿‡é•¿åˆ™åœ¨ç»“å°¾å†™â€...â€ */
-        TUI_LABEL_LONG_SROLL,                   /* æ‰©å¤§å¤§å°å¹¶ä¸”æ–‡æœ¬åœ¨æ»šåŠ¨ */
-        TUI_LABEL_LONG_SROLL_CIRC,              /* å¾ªç¯æ»šåŠ¨ */
-        TUI_LABEL_LONG_CROP,                    /* è£å‰ªæ–‡æœ¬ */
+        TUI_LABEL_LONG_EXPAND = 0,              /* ´óĞ¡ÓëÎÄ±¾Ò»ÖÂ */
+        TUI_LABEL_LONG_BREAK,                   /* ±£³Ö¿í¶È£¬½«ÎÄ±¾¹ı³¤µÄ»»ĞĞ£¬Ôö¼Ó¸ß¶È */
+        TUI_LABEL_LONG_DOT,                     /* ¹ı³¤ÔòÔÚ½áÎ²Ğ´¡±...¡± */
+        TUI_LABEL_LONG_SROLL,                   /* À©´ó´óĞ¡²¢ÇÒÎÄ±¾ÔÚ¹ö¶¯ */
+        TUI_LABEL_LONG_SROLL_CIRC,              /* Ñ­»·¹ö¶¯ */
+        TUI_LABEL_LONG_CROP,                    /* ²Ã¼ôÎÄ±¾ */
 } tui_label_long_mode_e;
 
 typedef enum tag_tui_label_align_t {
-        TUI_LABEL_ALIGN_LEFT = 0,               /* å·¦å¯¹é½ */
-        TUI_LABEL_ALIGN_CENTER,                 /* ä¸­å¿ƒå¯¹é½ */
-        TUI_LABEL_ALIGN_RIGHT,                  /* å³å¯¹é½ */
-        TUI_LABEL_ALIGN_AUTO,                   /* è§†æ–‡æœ¬æ–¹å‘è€Œå®š */
+        TUI_LABEL_ALIGN_LEFT = 0,               /* ×ó¶ÔÆë */
+        TUI_LABEL_ALIGN_CENTER,                 /* ÖĞĞÄ¶ÔÆë */
+        TUI_LABEL_ALIGN_RIGHT,                  /* ÓÒ¶ÔÆë */
+        TUI_LABEL_ALIGN_AUTO,                   /* ÊÓÎÄ±¾·½Ïò¶ø¶¨ */
 } tui_label_align_e;
 
 typedef enum tag_tui_border_side {
-        TUI_BORDER_SIDE_NONE    = 0x00,         /* æ— è¾¹æ¡† */
-        TUI_BORDER_SIDE_BOTTOM  = 0x01,         /* ä¸‹è¾¹è¾¹æ¡† */
-        TUI_BORDER_SIDE_TOP     = 0x02,         /* ä¸Šè¾¹è¾¹æ¡† */
-        TUI_BORDER_SIDE_LEFT    = 0x04,         /* å·¦è¾¹è¾¹æ¡† */
-        TUI_BORDER_SIDE_RIGHT   = 0x08,         /* å³è¾¹è¾¹æ¡† */
-        TUI_BORDER_SIDE_FULL    = 0x0F,         /* å…¨è¾¹è¾¹æ¡† */
+        TUI_BORDER_SIDE_NONE    = 0x00,         /* ÎŞ±ß¿ò */
+        TUI_BORDER_SIDE_BOTTOM  = 0x01,         /* ÏÂ±ß±ß¿ò */
+        TUI_BORDER_SIDE_TOP     = 0x02,         /* ÉÏ±ß±ß¿ò */
+        TUI_BORDER_SIDE_LEFT    = 0x04,         /* ×ó±ß±ß¿ò */
+        TUI_BORDER_SIDE_RIGHT   = 0x08,         /* ÓÒ±ß±ß¿ò */
+        TUI_BORDER_SIDE_FULL    = 0x0F,         /* È«±ß±ß¿ò */
 } tui_border_side_e;
 
 typedef enum tag_tui_drag_dir {
-        TUI_DRAG_NONE_DIR       = 0x0,          /* ä¸èƒ½æ‹–åŠ¨ */
-        TUI_DRAG_DIR_HOR        = 0x1,          /* åªèƒ½æ°´å¹³æ‹–åŠ¨ */
-        TUI_DRAG_DIR_VER        = 0x2,          /* åªèƒ½å‚ç›´æ‹–åŠ¨ */
-        TUI_DRAG_DIR_BOTH       = 0x3,          /* ä»»æ„æ‹–åŠ¨ */
-        TUI_DRAG_DIR_ONE        = 0x4,          /* ç¬¬ä¸€æ¬¡æ‹–åŠ¨çš„æ–¹å‘æ‹–åŠ¨ */
+        TUI_DRAG_NONE_DIR       = 0x0,          /* ²»ÄÜÍÏ¶¯ */
+        TUI_DRAG_DIR_HOR        = 0x1,          /* Ö»ÄÜË®Æ½ÍÏ¶¯ */
+        TUI_DRAG_DIR_VER        = 0x2,          /* Ö»ÄÜ´¹Ö±ÍÏ¶¯ */
+        TUI_DRAG_DIR_BOTH       = 0x3,          /* ÈÎÒâÍÏ¶¯ */
+        TUI_DRAG_DIR_ONE        = 0x4,          /* µÚÒ»´ÎÍÏ¶¯µÄ·½ÏòÍÏ¶¯ */
 } tui_drag_dir_e;
 
 typedef enum tag_tui_scrollbar_mode {
-        TUI_SCROLLBAR_MODE_OFF  = 0x0,          /* ä¸æ˜¾ç¤º */
-        TUI_SCROLLBAR_MODE_ON   = 0x1,          /* ä¸€ç›´æ˜¾ç¤º */
-        TUI_SCROLLBAR_MODE_DRAG = 0x2,          /* æ‹–æ‹½çš„æ—¶å€™æ˜¾ç¤º */
-        TUI_SCROLLBAR_MODE_AUTO = 0x3,          /* è‡ªåŠ¨ */
-        TUI_SCROLLBAR_MODE_HIDE = 0x4,          /* æš‚æ—¶éšè— */
+        TUI_SCROLLBAR_MODE_OFF  = 0x0,          /* ²»ÏÔÊ¾ */
+        TUI_SCROLLBAR_MODE_ON   = 0x1,          /* Ò»Ö±ÏÔÊ¾ */
+        TUI_SCROLLBAR_MODE_DRAG = 0x2,          /* ÍÏ×§µÄÊ±ºòÏÔÊ¾ */
+        TUI_SCROLLBAR_MODE_AUTO = 0x3,          /* ×Ô¶¯ */
+        TUI_SCROLLBAR_MODE_HIDE = 0x4,          /* ÔİÊ±Òş²Ø */
 } tui_scrollbar_mode_e;
 
 typedef enum tag_tui_image_circulate {
-        TUI_IMAGE_ONCE = 0,                     /* è¿è¡Œä¸€æ¬¡åŠ¨ç”» */
-        TUI_IMAGE_LOOP,                         /* å¾ªç¯è¿è¡ŒåŠ¨ç”» */
+        TUI_IMAGE_ONCE = 0,                     /* ÔËĞĞÒ»´Î¶¯»­ */
+        TUI_IMAGE_LOOP,                         /* Ñ­»·ÔËĞĞ¶¯»­ */
 } tui_image_circulate_e;
 
 typedef enum tag_tui_scr_load_anim {
-        TUI_SCR_LOAD_ANIM_NONE = 0,             /* æ— åŠ¨ç”» */
-        TUI_SCR_LOAD_ANIM_OVER_LEFT,            /* å•å‘å·¦ç§»åŠ¨ */
-        TUI_SCR_LOAD_ANIM_OVER_RIGHT,           /* å•å‘å³ç§»åŠ¨ */
-        TUI_SCR_LOAD_ANIM_OVER_TOP,             /* å•å‘ä¸Šç§»åŠ¨ */
-        TUI_SCR_LOAD_ANIM_OVER_BOTTOM,          /* å•å‘ä¸‹ç§»åŠ¨ */
-        TUI_SCR_LOAD_ANIM_MOVE_LEFT,            /* åŒå‘å·¦ç§»åŠ¨ */
-        TUI_SCR_LOAD_ANIM_MOVE_RIGHT,           /* åŒå‘å³ç§»åŠ¨ */
-        TUI_SCR_LOAD_ANIM_MOVE_TOP,             /* åŒå‘ä¸Šç§»åŠ¨ */
-        TUI_SCR_LOAD_ANIM_MOVE_BOTTOM,          /* åŒå‘ä¸‹ç§»åŠ¨ */
-        TUI_SCR_LOAD_ANIM_FADE_ON,              /* åŒæ·¡å…¥æ·¡å‡º */
+        TUI_SCR_LOAD_ANIM_NONE = 0,             /* ÎŞ¶¯»­ */
+        TUI_SCR_LOAD_ANIM_OVER_LEFT,            /* µ¥Ïò×óÒÆ¶¯ */
+        TUI_SCR_LOAD_ANIM_OVER_RIGHT,           /* µ¥ÏòÓÒÒÆ¶¯ */
+        TUI_SCR_LOAD_ANIM_OVER_TOP,             /* µ¥ÏòÉÏÒÆ¶¯ */
+        TUI_SCR_LOAD_ANIM_OVER_BOTTOM,          /* µ¥ÏòÏÂÒÆ¶¯ */
+        TUI_SCR_LOAD_ANIM_MOVE_LEFT,            /* Ë«Ïò×óÒÆ¶¯ */
+        TUI_SCR_LOAD_ANIM_MOVE_RIGHT,           /* Ë«ÏòÓÒÒÆ¶¯ */
+        TUI_SCR_LOAD_ANIM_MOVE_TOP,             /* Ë«ÏòÉÏÒÆ¶¯ */
+        TUI_SCR_LOAD_ANIM_MOVE_BOTTOM,          /* Ë«ÏòÏÂÒÆ¶¯ */
+        TUI_SCR_LOAD_ANIM_FADE_ON,              /* Ë«µ­Èëµ­³ö */
 } tui_scr_load_anim_e;
 
 typedef enum tag_tui_anim_path {
-        TUI_ANIM_PATH_LINEAR = 0,               /* çº¿æ€§æ•ˆæœ */
-        TUI_ANIM_PATH_EASE_IN,                  /* åŠ é€Ÿæ•ˆæœ */
-        TUI_ANIM_PATH_EASE_OUT,                 /* å‡é€Ÿæ•ˆæœ */
-        TUI_ANIM_PATH_EASE_IN_OUT,              /* åŠ é€Ÿå‡é€Ÿæ•ˆæœ */
-        TUI_ANIM_PATH_OVERSHOOT,                /* è¶Šç•Œå›æ¥æ•ˆæœ */
-        TUI_ANIM_PATH_BOUNCE,                   /* åå¼¹æ¥å›æ•ˆæœ */
-        TUI_ANIM_PATH_STEP,                     /* æ—¶é—´åˆ°äº†ç›´æ¥æ˜¾ç¤º */
+        TUI_ANIM_PATH_LINEAR = 0,               /* ÏßĞÔĞ§¹û */
+        TUI_ANIM_PATH_EASE_IN,                  /* ¼ÓËÙĞ§¹û */
+        TUI_ANIM_PATH_EASE_OUT,                 /* ¼õËÙĞ§¹û */
+        TUI_ANIM_PATH_EASE_IN_OUT,              /* ¼ÓËÙ¼õËÙĞ§¹û */
+        TUI_ANIM_PATH_OVERSHOOT,                /* Ô½½ç»ØÀ´Ğ§¹û */
+        TUI_ANIM_PATH_BOUNCE,                   /* ·´µ¯À´»ØĞ§¹û */
+        TUI_ANIM_PATH_STEP,                     /* Ê±¼äµ½ÁËÖ±½ÓÏÔÊ¾ */
 } tui_anim_path_e;
 
 /*------------------------
- *  TUIç”Ÿå‘½å‘¨æœŸï¼Œåˆå§‹åŒ–ã€è¿è¡Œã€é”€æ¯
+ *  TUIÉúÃüÖÜÆÚ£¬³õÊ¼»¯¡¢ÔËĞĞ¡¢Ïú»Ù
  *------------------------*/
 void tui_start_init(const char * res_path, int screen_hor_res, int screen_ver_res);
 void tui_run_loop(void);
 void tui_end_uninit(void);
 
 /*------------------------
- *  system messageç³»ç»Ÿæ¶ˆæ¯
+ *  system messageÏµÍ³ÏûÏ¢
  *------------------------*/
 typedef int32_t (*tui_sys_msg_cb_t)(uint32_t cmd, void *param0, void *param1);
 int32_t tui_sys_msg_reg(tui_sys_msg_cb_t cb);
@@ -203,7 +203,7 @@ int32_t tui_sys_msg_send(uint32_t cmd, void *param0, void *param1);
 int32_t tui_sys_msg_send_dly(uint32_t cmd, uint32_t dly_ms, void *param0, void *param1);
 
 /*------------------------
- *  timerå®šæ—¶å™¨
+ *  timer¶¨Ê±Æ÷
  *------------------------*/
 typedef void(*tui_timer_cb_t)(tui_timer_t * timer);
 tui_timer_t * tui_timer_create(tui_timer_cb_t timer_cb, uint32_t period, tui_timer_prio_e prio, void * user_data);
@@ -215,7 +215,7 @@ void tui_timer_del(tui_timer_t * timer);
 void * tui_timer_get_user_data(tui_timer_t * timer);
 
 /*------------------------
- *  è·å–res.diskå·¥ç¨‹é…ç½®
+ *  »ñÈ¡res.disk¹¤³ÌÅäÖÃ
  *------------------------*/
 int tui_config_get_screen_resolution(int *screen_hor_res, int *screen_ver_res);
 const char * tui_config_get_version(void);
@@ -223,27 +223,27 @@ int tui_config_password_compare(const char * password);
 int tui_config_get_serial_port(int *baudrate, int *bytesize, int *parity, int *stopbits);
 
 /*------------------------
- *  languageå¤šå›½è¯­è¨€
+ *  language¶à¹úÓïÑÔ
  *------------------------*/
 int tui_get_language_num(void);
 void tui_set_language(int16_t lang_index);
 const char * tui_get_language_utf8_string(const char *str_id);
 
 /*------------------------
- *  è·å–res.diskä¸‹Vç›˜æ–‡ä»¶
+ *  »ñÈ¡res.diskÏÂVÅÌÎÄ¼ş
  *------------------------*/
 void *tui_alloc_buffer_from_fs(const char *path, int *get_buf_len);
 int tui_free_buffer_from_fs(void *buf);
 
 /*------------------------
- *  gb2312å’Œutf8ç çš„è½¬æ¢
+ *  gb2312ºÍutf8ÂëµÄ×ª»»
  *------------------------*/
 int tui_utf8_to_gb2312(char *gb2312_str, int len_gb2312, char *utf8_str, int len_utf8);
 int tui_gb2312_to_utf8(char *utf8_str, int len_utf8, char *gb2312_str, int len_gb2312);
 int tui_gb2312_to_utf8_need_size(char *gb2312_str);
 
 /*------------------------
- *  è·å–ç³»ç»Ÿè¿è¡Œæ—¶é—´ã€RTCæ—¥æœŸã€ä¼‘çœ 
+ *  »ñÈ¡ÏµÍ³ÔËĞĞÊ±¼ä¡¢RTCÈÕÆÚ¡¢ĞİÃß
  *------------------------*/
 uint32_t tui_get_system_run_milliseconds(void);
 tui_time_t tui_get_localtime(void);
@@ -251,7 +251,7 @@ void tui_set_localtime(tui_time_t *lt);
 void tui_sleep(uint32_t ms);
 
 /*------------------------
- *  ä¸²å£æ¥å£ï¼Œå…¼å®¹PCé©±åŠ¨æ¨¡æ‹Ÿ
+ *  ´®¿Ú½Ó¿Ú£¬¼æÈİPCÇı¶¯Ä£Äâ
  *------------------------*/
 typedef int(*serial_port_read_cb_t)(const char *read_buff, int buf_len);
 int serial_port_open(char *com_name, int baudrate, int bytesize, int parity, int stopbits, serial_port_read_cb_t read_cb);
@@ -259,7 +259,7 @@ void serial_port_close(void);
 int serial_port_write(char *write_buff, int buf_len);
 
 /*------------------------
- *  tui inputè·å–è§¦æ‘¸å’ŒæŒ‰é”®å€¼
+ *  tui input»ñÈ¡´¥ÃşºÍ°´¼üÖµ
  *------------------------*/
 typedef void (*indev_point_trigger_cb_t)(uint8_t state, int32_t x, int32_t y);
 typedef void (*indev_key_trigger_cb_t)(uint8_t state, uint32_t key_value);
@@ -271,7 +271,7 @@ void indev_get_point_value(uint8_t *st, int32_t *x, int32_t *y);
 void indev_get_key_value(uint8_t *st, uint32_t *key_value);
 
 /*------------------------
- *  groupæŒ‰é”®ç»„
+ *  group°´¼ü×é
  *------------------------*/
 void tui_group_add_obj(tui_obj_t * obj);
 void tui_group_remove_obj(tui_obj_t * obj);
@@ -280,35 +280,35 @@ void tui_group_focus_obj(tui_obj_t * obj);
 tui_obj_t * tui_group_get_focused(void);
 
 /*------------------------
- *  è°ƒè¯•ä¿¡æ¯
+ *  µ÷ÊÔĞÅÏ¢
  *------------------------*/
 void tui_dbg_core_information_dump(void);
 
 /*------------------------
- *  æ‰€æœ‰objectå¯¹è±¡çš„æ ¹èŠ‚ç‚¹
+ *  ËùÓĞobject¶ÔÏóµÄ¸ù½Úµã
  *------------------------*/
-tui_obj_t * tui_layer_normal(void);             /* æ™®é€šæ ¹èŠ‚ç‚¹å¯¹è±¡å›¾å±‚ */
-tui_obj_t * tui_layer_top(void);                /* å¦å¤–ä¸€ä¸ªï¼Œç½®é¡¶æ ¹èŠ‚ç‚¹å¯¹è±¡å›¾å±‚ */
+tui_obj_t * tui_layer_normal(void);             /* ÆÕÍ¨¸ù½Úµã¶ÔÏóÍ¼²ã */
+tui_obj_t * tui_layer_top(void);                /* ÁíÍâÒ»¸ö£¬ÖÃ¶¥¸ù½Úµã¶ÔÏóÍ¼²ã */
 /*------------------------
- *  objectå¯¹è±¡å±æ€§
+ *  object¶ÔÏóÊôĞÔ
  *------------------------*/
 typedef struct {
-        /* ä¾›å†…éƒ¨ä½¿ç”¨style */
+        /* ¹©ÄÚ²¿Ê¹ÓÃstyle */
         tui_style_t style;
 
-        tui_size_t size;                        /* å¤–éƒ¨é…ç½®ï¼Œå¯¹è±¡çš„å®½é«˜è®¾ç½® */
-        tui_point_t pt;                         /* å¤–éƒ¨é…ç½®ï¼Œå¯¹è±¡æ‰€åœ¨çš„ä½ç½® */
-        bool hidden;                            /* å¤–éƒ¨é…ç½®ï¼Œå¯¹è±¡æ˜¯å¦éšè— */
-        uint32_t obj_id;                        /* å¤–éƒ¨é…ç½®ï¼Œå¯¹è±¡çš„å”¯ä¸€IDå€¼ */
-        char type_name[32];                     /* å¤–éƒ¨é…ç½®ï¼Œå¯¹è±¡çš„æ§ä»¶ç±»å‹åå­— ï¼Œ ä¸è¦è¶…è¿‡31ä¸ªè‹±æ–‡å­—ç¬¦*/
+        tui_size_t size;                        /* Íâ²¿ÅäÖÃ£¬¶ÔÏóµÄ¿í¸ßÉèÖÃ */
+        tui_point_t pt;                         /* Íâ²¿ÅäÖÃ£¬¶ÔÏóËùÔÚµÄÎ»ÖÃ */
+        bool hidden;                            /* Íâ²¿ÅäÖÃ£¬¶ÔÏóÊÇ·ñÒş²Ø */
+        uint32_t obj_id;                        /* Íâ²¿ÅäÖÃ£¬¶ÔÏóµÄÎ¨Ò»IDÖµ */
+        char type_name[32];                     /* Íâ²¿ÅäÖÃ£¬¶ÔÏóµÄ¿Ø¼şÀàĞÍÃû×Ö £¬ ²»Òª³¬¹ı31¸öÓ¢ÎÄ×Ö·û*/
 } tui_object_attri_t;
 /*------------------------
- *  åˆ›å»ºå’Œé”€æ¯objectå¯¹è±¡
+ *  ´´½¨ºÍÏú»Ùobject¶ÔÏó
  *------------------------*/
 tui_obj_t * tui_obj_create(tui_obj_t * parent);
 void tui_obj_del(tui_obj_t * obj);
 /*------------------------
- *  objectå¯¹è±¡set
+ *  object¶ÔÏóset
  *------------------------*/
 void tui_obj_set_parent(tui_obj_t * obj, tui_obj_t * parent);
 void tui_obj_set_typename(tui_obj_t * obj, const char *typename);
@@ -332,7 +332,7 @@ void tui_obj_set_glue_obj(tui_obj_t * obj, bool able);
 void tui_obj_set_alpha(tui_obj_t * obj, uint8_t alpha);
 void tui_obj_set_align(tui_obj_t * obj, const tui_obj_t * base, tui_align_e align, tui_coord_t x_ofs, tui_coord_t y_ofs);
 /*------------------------
- *  objectå¯¹è±¡get
+ *  object¶ÔÏóget
  *------------------------*/
 tui_obj_t * tui_obj_get_parent(const tui_obj_t * obj);
 const char * tui_obj_get_typename(tui_obj_t * obj);
@@ -348,7 +348,7 @@ tui_obj_t * tui_get_obj_from_id(tui_obj_t * parent, uint32_t obj_id);
 tui_obj_t * tui_search_obj_from_id(uint32_t obj_id);
 void tui_obj_get_coords(const tui_obj_t * obj, tui_area_t * cords_p);
 /*------------------------
- *  objectå¯¹è±¡åŠ¨ç”»
+ *  object¶ÔÏó¶¯»­
  *------------------------*/
 typedef void(*tui_object_anim_cb_t)(tui_obj_t * obj);
 void tui_obj_anim_stop(tui_obj_t * obj);
@@ -361,23 +361,23 @@ void tui_obj_anim_set_height(tui_obj_t * obj, uint32_t need_time_ms, tui_coord_t
 void tui_screen_load_anim(tui_obj_t * new_scr, tui_obj_t * old_scr, tui_scr_load_anim_e anim_type, uint32_t need_time_ms, bool auto_del_old_scr, tui_object_anim_cb_t end_cb);
 
 /*------------------------
- *  viewè§†å›¾å®¹å™¨
+ *  viewÊÓÍ¼ÈİÆ÷
  *------------------------*/
 tui_obj_t * tui_view_create(const char *layout_view_path, tui_map_cb_t map_cb[]);
 
 /*------------------------
- *  containerå®¹å™¨
+ *  containerÈİÆ÷
  *------------------------*/
 typedef void (*tui_container_cb_t)(tui_obj_t *obj, tui_event_e event);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-		/* ç»„ä»¶å±æ€§ */
+		/* ×é¼şÊôĞÔ */
 		void *attri_com;
-        /* å®¹å™¨å›è°ƒå‡½æ•°ï¼Œè¿”å›å½“å‰äº‹ä»¶ */
+        /* ÈİÆ÷»Øµ÷º¯Êı£¬·µ»Øµ±Ç°ÊÂ¼ş */
         tui_container_cb_t cb;
 
-        uint32_t bg_color;                      /* å¤–éƒ¨é…ç½®ï¼Œå®¹å™¨çš„èƒŒæ™¯é¢œè‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
+        uint32_t bg_color;                      /* Íâ²¿ÅäÖÃ£¬ÈİÆ÷µÄ±³¾°ÑÕÉ«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
 } tui_container_attri_t;
 tui_obj_t * tui_container_create(tui_obj_t * par);
 int tui_container_set_attri(tui_obj_t *container, tui_container_attri_t *attri);
@@ -385,20 +385,20 @@ int tui_container_get_attri(tui_obj_t *container, tui_container_attri_t *attri);
 int tui_container_set_cb(tui_obj_t *container, tui_container_cb_t cb);
 
 /*------------------------
- *  pageé¡µ
+ *  pageÒ³
  *------------------------*/
 typedef void (*tui_page_cb_t)(tui_obj_t *obj, tui_event_e event);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* é¡µå›è°ƒå‡½æ•°ï¼Œè¿”å›å½“å‰äº‹ä»¶ */
+        /* Ò³»Øµ÷º¯Êı£¬·µ»Øµ±Ç°ÊÂ¼ş */
         tui_page_cb_t cb;
 
-        uint32_t bg_color;                      /* å¤–éƒ¨é…ç½®ï¼Œé¡µé‡Œé¢çš„èƒŒæ™¯é¢œè‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
-        tui_size_t window_size;                 /* å¤–éƒ¨é…ç½®ï¼Œé¡µé‡Œé¢çš„çª—å£çš„å¤§å° */
-        tui_point_t window_pt;                  /* å¤–éƒ¨é…ç½®ï¼Œé¡µé‡Œé¢çš„çª—å£ä½ç½® */
-        tui_scrollbar_mode_e mode;              /* å¤–éƒ¨é…ç½®ï¼Œé¡µé‡Œé¢çš„æ»šæ¡æ¨¡å¼è®¾ç½® */
-        bool edge_arc_able;                     /* å¤–éƒ¨é…ç½®ï¼Œé¡µåˆ°è¾¾è¾¹ç¼˜åŠ¨ç”»è®¾ç½® */
+        uint32_t bg_color;                      /* Íâ²¿ÅäÖÃ£¬Ò³ÀïÃæµÄ±³¾°ÑÕÉ«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
+        tui_size_t window_size;                 /* Íâ²¿ÅäÖÃ£¬Ò³ÀïÃæµÄ´°¿ÚµÄ´óĞ¡ */
+        tui_point_t window_pt;                  /* Íâ²¿ÅäÖÃ£¬Ò³ÀïÃæµÄ´°¿ÚÎ»ÖÃ */
+        tui_scrollbar_mode_e mode;              /* Íâ²¿ÅäÖÃ£¬Ò³ÀïÃæµÄ¹öÌõÄ£Ê½ÉèÖÃ */
+        bool edge_arc_able;                     /* Íâ²¿ÅäÖÃ£¬Ò³µ½´ï±ßÔµ¶¯»­ÉèÖÃ */
 } tui_page_attri_t;
 tui_obj_t * tui_page_create(tui_obj_t * par);
 int tui_page_set_attri(tui_obj_t *page, tui_page_attri_t *attri);
@@ -408,31 +408,31 @@ void tui_page_set_scrollbar_mode(tui_obj_t * page, tui_scrollbar_mode_e page_bar
 void tui_page_set_edge_arc(tui_obj_t * page, bool able);
 
 /*------------------------
- *  excelè¡¨æ ¼
+ *  excel±í¸ñ
  *------------------------*/
 typedef void(*tui_excel_cb_t)(tui_obj_t *obj, tui_event_e event, uint32_t column, uint32_t row);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* è¡¨æ ¼å›è°ƒå‡½æ•°ï¼Œè¿”å›å•å…ƒæ ¼å½“å‰äº‹ä»¶ */
+        /* ±í¸ñ»Øµ÷º¯Êı£¬·µ»Øµ¥Ôª¸ñµ±Ç°ÊÂ¼ş */
         tui_excel_cb_t cb;
 
-        uint32_t bg_color;                      /* å¤–éƒ¨é…ç½®ï¼Œè¡¨æ ¼é‡Œé¢çš„èƒŒæ™¯é¢œè‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
-        uint32_t border_color;                  /* å¤–éƒ¨é…ç½®ï¼Œè¡¨æ ¼é‡Œé¢çš„è¾¹æ¡†é¢œè‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
-        tui_point_t window_pt;                  /* å¤–éƒ¨é…ç½®ï¼Œè¡¨æ ¼é‡Œé¢çš„çª—å£ä½ç½® */
-        tui_scrollbar_mode_e mode;              /* å¤–éƒ¨é…ç½®ï¼Œè¡¨æ ¼é‡Œé¢çš„æ»šæ¡æ¨¡å¼è®¾ç½® */
-        bool edge_arc_able;                     /* å¤–éƒ¨é…ç½®ï¼Œè¡¨æ ¼åˆ°è¾¾è¾¹ç¼˜åŠ¨ç”»è®¾ç½® */
-        uint32_t rows;                          /* å¤–éƒ¨é…ç½®ï¼Œè¡¨æ ¼çš„è¡Œæ•° */
-        uint32_t columns;                       /* å¤–éƒ¨é…ç½®ï¼Œè¡¨æ ¼çš„åˆ—æ•° */
-        uint32_t cell_w;                        /* å¤–éƒ¨é…ç½®ï¼Œè¡¨æ ¼çš„å•å…ƒæ ¼å®½ */
-        uint32_t cell_h;                        /* å¤–éƒ¨é…ç½®ï¼Œè¡¨æ ¼çš„å•å…ƒæ ¼é«˜ */
-        bool input_able;                        /* å¤–éƒ¨é…ç½®ï¼Œæ”¯æŒå•å…ƒæ ¼å­—ç¬¦è¾“å…¥ */
-        int32_t fnt_size;                       /* å¤–éƒ¨é…ç½®ï¼Œè¡¨æ ¼çš„é»˜è®¤å­—ä½“å¤§å° */
-        uint32_t fnt_color;                     /* å¤–éƒ¨é…ç½®ï¼Œè¡¨æ ¼çš„é»˜è®¤å­—ä½“çš„é¢œè‰² ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰*/
+        uint32_t bg_color;                      /* Íâ²¿ÅäÖÃ£¬±í¸ñÀïÃæµÄ±³¾°ÑÕÉ«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
+        uint32_t border_color;                  /* Íâ²¿ÅäÖÃ£¬±í¸ñÀïÃæµÄ±ß¿òÑÕÉ«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
+        tui_point_t window_pt;                  /* Íâ²¿ÅäÖÃ£¬±í¸ñÀïÃæµÄ´°¿ÚÎ»ÖÃ */
+        tui_scrollbar_mode_e mode;              /* Íâ²¿ÅäÖÃ£¬±í¸ñÀïÃæµÄ¹öÌõÄ£Ê½ÉèÖÃ */
+        bool edge_arc_able;                     /* Íâ²¿ÅäÖÃ£¬±í¸ñµ½´ï±ßÔµ¶¯»­ÉèÖÃ */
+        uint32_t rows;                          /* Íâ²¿ÅäÖÃ£¬±í¸ñµÄĞĞÊı */
+        uint32_t columns;                       /* Íâ²¿ÅäÖÃ£¬±í¸ñµÄÁĞÊı */
+        uint32_t cell_w;                        /* Íâ²¿ÅäÖÃ£¬±í¸ñµÄµ¥Ôª¸ñ¿í */
+        uint32_t cell_h;                        /* Íâ²¿ÅäÖÃ£¬±í¸ñµÄµ¥Ôª¸ñ¸ß */
+        bool input_able;                        /* Íâ²¿ÅäÖÃ£¬Ö§³Öµ¥Ôª¸ñ×Ö·ûÊäÈë */
+        int32_t fnt_size;                       /* Íâ²¿ÅäÖÃ£¬±í¸ñµÄÄ¬ÈÏ×ÖÌå´óĞ¡ */
+        uint32_t fnt_color;                     /* Íâ²¿ÅäÖÃ£¬±í¸ñµÄÄ¬ÈÏ×ÖÌåµÄÑÕÉ« £¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£©*/
 
-        /* è¡¨æ ¼é‡Œé¢çš„å¯¹è±¡é›†åˆï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ±í¸ñÀïÃæµÄ¶ÔÏó¼¯ºÏ£¬¹©ÄÚ²¿Ê¹ÓÃ */
         uint32_t *cells;
-        /* è¡¨æ ¼é‡Œé¢çš„æŒ‰é”®ï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ±í¸ñÀïÃæµÄ°´¼ü£¬¹©ÄÚ²¿Ê¹ÓÃ */
         bool pressed;
 } tui_excel_attri_t;
 tui_obj_t * tui_excel_create(tui_obj_t * par);
@@ -446,23 +446,23 @@ int tui_excel_set_cell_text(tui_obj_t *excel, uint32_t row, uint32_t column, con
         tui_label_long_mode_e mode, uint32_t bg_color);
 
 /*------------------------
- *  labelæ ‡ç­¾
+ *  label±êÇ©
  *------------------------*/
 typedef void (*tui_label_cb_t)(tui_obj_t *obj, tui_event_e event);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* å¼§å½¢å›è°ƒå‡½æ•°ï¼Œè¿”å›å½“å‰äº‹ä»¶ */
+        /* »¡ĞÎ»Øµ÷º¯Êı£¬·µ»Øµ±Ç°ÊÂ¼ş */
         tui_label_cb_t cb;
 
-        int32_t fnt_size;                       /* å¤–éƒ¨é…ç½®ï¼Œæ ‡ç­¾å­—ä½“å¤§å° */
-        char* txt;                              /* å¤–éƒ¨é…ç½®ï¼Œæ ‡ç­¾çš„æ–‡æœ¬ä¿¡æ¯ */
-        uint32_t fnt_color;                     /* å¤–éƒ¨é…ç½®ï¼Œæ ‡ç­¾å­—ä½“çš„é¢œè‰² ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰*/
-        tui_label_long_mode_e mode;             /* å¤–éƒ¨é…ç½®ï¼Œæ ‡ç­¾æ˜¾ç¤ºæ¨¡å¼ï¼ˆå…¶ä¸­æœ‰æ»šåŠ¨æ˜¾ç¤ºï¼‰ */
-        tui_label_align_e align;                /* å¤–éƒ¨é…ç½®ï¼Œæ ‡ç­¾å¯¹é½æ–¹å¼ */
-        bool input_able;                        /* å¤–éƒ¨é…ç½®ï¼Œæ”¯æŒæ ‡ç­¾å­—ç¬¦è¾“å…¥ */
-        bool ttf_font;                          /* å¤–éƒ¨é…ç½®ï¼Œæ”¯æŒTTFå­—ä½“ */
-        uint32_t border_color;                  /* å¤–éƒ¨é…ç½®ï¼Œæ ‡ç­¾çš„è¾¹æ¡†é¢œè‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
+        int32_t fnt_size;                       /* Íâ²¿ÅäÖÃ£¬±êÇ©×ÖÌå´óĞ¡ */
+        char* txt;                              /* Íâ²¿ÅäÖÃ£¬±êÇ©µÄÎÄ±¾ĞÅÏ¢ */
+        uint32_t fnt_color;                     /* Íâ²¿ÅäÖÃ£¬±êÇ©×ÖÌåµÄÑÕÉ« £¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£©*/
+        tui_label_long_mode_e mode;             /* Íâ²¿ÅäÖÃ£¬±êÇ©ÏÔÊ¾Ä£Ê½£¨ÆäÖĞÓĞ¹ö¶¯ÏÔÊ¾£© */
+        tui_label_align_e align;                /* Íâ²¿ÅäÖÃ£¬±êÇ©¶ÔÆë·½Ê½ */
+        bool input_able;                        /* Íâ²¿ÅäÖÃ£¬Ö§³Ö±êÇ©×Ö·ûÊäÈë */
+        bool ttf_font;                          /* Íâ²¿ÅäÖÃ£¬Ö§³ÖTTF×ÖÌå */
+        uint32_t border_color;                  /* Íâ²¿ÅäÖÃ£¬±êÇ©µÄ±ß¿òÑÕÉ«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
 } tui_label_attri_t;
 tui_obj_t * tui_label_create(tui_obj_t * par);
 int tui_label_set_attri(tui_obj_t *label, tui_label_attri_t *attri);
@@ -475,7 +475,7 @@ void tui_label_set_align_mid(tui_obj_t * label, bool able);
 void tui_label_set_input_able(tui_obj_t * label, bool able);
 
 /*------------------------
- *  arcå¼§å½¢
+ *  arc»¡ĞÎ
  *------------------------*/
 /*       .0
  *
@@ -487,23 +487,23 @@ void tui_label_set_input_able(tui_obj_t * label, bool able);
  */
 typedef void (*tui_arc_cb_t)(tui_obj_t *obj, tui_event_e event);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* å¼§å½¢å›è°ƒå‡½æ•°ï¼Œè¿”å›å½“å‰äº‹ä»¶ */
+        /* »¡ĞÎ»Øµ÷º¯Êı£¬·µ»Øµ±Ç°ÊÂ¼ş */
         tui_arc_cb_t cb;
-        /* ä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ¹©ÄÚ²¿Ê¹ÓÃ */
         tui_timer_t * arc_loading;
-        /* ä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ¹©ÄÚ²¿Ê¹ÓÃ */
         tui_style_t arc_fg_style;
 
-        int16_t start_angle;                    /* å¤–éƒ¨é…ç½®ï¼Œå¼§å½¢çš„å¼€å§‹è§’åº¦ */
-        int16_t end_angle;                      /* å¤–éƒ¨é…ç½®ï¼Œå¼§å½¢çš„ç»“æŸè§’åº¦ */
-        int16_t bg_start_angle;                 /* å¤–éƒ¨é…ç½®ï¼Œå¼§å½¢èƒŒæ™¯çš„å¼€å§‹è§’åº¦ */
-        int16_t bg_end_angle;                   /* å¤–éƒ¨é…ç½®ï¼Œå¼§å½¢èƒŒæ™¯çš„ç»“æŸè§’åº¦ */
-        int16_t line_width;                     /* å¤–éƒ¨é…ç½®ï¼Œå¼§å½¢çš„çº¿å®½ */
-        uint32_t bg_color;                      /* å¤–éƒ¨é…ç½®ï¼Œå¼§å½¢çš„åº•è‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
-        uint32_t fg_color;                      /* å¤–éƒ¨é…ç½®ï¼Œå¼§å½¢çš„å‰æ™¯è‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
-        bool is_rounded;                        /* å¤–éƒ¨é…ç½®ï¼Œæ˜¯å¦å¼§å½¢ç«¯åœ†æ»‘å¤„ç† */
+        int16_t start_angle;                    /* Íâ²¿ÅäÖÃ£¬»¡ĞÎµÄ¿ªÊ¼½Ç¶È */
+        int16_t end_angle;                      /* Íâ²¿ÅäÖÃ£¬»¡ĞÎµÄ½áÊø½Ç¶È */
+        int16_t bg_start_angle;                 /* Íâ²¿ÅäÖÃ£¬»¡ĞÎ±³¾°µÄ¿ªÊ¼½Ç¶È */
+        int16_t bg_end_angle;                   /* Íâ²¿ÅäÖÃ£¬»¡ĞÎ±³¾°µÄ½áÊø½Ç¶È */
+        int16_t line_width;                     /* Íâ²¿ÅäÖÃ£¬»¡ĞÎµÄÏß¿í */
+        uint32_t bg_color;                      /* Íâ²¿ÅäÖÃ£¬»¡ĞÎµÄµ×É«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
+        uint32_t fg_color;                      /* Íâ²¿ÅäÖÃ£¬»¡ĞÎµÄÇ°¾°É«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
+        bool is_rounded;                        /* Íâ²¿ÅäÖÃ£¬ÊÇ·ñ»¡ĞÎ¶ËÔ²»¬´¦Àí */
 } tui_arc_attri_t;
 tui_obj_t * tui_arc_create(tui_obj_t * par);
 int tui_arc_set_attri(tui_obj_t *arc, tui_arc_attri_t *attri);
@@ -514,20 +514,20 @@ void tui_arc_set_rounded(tui_obj_t * arc, bool is_rounded);
 void tui_arc_set_anim_loading(tui_obj_t * arc, uint32_t lap_need_time_ms, bool is_loading);
 
 /*------------------------
- *  bar_progressè¿›åº¦æ¡
+ *  bar_progress½ø¶ÈÌõ
  *------------------------*/
 typedef void (*tui_bar_progress_cb_t)(tui_obj_t *obj, tui_event_e event);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* è¿›åº¦æ¡å›è°ƒå‡½æ•°ï¼Œè¿”å›å½“å‰äº‹ä»¶ */
+        /* ½ø¶ÈÌõ»Øµ÷º¯Êı£¬·µ»Øµ±Ç°ÊÂ¼ş */
         tui_bar_progress_cb_t cb;
-        /* ä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ¹©ÄÚ²¿Ê¹ÓÃ */
         tui_style_t fg_style;
 
-        int16_t value;                          /* å¤–éƒ¨é…ç½®ï¼Œè¿›åº¦æ¡çš„å€¼ï¼ŒèŒƒå›´æ˜¯0~100 */
-        uint32_t bg_color;                      /* å¤–éƒ¨é…ç½®ï¼Œè¿›åº¦æ¡çš„åº•è‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
-        uint32_t fg_color;                      /* å¤–éƒ¨é…ç½®ï¼Œè¿›åº¦æ¡çš„å‰æ™¯è‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
+        int16_t value;                          /* Íâ²¿ÅäÖÃ£¬½ø¶ÈÌõµÄÖµ£¬·¶Î§ÊÇ0~100 */
+        uint32_t bg_color;                      /* Íâ²¿ÅäÖÃ£¬½ø¶ÈÌõµÄµ×É«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
+        uint32_t fg_color;                      /* Íâ²¿ÅäÖÃ£¬½ø¶ÈÌõµÄÇ°¾°É«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
 } tui_bar_progress_attri_t;
 tui_obj_t * tui_bar_progress_create(tui_obj_t * par);
 int tui_bar_progress_set_attri(tui_obj_t *bar_progress, tui_bar_progress_attri_t *attri);
@@ -536,23 +536,23 @@ int16_t tui_bar_progress_get_value(tui_obj_t *bar_progress);
 void tui_bar_progress_set_value(tui_obj_t *bar_progress, int16_t vaule);
 
 /*------------------------
- *  bar_slideræ»‘æ¡
+ *  bar_slider»¬Ìõ
  *------------------------*/
 typedef void (*tui_bar_slider_cb_t)(tui_obj_t *obj, tui_event_e event, int16_t value);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* æ»‘åŠ¨è§¦å‘å›è°ƒå‡½æ•°ï¼Œè¿”å›å½“å‰å€¼ */
+        /* »¬¶¯´¥·¢»Øµ÷º¯Êı£¬·µ»Øµ±Ç°Öµ */
         tui_bar_slider_cb_t cb;
-        /* ä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ¹©ÄÚ²¿Ê¹ÓÃ */
         tui_style_t knob_style;
-        /* ä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ¹©ÄÚ²¿Ê¹ÓÃ */
         tui_style_t fg_style;
 
-        int16_t value;                          /* å¤–éƒ¨é…ç½®ï¼Œæ»‘æ¡çš„å€¼ï¼ŒèŒƒå›´æ˜¯0~100 */
-        uint32_t bg_color;                      /* å¤–éƒ¨é…ç½®ï¼Œæ»‘æ¡çš„åº•è‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
-        uint32_t fg_color;                      /* å¤–éƒ¨é…ç½®ï¼Œæ»‘æ¡çš„å‰æ™¯è‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
-        uint32_t knob_color;                    /* å¤–éƒ¨é…ç½®ï¼Œæ»‘å—çš„å‰æ™¯è‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
+        int16_t value;                          /* Íâ²¿ÅäÖÃ£¬»¬ÌõµÄÖµ£¬·¶Î§ÊÇ0~100 */
+        uint32_t bg_color;                      /* Íâ²¿ÅäÖÃ£¬»¬ÌõµÄµ×É«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
+        uint32_t fg_color;                      /* Íâ²¿ÅäÖÃ£¬»¬ÌõµÄÇ°¾°É«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
+        uint32_t knob_color;                    /* Íâ²¿ÅäÖÃ£¬»¬¿éµÄÇ°¾°É«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
 } tui_bar_slider_attri_t;
 tui_obj_t * tui_bar_slider_create(tui_obj_t * par);
 int tui_bar_slider_set_attri(tui_obj_t *bar_slider, tui_bar_slider_attri_t *attri);
@@ -561,20 +561,20 @@ int16_t tui_bar_slider_get_value(tui_obj_t *bar_slider);
 void tui_bar_slider_set_value(tui_obj_t *bar_slider, int16_t vaule);
 
 /*------------------------
- *  buttonæŒ‰é”®
+ *  button°´¼ü
  *------------------------*/
 typedef void (*tui_button_cb_t)(tui_obj_t *obj, tui_event_e event);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* ç‚¹å‡»è§¦å‘å›è°ƒå‡½æ•°ï¼Œè¿”å›æŒ‰é’®çŠ¶æ€äº‹ä»¶ */
+        /* µã»÷´¥·¢»Øµ÷º¯Êı£¬·µ»Ø°´Å¥×´Ì¬ÊÂ¼ş */
         tui_button_cb_t cb;
-        /* ä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ¹©ÄÚ²¿Ê¹ÓÃ */
         bool pressed;
 
-        uint32_t bg_color;                      /* å¤–éƒ¨é…ç½®ï¼ŒæŒ‰é”®çš„èƒŒæ™¯é¢œè‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
-        uint32_t border_color;                  /* å¤–éƒ¨é…ç½®ï¼ŒæŒ‰é”®çš„è¾¹æ¡†é¢œè‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
-        uint32_t border_width;                  /* å¤–éƒ¨é…ç½®ï¼ŒæŒ‰é”®çš„è¾¹æ¡†çº¿å®½åº¦ */
+        uint32_t bg_color;                      /* Íâ²¿ÅäÖÃ£¬°´¼üµÄ±³¾°ÑÕÉ«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
+        uint32_t border_color;                  /* Íâ²¿ÅäÖÃ£¬°´¼üµÄ±ß¿òÑÕÉ«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
+        uint32_t border_width;                  /* Íâ²¿ÅäÖÃ£¬°´¼üµÄ±ß¿òÏß¿í¶È */
 } tui_button_attri_t;
 tui_obj_t * tui_button_create(tui_obj_t * par);
 int tui_button_set_attri(tui_obj_t *button, tui_button_attri_t *attri);
@@ -583,25 +583,25 @@ void tui_button_set_shadow(tui_obj_t *button, bool able);
 void tui_button_set_click_zoom(tui_obj_t *button, bool able);
 
 /*------------------------
- *  image_btnå›¾ç‰‡æŒ‰é”®
+ *  image_btnÍ¼Æ¬°´¼ü
  *------------------------*/
 typedef void(*tui_image_btn_cb_t)(tui_obj_t *obj, tui_event_e event, int16_t img_index);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* ç‚¹å‡»è§¦å‘å›è°ƒå‡½æ•°ï¼Œè¿”å›å½“å‰çŠ¶æ€å’Œå€¼äº‹ä»¶ */
+        /* µã»÷´¥·¢»Øµ÷º¯Êı£¬·µ»Øµ±Ç°×´Ì¬ºÍÖµÊÂ¼ş */
         tui_image_btn_cb_t cb;
-        /* ä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ¹©ÄÚ²¿Ê¹ÓÃ */
         bool pressed;
-        /* æ‰€æœ‰å›¾ç‰‡bufferä¿å­˜ï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ËùÓĞÍ¼Æ¬buffer±£´æ£¬¹©ÄÚ²¿Ê¹ÓÃ */
         void *img_pressed[16];
-        /* æ‰€æœ‰å›¾ç‰‡bufferä¿å­˜ï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ËùÓĞÍ¼Æ¬buffer±£´æ£¬¹©ÄÚ²¿Ê¹ÓÃ */
         void *img_release[16];
 
-        int16_t img_index;                      /* å¤–éƒ¨é…ç½®ï¼Œå›¾ç‰‡æŒ‰é”®ï¼Œå½“å‰å›¾ç‰‡çš„ç´¢å¼• */
-        int16_t img_num;                        /* å¤–éƒ¨é…ç½®ï¼Œå›¾ç‰‡æŒ‰é”®ï¼Œæœ‰å¤šå°‘å¼ å›¾ç‰‡æ€»å’Œ, ä¸è¦è¶…è¿‡16å¼ å›¾ç‰‡ */
-        bool hor_mirror;                        /* å¤–éƒ¨é…ç½®ï¼Œå›¾ç‰‡æŒ‰é”®çš„æ°´å¹³é•œåƒ */
-        bool ver_mirror;                        /* å¤–éƒ¨é…ç½®ï¼Œå›¾ç‰‡æŒ‰é”®çš„å‚ç›´é•œåƒ */
+        int16_t img_index;                      /* Íâ²¿ÅäÖÃ£¬Í¼Æ¬°´¼ü£¬µ±Ç°Í¼Æ¬µÄË÷Òı */
+        int16_t img_num;                        /* Íâ²¿ÅäÖÃ£¬Í¼Æ¬°´¼ü£¬ÓĞ¶àÉÙÕÅÍ¼Æ¬×ÜºÍ, ²»Òª³¬¹ı16ÕÅÍ¼Æ¬ */
+        bool hor_mirror;                        /* Íâ²¿ÅäÖÃ£¬Í¼Æ¬°´¼üµÄË®Æ½¾µÏñ */
+        bool ver_mirror;                        /* Íâ²¿ÅäÖÃ£¬Í¼Æ¬°´¼üµÄ´¹Ö±¾µÏñ */
 } tui_image_btn_attri_t;
 tui_obj_t * tui_image_btn_create(tui_obj_t * par);
 int tui_image_btn_set_attri(tui_obj_t *image_btn, tui_image_btn_attri_t *attri);
@@ -616,7 +616,7 @@ uint16_t tui_image_btn_get_zoom(tui_obj_t * image_btn);
 void tui_image_btn_anim_zoom(tui_obj_t * image_btn, uint32_t need_time_ms, uint16_t start_zoom, uint16_t end_zoom, tui_anim_path_e path_type, tui_object_anim_cb_t end_cb);
 
 /*------------------------
- *  imageå›¾ç‰‡
+ *  imageÍ¼Æ¬
  *------------------------*/
 /*       .0
  *
@@ -628,40 +628,40 @@ void tui_image_btn_anim_zoom(tui_obj_t * image_btn, uint32_t need_time_ms, uint1
  */
 typedef void(*tui_image_cb_t)(tui_obj_t *obj, tui_event_e event, int16_t img_index);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* åŠ¨ç”»å˜åŒ–åæœ‰å›è°ƒå‡½æ•°ï¼Œè¿”å›å½“å‰å›¾ç‰‡å€¼äº‹ä»¶ */
+        /* ¶¯»­±ä»¯ºóÓĞ»Øµ÷º¯Êı£¬·µ»Øµ±Ç°Í¼Æ¬ÖµÊÂ¼ş */
         tui_image_cb_t cb;
-        /* æ‰€æœ‰å›¾ç‰‡bufferä¿å­˜ï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ËùÓĞÍ¼Æ¬buffer±£´æ£¬¹©ÄÚ²¿Ê¹ÓÃ */
         void *img[128];
         void *img_temp;
         void *img_temp_1;
         int8_t img_type[128];
-        /* åŠ¨ç”»timerï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ¶¯»­timer£¬¹©ÄÚ²¿Ê¹ÓÃ */
         tui_timer_t *timer;
-        /* åŠ¨ç”»timerï¼Œå¼€å§‹ç´¢å¼•å€¼ä¾›ï¼Œå†…éƒ¨ä½¿ç”¨ */
+        /* ¶¯»­timer£¬¿ªÊ¼Ë÷ÒıÖµ¹©£¬ÄÚ²¿Ê¹ÓÃ */
         int16_t start_index;
-        /* åŠ¨ç”»timerï¼Œç»“æŸç´¢å¼•å€¼ä¾›ï¼Œå†…éƒ¨ä½¿ç”¨ */
+        /* ¶¯»­timer£¬½áÊøË÷ÒıÖµ¹©£¬ÄÚ²¿Ê¹ÓÃ */
         int16_t end_index;
-        /* åŠ¨ç”»timerï¼Œæ—‹è½¬è§’åº¦ï¼Œå†…éƒ¨ä½¿ç”¨ */
+        /* ¶¯»­timer£¬Ğı×ª½Ç¶È£¬ÄÚ²¿Ê¹ÓÃ */
         int16_t rotate_offset;
-        /* åŠ¨ç”»timerï¼Œæ—‹è½¬æ–¹å‘ï¼Œå†…éƒ¨ä½¿ç”¨ */
+        /* ¶¯»­timer£¬Ğı×ª·½Ïò£¬ÄÚ²¿Ê¹ÓÃ */
         double rotate_way;
-        /* å†…éƒ¨ä½¿ç”¨ */
+        /* ÄÚ²¿Ê¹ÓÃ */
         int16_t rotate_angle_temp;
 
-        int16_t img_index;                      /* å¤–éƒ¨é…ç½®ï¼Œå›¾ç‰‡æ§ä»¶ï¼Œå½“å‰å›¾ç‰‡çš„ç´¢å¼• */
-        int16_t img_num;                        /* å¤–éƒ¨é…ç½®ï¼Œå›¾ç‰‡æ§ä»¶ï¼Œæœ‰å¤šå°‘å¼ å›¾ç‰‡æ€»å’Œ , ä¸è¦è¶…è¿‡128å¼ å›¾ç‰‡*/
-        int16_t zoom;                           /* å¤–éƒ¨é…ç½®ï¼Œå›¾ç‰‡æ§ä»¶æ”¾å¤§ç¼©å°å€¼ ï¼Œ256ä¸æ”¾å¤§ï¼Œå°äº256ç¼©å°ï¼Œå¤§äº256æ”¾å¤§ï¼Œ512æ”¾å¤§ä¸¤å€ï¼Œ128ç¼©å°ä¸€åŠ*/
-        int16_t rotate_angle;                   /* å¤–éƒ¨é…ç½®ï¼Œå›¾ç‰‡æ§ä»¶æ—‹è½¬è§’åº¦ï¼ŒèŒƒå›´0~360 */
-        tui_point_t rotate_pt;                  /* å¤–éƒ¨é…ç½®ï¼Œå›¾ç‰‡æ§ä»¶æ—‹è½¬çš„ä¸­å¿ƒåæ ‡ï¼Œé»˜è®¤æ˜¯ä¸­å¿ƒç‚¹ */
-        bool anim_start;                        /* å¤–éƒ¨é…ç½®ï¼Œå›¾ç‰‡æ§ä»¶å›¾ç‰‡åŠ¨ç”»é»˜è®¤æ˜¯å¦å¼€å§‹ï¼Œ0æˆ–è€…1*/
-        int32_t anim_time;                      /* å¤–éƒ¨é…ç½®ï¼Œå›¾ç‰‡æ§ä»¶å›¾ç‰‡åŠ¨ç”»åˆ‡æ¢çš„æ—¶é—´ï¼Œæ¯«ç§’å•ä½*/
-        tui_image_circulate_e mode;             /* å¤–éƒ¨é…ç½®ï¼Œå›¾ç‰‡æ§ä»¶å›¾ç‰‡åŠ¨ç”»åˆ‡æ¢çš„æ¨¡å¼ï¼Œå•æ¬¡è¿˜æ˜¯æ— é™å¾ªç¯ */
-        tui_coord_t x_offset;                   /* å¤–éƒ¨é…ç½®ï¼Œå›¾ç‰‡çš„æºXåç§» */
-        tui_coord_t y_offset;                   /* å¤–éƒ¨é…ç½®ï¼Œå›¾ç‰‡çš„æºYåç§» */
-        bool hor_mirror;                        /* å¤–éƒ¨é…ç½®ï¼Œå›¾ç‰‡çš„æ°´å¹³é•œåƒ */
-        bool ver_mirror;                        /* å¤–éƒ¨é…ç½®ï¼Œå›¾ç‰‡çš„å‚ç›´é•œåƒ */
+        int16_t img_index;                      /* Íâ²¿ÅäÖÃ£¬Í¼Æ¬¿Ø¼ş£¬µ±Ç°Í¼Æ¬µÄË÷Òı */
+        int16_t img_num;                        /* Íâ²¿ÅäÖÃ£¬Í¼Æ¬¿Ø¼ş£¬ÓĞ¶àÉÙÕÅÍ¼Æ¬×ÜºÍ , ²»Òª³¬¹ı128ÕÅÍ¼Æ¬*/
+        int16_t zoom;                           /* Íâ²¿ÅäÖÃ£¬Í¼Æ¬¿Ø¼ş·Å´óËõĞ¡Öµ £¬256²»·Å´ó£¬Ğ¡ÓÚ256ËõĞ¡£¬´óÓÚ256·Å´ó£¬512·Å´óÁ½±¶£¬128ËõĞ¡Ò»°ë*/
+        int16_t rotate_angle;                   /* Íâ²¿ÅäÖÃ£¬Í¼Æ¬¿Ø¼şĞı×ª½Ç¶È£¬·¶Î§0~360 */
+        tui_point_t rotate_pt;                  /* Íâ²¿ÅäÖÃ£¬Í¼Æ¬¿Ø¼şĞı×ªµÄÖĞĞÄ×ø±ê£¬Ä¬ÈÏÊÇÖĞĞÄµã */
+        bool anim_start;                        /* Íâ²¿ÅäÖÃ£¬Í¼Æ¬¿Ø¼şÍ¼Æ¬¶¯»­Ä¬ÈÏÊÇ·ñ¿ªÊ¼£¬0»òÕß1*/
+        int32_t anim_time;                      /* Íâ²¿ÅäÖÃ£¬Í¼Æ¬¿Ø¼şÍ¼Æ¬¶¯»­ÇĞ»»µÄÊ±¼ä£¬ºÁÃëµ¥Î»*/
+        tui_image_circulate_e mode;             /* Íâ²¿ÅäÖÃ£¬Í¼Æ¬¿Ø¼şÍ¼Æ¬¶¯»­ÇĞ»»µÄÄ£Ê½£¬µ¥´Î»¹ÊÇÎŞÏŞÑ­»· */
+        tui_coord_t x_offset;                   /* Íâ²¿ÅäÖÃ£¬Í¼Æ¬µÄÔ´XÆ«ÒÆ */
+        tui_coord_t y_offset;                   /* Íâ²¿ÅäÖÃ£¬Í¼Æ¬µÄÔ´YÆ«ÒÆ */
+        bool hor_mirror;                        /* Íâ²¿ÅäÖÃ£¬Í¼Æ¬µÄË®Æ½¾µÏñ */
+        bool ver_mirror;                        /* Íâ²¿ÅäÖÃ£¬Í¼Æ¬µÄ´¹Ö±¾µÏñ */
 } tui_image_attri_t;
 tui_obj_t * tui_image_create(tui_obj_t * par);
 int tui_image_set_attri(tui_obj_t *image, tui_image_attri_t *attri);
@@ -686,41 +686,41 @@ void tui_image_anim_width(tui_obj_t * image, uint32_t need_time_ms, uint16_t sta
 void tui_image_anim_height(tui_obj_t * image, uint32_t need_time_ms, uint16_t start_height, uint16_t end_height, tui_anim_path_e path_type, tui_object_anim_cb_t end_cb);
 
 /*------------------------
- *  animationåŠ¨ç”»
+ *  animation¶¯»­
  *------------------------*/
 typedef void(*tui_animation_cb_t)(tui_obj_t *obj, tui_event_e event, int16_t img_index);
 typedef struct {
-        char path[48];  /* è·¯å¾„ä¸è¦è¶…è¿‡48ä¸ªå­—ç¬¦ */
+        char path[48];  /* Â·¾¶²»Òª³¬¹ı48¸ö×Ö·û */
         int x;
         int y;
         int ms;
 } tui_anima_img_attri_t;
 
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* åŠ¨ç”»å˜åŒ–åæœ‰å›è°ƒå‡½æ•°ï¼Œè¿”å›å½“å‰å›¾ç‰‡å€¼ */
+        /* ¶¯»­±ä»¯ºóÓĞ»Øµ÷º¯Êı£¬·µ»Øµ±Ç°Í¼Æ¬Öµ */
         tui_animation_cb_t cb;
-        /* åŠ¨ç”»imageï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ¶¯»­image£¬¹©ÄÚ²¿Ê¹ÓÃ */
         void *img_obj;
-        /* bufferä¿å­˜ï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* buffer±£´æ£¬¹©ÄÚ²¿Ê¹ÓÃ */
         void *img_buff[2];
         int16_t img_buff_index;
-        /* åŠ¨ç”»timerï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ¶¯»­timer£¬¹©ÄÚ²¿Ê¹ÓÃ */
         tui_timer_t *timer;
-        /* åŠ¨ç”»timerï¼Œå¼€å§‹ç´¢å¼•å€¼ä¾›ï¼Œå†…éƒ¨ä½¿ç”¨ */
+        /* ¶¯»­timer£¬¿ªÊ¼Ë÷ÒıÖµ¹©£¬ÄÚ²¿Ê¹ÓÃ */
         int16_t start_index;
-        /* åŠ¨ç”»timerï¼Œç»“æŸç´¢å¼•å€¼ä¾›ï¼Œå†…éƒ¨ä½¿ç”¨ */
+        /* ¶¯»­timer£¬½áÊøË÷ÒıÖµ¹©£¬ÄÚ²¿Ê¹ÓÃ */
         int16_t end_index;
 
-        uint32_t bg_color;                      /* å¤–éƒ¨é…ç½®ï¼ŒåŠ¨ç”»å®¹å™¨çš„èƒŒæ™¯é¢œè‰², é»˜è®¤æ˜¯0ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
-        int16_t img_index;                      /* å¤–éƒ¨é…ç½®ï¼ŒåŠ¨ç”»ï¼Œå½“å‰å›¾ç‰‡çš„ç´¢å¼• */
-        int16_t img_num;                        /* å¤–éƒ¨é…ç½®ï¼ŒåŠ¨ç”»ï¼Œæœ‰å¤šå°‘å¼ å›¾ç‰‡æ€»å’Œ, ä¸è¦è¶…è¿‡128å¼ å›¾ç‰‡ */
-        tui_anima_img_attri_t anima_img[128];   /* å¤–éƒ¨é…ç½®ï¼ŒåŠ¨ç”»é‡Œé¢çš„å›¾ç‰‡é›†åˆï¼Œ å›¾ç‰‡ä¸è¦è¶…è¿‡128å¼  */
-        bool anim_start;                        /* å¤–éƒ¨é…ç½®ï¼ŒåŠ¨ç”»é»˜è®¤æ˜¯å¦å¼€å§‹ï¼Œ0æˆ–è€…1*/
-        tui_image_circulate_e mode;             /* å¤–éƒ¨é…ç½®ï¼ŒåŠ¨ç”»åˆ‡æ¢çš„æ¨¡å¼ï¼Œå•æ¬¡è¿˜æ˜¯æ— é™å¾ªç¯ */
-        bool hor_mirror;                        /* å¤–éƒ¨é…ç½®ï¼ŒåŠ¨ç”»çš„æ°´å¹³é•œåƒ */
-        bool ver_mirror;                        /* å¤–éƒ¨é…ç½®ï¼ŒåŠ¨ç”»çš„å‚ç›´é•œåƒ */
+        uint32_t bg_color;                      /* Íâ²¿ÅäÖÃ£¬¶¯»­ÈİÆ÷µÄ±³¾°ÑÕÉ«, Ä¬ÈÏÊÇ0£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
+        int16_t img_index;                      /* Íâ²¿ÅäÖÃ£¬¶¯»­£¬µ±Ç°Í¼Æ¬µÄË÷Òı */
+        int16_t img_num;                        /* Íâ²¿ÅäÖÃ£¬¶¯»­£¬ÓĞ¶àÉÙÕÅÍ¼Æ¬×ÜºÍ, ²»Òª³¬¹ı128ÕÅÍ¼Æ¬ */
+        tui_anima_img_attri_t anima_img[128];   /* Íâ²¿ÅäÖÃ£¬¶¯»­ÀïÃæµÄÍ¼Æ¬¼¯ºÏ£¬ Í¼Æ¬²»Òª³¬¹ı128ÕÅ */
+        bool anim_start;                        /* Íâ²¿ÅäÖÃ£¬¶¯»­Ä¬ÈÏÊÇ·ñ¿ªÊ¼£¬0»òÕß1*/
+        tui_image_circulate_e mode;             /* Íâ²¿ÅäÖÃ£¬¶¯»­ÇĞ»»µÄÄ£Ê½£¬µ¥´Î»¹ÊÇÎŞÏŞÑ­»· */
+        bool hor_mirror;                        /* Íâ²¿ÅäÖÃ£¬¶¯»­µÄË®Æ½¾µÏñ */
+        bool ver_mirror;                        /* Íâ²¿ÅäÖÃ£¬¶¯»­µÄ´¹Ö±¾µÏñ */
 } tui_animation_attri_t;
 tui_obj_t * tui_animation_create(tui_obj_t * par);
 int tui_animation_set_attri(tui_obj_t *animation, tui_animation_attri_t *attri);
@@ -732,17 +732,17 @@ void tui_animation_set_hor_mirror(tui_obj_t *animation, bool mirror_able);
 void tui_animation_set_ver_mirror(tui_obj_t *animation, bool mirror_able);
 
 /*------------------------
- *  gifå›¾ç‰‡åŠ¨ç”»
+ *  gifÍ¼Æ¬¶¯»­
  *------------------------*/
 typedef void(*tui_gif_cb_t)(tui_obj_t *obj, tui_event_e event, int16_t img_index);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* åŠ¨ç”»å˜åŒ–åæœ‰å›è°ƒå‡½æ•°ï¼Œè¿”å›å½“å‰gifå›¾ç‰‡ç´¢å¼•å€¼ */
+        /* ¶¯»­±ä»¯ºóÓĞ»Øµ÷º¯Êı£¬·µ»Øµ±Ç°gifÍ¼Æ¬Ë÷ÒıÖµ */
         tui_gif_cb_t cb;
 
-        char gif_path[128];                     /* å¤–éƒ¨é…ç½®ï¼ŒgifåŠ¨ç”»è·¯å¾„ */
-        tui_image_circulate_e mode;             /* å¤–éƒ¨é…ç½®ï¼ŒåŠ¨ç”»åˆ‡æ¢çš„æ¨¡å¼ï¼Œå•æ¬¡è¿˜æ˜¯æ— é™å¾ªç¯ */
+        char gif_path[128];                     /* Íâ²¿ÅäÖÃ£¬gif¶¯»­Â·¾¶ */
+        tui_image_circulate_e mode;             /* Íâ²¿ÅäÖÃ£¬¶¯»­ÇĞ»»µÄÄ£Ê½£¬µ¥´Î»¹ÊÇÎŞÏŞÑ­»· */
 } tui_gif_attri_t;
 tui_obj_t * tui_gif_create(tui_obj_t * par);
 int tui_gif_set_attri(tui_obj_t *gif, tui_gif_attri_t *attri);
@@ -753,24 +753,24 @@ int tui_gif_restart(tui_obj_t *gif);
 int tui_gif_set_mode(tui_obj_t *gif, tui_image_circulate_e mode);
 
 /*------------------------
- *  lineçº¿
+ *  lineÏß
  *------------------------*/
 typedef void (*tui_line_cb_t)(tui_obj_t *obj, tui_event_e event);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* çº¿å›è°ƒå‡½æ•°ï¼Œè¿”å›å½“äº‹ä»¶ */
+        /* Ïß»Øµ÷º¯Êı£¬·µ»Øµ±ÊÂ¼ş */
 		tui_line_cb_t cb;
-		/* å¤šç‚¹çº¿ï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+		/* ¶àµãÏß£¬¹©ÄÚ²¿Ê¹ÓÃ */
 		tui_point_t *point_a[2];
-		/* å¤šç‚¹çº¿ï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+		/* ¶àµãÏß£¬¹©ÄÚ²¿Ê¹ÓÃ */
 		uint16_t point_num;
-		/* å¤šç‚¹çº¿ï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+		/* ¶àµãÏß£¬¹©ÄÚ²¿Ê¹ÓÃ */
 		uint16_t point_index;
 
-        uint32_t width;                         /* å¤–éƒ¨é…ç½®ï¼Œçº¿çš„å®½åº¦ */
-        uint32_t color;                         /* å¤–éƒ¨é…ç½®ï¼Œçº¿çš„é¢œè‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
-        tui_point_t pts[2];                     /* å¤–éƒ¨é…ç½®ï¼Œçº¿çš„åæ ‡ï¼Œä¸¤ç‚¹ä¸€çº¿ */
+        uint32_t width;                         /* Íâ²¿ÅäÖÃ£¬ÏßµÄ¿í¶È */
+        uint32_t color;                         /* Íâ²¿ÅäÖÃ£¬ÏßµÄÑÕÉ«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
+        tui_point_t pts[2];                     /* Íâ²¿ÅäÖÃ£¬ÏßµÄ×ø±ê£¬Á½µãÒ»Ïß */
 } tui_line_attri_t;
 tui_obj_t * tui_line_create(tui_obj_t * par);
 int tui_line_set_attri(tui_obj_t *line, tui_line_attri_t *attri);
@@ -782,23 +782,23 @@ void tui_line_set_point0_angle(tui_obj_t * line, int radius, int angle);
 void tui_line_set_some_points_line(tui_obj_t * line, tui_point_t *point_a, uint16_t point_num, bool is_bezier);
 
 /*------------------------
- *  switch_btnåˆ‡æ¢å¼€å…³
+ *  switch_btnÇĞ»»¿ª¹Ø
  *------------------------*/
 typedef void (*tui_switch_btn_cb_t)(tui_obj_t *obj, tui_event_e event, int16_t value);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* ç‚¹å‡»è§¦å‘å›è°ƒå‡½æ•°ï¼Œè¿”å›å½“å‰çŠ¶æ€å€¼ */
+        /* µã»÷´¥·¢»Øµ÷º¯Êı£¬·µ»Øµ±Ç°×´Ì¬Öµ */
         tui_switch_btn_cb_t cb;
-        /* ä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ¹©ÄÚ²¿Ê¹ÓÃ */
         tui_style_t knob_style;
-        /* ä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ¹©ÄÚ²¿Ê¹ÓÃ */
         tui_style_t fg_style;
 
-		bool value;                             /* å¤–éƒ¨é…ç½®ï¼Œåˆ‡æ¢å¼€å…³çš„å€¼ ï¼Œ0æˆ–è€…1*/
-        uint32_t bg_color;                      /* å¤–éƒ¨é…ç½®ï¼Œåˆ‡æ¢å¼€å…³çš„åº•è‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
-        uint32_t fg_color;                      /* å¤–éƒ¨é…ç½®ï¼Œåˆ‡æ¢å¼€å…³çš„å‰æ™¯è‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
-        uint32_t knob_color;                    /* å¤–éƒ¨é…ç½®ï¼Œåˆ‡æ¢å¼€å…³çš„æŒ‰é’®è‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
+		bool value;                             /* Íâ²¿ÅäÖÃ£¬ÇĞ»»¿ª¹ØµÄÖµ £¬0»òÕß1*/
+        uint32_t bg_color;                      /* Íâ²¿ÅäÖÃ£¬ÇĞ»»¿ª¹ØµÄµ×É«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
+        uint32_t fg_color;                      /* Íâ²¿ÅäÖÃ£¬ÇĞ»»¿ª¹ØµÄÇ°¾°É«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
+        uint32_t knob_color;                    /* Íâ²¿ÅäÖÃ£¬ÇĞ»»¿ª¹ØµÄ°´Å¥É«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
 } tui_switch_btn_attri_t;
 tui_obj_t * tui_switch_btn_create(tui_obj_t * par);
 int tui_switch_btn_set_attri(tui_obj_t *switch_btn, tui_switch_btn_attri_t *attri);
@@ -807,26 +807,26 @@ int tui_switch_btn_get_vaule(tui_obj_t *switch_btn);
 void tui_switch_btn_set_vaule(tui_obj_t *switch_btn, bool value);
 
 /*------------------------
- *  dropdownä¸‹æ‹‰èœå•
+ *  dropdownÏÂÀ­²Ëµ¥
  *------------------------*/
 typedef void (*tui_dropdown_cb_t)(tui_obj_t *obj, tui_event_e event, int16_t index);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* ç‚¹å‡»è§¦å‘å›è°ƒå‡½æ•°ï¼Œè¿”å›å½“å‰ç´¢å¼•å€¼ */
+        /* µã»÷´¥·¢»Øµ÷º¯Êı£¬·µ»Øµ±Ç°Ë÷ÒıÖµ */
         tui_dropdown_cb_t cb;
-        /* ä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ¹©ÄÚ²¿Ê¹ÓÃ */
         tui_style_t bar_style;
-        /* ä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ¹©ÄÚ²¿Ê¹ÓÃ */
         tui_style_t list_style;
 
-        int16_t cur_index;                      /* å¤–éƒ¨é…ç½®ï¼Œå½“å‰ä¸‹æ‹‰èœå•çš„ç´¢å¼•å€¼ */
-        int16_t options_num;                    /* å¤–éƒ¨é…ç½®ï¼Œå½“å‰ä¸‹æ‹‰èœå•çš„ä¸ªæ•° */
-        char options[128][64];                  /* å¤–éƒ¨é…ç½®ï¼Œä¸‹æ‹‰èœå•çš„æ–‡æœ¬è®¾ç½® */
-        uint32_t bar_color;                     /* å¤–éƒ¨é…ç½®ï¼Œä¸‹æ‹‰èœå•barçš„åº•è‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
-        uint32_t list_color;                    /* å¤–éƒ¨é…ç½®ï¼Œä¸‹æ‹‰èœå•åˆ—è¡¨çš„åº•è‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
-        uint32_t text_color;                    /* å¤–éƒ¨é…ç½®ï¼Œä¸‹æ‹‰èœå•å­—ç¬¦çš„é¢œè‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
-        int16_t text_font_size;                 /* å¤–éƒ¨é…ç½®ï¼Œä¸‹æ‹‰èœå•å­—ç¬¦å­—ä½“å¤§å° */
+        int16_t cur_index;                      /* Íâ²¿ÅäÖÃ£¬µ±Ç°ÏÂÀ­²Ëµ¥µÄË÷ÒıÖµ */
+        int16_t options_num;                    /* Íâ²¿ÅäÖÃ£¬µ±Ç°ÏÂÀ­²Ëµ¥µÄ¸öÊı */
+        char options[128][64];                  /* Íâ²¿ÅäÖÃ£¬ÏÂÀ­²Ëµ¥µÄÎÄ±¾ÉèÖÃ */
+        uint32_t bar_color;                     /* Íâ²¿ÅäÖÃ£¬ÏÂÀ­²Ëµ¥barµÄµ×É«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
+        uint32_t list_color;                    /* Íâ²¿ÅäÖÃ£¬ÏÂÀ­²Ëµ¥ÁĞ±íµÄµ×É«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
+        uint32_t text_color;                    /* Íâ²¿ÅäÖÃ£¬ÏÂÀ­²Ëµ¥×Ö·ûµÄÑÕÉ«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
+        int16_t text_font_size;                 /* Íâ²¿ÅäÖÃ£¬ÏÂÀ­²Ëµ¥×Ö·û×ÖÌå´óĞ¡ */
 } tui_dropdown_attri_t;
 tui_obj_t * tui_dropdown_create(tui_obj_t * par);
 int tui_dropdown_set_attri(tui_obj_t *dropdown, tui_dropdown_attri_t *attri);
@@ -839,17 +839,17 @@ void tui_dropdown_set_selected_index(tui_obj_t *dropdown, int16_t index);
 void tui_dropdown_set_symbol(tui_obj_t *dropdown, bool able);
 
 /*------------------------
- *  textboxæ–‡æœ¬è¾“å…¥æ¡†
+ *  textboxÎÄ±¾ÊäÈë¿ò
  *------------------------*/
 typedef void (*tui_textbox_cb_t)(tui_obj_t *obj, tui_event_e event, const char * str);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* è¾“å…¥è§¦å‘å›è°ƒå‡½æ•°ï¼Œè¿”å›å½“å‰å­—ç¬¦ä¸² */
+        /* ÊäÈë´¥·¢»Øµ÷º¯Êı£¬·µ»Øµ±Ç°×Ö·û´® */
         tui_textbox_cb_t cb;
 
-        bool pwd_able;                  /* å¤–éƒ¨é…ç½®ï¼Œæ–‡æœ¬è¾“å…¥æ¡†æ¨¡å¼ï¼Œæ˜¯å¦æ˜¯å¯†ç è¾“å…¥ */
-        char *accepted_chars;                   /* å¤–éƒ¨é…ç½®ï¼Œæ–‡æœ¬è¾“å…¥æ¡†å¯ä»¥è¾“å…¥çš„å­—ç¬¦é™åˆ¶ï¼Œ ç©ºæ˜¯æ”¯æŒæ‰€æœ‰å­—ç¬¦ */
+        bool pwd_able;                  /* Íâ²¿ÅäÖÃ£¬ÎÄ±¾ÊäÈë¿òÄ£Ê½£¬ÊÇ·ñÊÇÃÜÂëÊäÈë */
+        char *accepted_chars;                   /* Íâ²¿ÅäÖÃ£¬ÎÄ±¾ÊäÈë¿ò¿ÉÒÔÊäÈëµÄ×Ö·ûÏŞÖÆ£¬ ¿ÕÊÇÖ§³ÖËùÓĞ×Ö·û */
 } tui_textbox_attri_t;
 tui_obj_t * tui_textbox_create(tui_obj_t * par);
 int tui_textbox_set_attri(tui_obj_t *textbox, tui_textbox_attri_t *attri);
@@ -860,16 +860,16 @@ void tui_textbox_set_pwd_mode(tui_obj_t * textbox, bool pwd_able);
 void tui_textarea_set_accepted_chars(tui_obj_t * textbox, const char * accepted_chars);
 
 /*------------------------
- *  checkboxå¤é€‰æ¡†
+ *  checkbox¸´Ñ¡¿ò
  *------------------------*/
 typedef void(*tui_checkbox_cb_t)(tui_obj_t *obj, tui_event_e event, int32_t value);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* ç‚¹å‡»è§¦å‘å›è°ƒå‡½æ•°ï¼Œè¿”å›å½“å‰çŠ¶æ€å€¼ */
+        /* µã»÷´¥·¢»Øµ÷º¯Êı£¬·µ»Øµ±Ç°×´Ì¬Öµ */
         tui_checkbox_cb_t cb;
 
-        int32_t value;                          /* å¤–éƒ¨é…ç½®ï¼Œå¤é€‰æ¡†çš„å€¼ï¼Œ0æˆ–è€…1 */
+        int32_t value;                          /* Íâ²¿ÅäÖÃ£¬¸´Ñ¡¿òµÄÖµ£¬0»òÕß1 */
 } tui_checkbox_attri_t;
 tui_obj_t * tui_checkbox_create(tui_obj_t * par);
 int tui_checkbox_set_attri(tui_obj_t *checkbox, tui_checkbox_attri_t *attri);
@@ -878,22 +878,22 @@ bool tui_checkbox_get_vaule(tui_obj_t *checkbox);
 void tui_checkbox_set_vaule(tui_obj_t *checkbox, bool value);
 
 /*------------------------
- *  liståˆ—è¡¨
+ *  listÁĞ±í
  *------------------------*/
 typedef void (*tui_list_cb_t)(tui_obj_t *obj_list, tui_event_e event, int32_t index);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* åˆ—è¡¨å›è°ƒå‡½æ•°ï¼Œè¿”å›å½“å‰æŸä¸€ä¸ªåˆ—è¡¨é¡¹äº‹ä»¶ */
+        /* ÁĞ±í»Øµ÷º¯Êı£¬·µ»Øµ±Ç°Ä³Ò»¸öÁĞ±íÏîÊÂ¼ş */
         tui_list_cb_t cb;
-        /* åˆ—è¡¨æ»‘åŠ¨æ ‡è®°ï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ÁĞ±í»¬¶¯±ê¼Ç£¬¹©ÄÚ²¿Ê¹ÓÃ */
         bool move_flag;
-        /* é€‰æ‹©ï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* Ñ¡Ôñ£¬¹©ÄÚ²¿Ê¹ÓÃ */
         tui_obj_t * select_img;
 
-        uint32_t bg_color;                      /* å¤–éƒ¨é…ç½®ï¼Œåˆ—è¡¨çš„èƒŒæ™¯é¢œè‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
-        uint32_t cur_index;                     /* å¤–éƒ¨é…ç½®ï¼Œåˆ—è¡¨çš„å½“å‰ç´¢å¼•ç„¦ç‚¹å€¼ */
-        tui_scrollbar_mode_e mode;              /* å¤–éƒ¨é…ç½®ï¼Œåˆ—è¡¨é‡Œé¢çš„æ»šæ¡æ¨¡å¼è®¾ç½® */
+        uint32_t bg_color;                      /* Íâ²¿ÅäÖÃ£¬ÁĞ±íµÄ±³¾°ÑÕÉ«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
+        uint32_t cur_index;                     /* Íâ²¿ÅäÖÃ£¬ÁĞ±íµÄµ±Ç°Ë÷Òı½¹µãÖµ */
+        tui_scrollbar_mode_e mode;              /* Íâ²¿ÅäÖÃ£¬ÁĞ±íÀïÃæµÄ¹öÌõÄ£Ê½ÉèÖÃ */
 
 } tui_list_attri_t;
 tui_obj_t * tui_list_create(tui_obj_t * par);
@@ -912,27 +912,27 @@ uint16_t tui_list_get_size(const tui_obj_t * list);
 void tui_list_set_scrollbar_mode(tui_obj_t * list, tui_scrollbar_mode_e mode);
 
 /*------------------------
- *  multi_screenå¤šå±æ§ä»¶
+ *  multi_screen¶àÆÁ¿Ø¼ş
  *------------------------*/
 typedef void (*tui_multi_screen_cb_t)(tui_obj_t *obj, tui_event_e event, int16_t index);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* å±å¹•æ»‘åŠ¨ç»“æŸå›è°ƒå‡½æ•°ï¼Œè¿”å›å½“å‰å±å¹•ç´¢å¼•å€¼ */
+        /* ÆÁÄ»»¬¶¯½áÊø»Øµ÷º¯Êı£¬·µ»Øµ±Ç°ÆÁÄ»Ë÷ÒıÖµ */
         tui_multi_screen_cb_t cb;
-        /* åŠ¨ç”»timerï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ¶¯»­timer£¬¹©ÄÚ²¿Ê¹ÓÃ */
         tui_timer_t *timer;
-        /* åŠ¨ç”»timerï¼Œå¼€å§‹åæ ‡ï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ¶¯»­timer£¬¿ªÊ¼×ø±ê£¬¹©ÄÚ²¿Ê¹ÓÃ */
         int32_t start_x;
-        /* åŠ¨ç”»timerï¼Œç»“æŸåæ ‡ï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ¶¯»­timer£¬½áÊø×ø±ê£¬¹©ÄÚ²¿Ê¹ÓÃ */
         int32_t end_x;
-        /* åŠ¨ç”»timerï¼Œè®¡æ•°ï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ¶¯»­timer£¬¼ÆÊı£¬¹©ÄÚ²¿Ê¹ÓÃ */
         int32_t cnt;
 
-        int32_t screen_w;                       /* å¤–éƒ¨é…ç½®ï¼Œå¤šå±æ§ä»¶çš„å®½, å’Œå±å¹•çš„å®½ä¿å­˜ä¸€è‡´ */
-        int32_t screen_h;                       /* å¤–éƒ¨é…ç½®ï¼Œå¤šå±æ§ä»¶çš„é«˜ */
-        uint8_t screen_num;                     /* å¤–éƒ¨é…ç½®ï¼Œå¤šå±æ§ä»¶çš„å±æ•°é‡ */
-        uint8_t cur_screen_index;               /* å¤–éƒ¨é…ç½®ï¼Œå¤šå±æ§ä»¶çš„å½“å‰å±çš„ç´¢å¼• */
+        int32_t screen_w;                       /* Íâ²¿ÅäÖÃ£¬¶àÆÁ¿Ø¼şµÄ¿í, ºÍÆÁÄ»µÄ¿í±£´æÒ»ÖÂ */
+        int32_t screen_h;                       /* Íâ²¿ÅäÖÃ£¬¶àÆÁ¿Ø¼şµÄ¸ß */
+        uint8_t screen_num;                     /* Íâ²¿ÅäÖÃ£¬¶àÆÁ¿Ø¼şµÄÆÁÊıÁ¿ */
+        uint8_t cur_screen_index;               /* Íâ²¿ÅäÖÃ£¬¶àÆÁ¿Ø¼şµÄµ±Ç°ÆÁµÄË÷Òı */
 } tui_multi_screen_attri_t;
 tui_obj_t * tui_multi_screen_create(tui_obj_t * par);
 int tui_multi_screen_set_attri(tui_obj_t *multi_screen, tui_multi_screen_attri_t *attri);
@@ -941,18 +941,18 @@ int tui_multi_screen_set_cur_screen_index(tui_obj_t *multi_screen, uint8_t cur_s
 uint8_t tui_multi_screen_get_cur_screen_index(tui_obj_t *multi_screen);
 
 /*------------------------
- *  canvasç”»å¸ƒ
+ *  canvas»­²¼
  *------------------------*/
 typedef void (*tui_canvas_cb_t)(tui_obj_t *obj, tui_event_e event);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* ç”»å¸ƒå›è°ƒå‡½æ•°ï¼Œè¿”å›å½“å‰äº‹ä»¶ */
+        /* »­²¼»Øµ÷º¯Êı£¬·µ»Øµ±Ç°ÊÂ¼ş */
         tui_canvas_cb_t cb;
-        /* ç”»å¸ƒçš„ARGB bufferï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* »­²¼µÄARGB buffer£¬¹©ÄÚ²¿Ê¹ÓÃ */
         uint32_t *argb_buf;
 
-        uint32_t bg_color;                      /* å¤–éƒ¨é…ç½®ï¼Œç”»å¸ƒçš„èƒŒæ™¯é¢œè‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
+        uint32_t bg_color;                      /* Íâ²¿ÅäÖÃ£¬»­²¼µÄ±³¾°ÑÕÉ«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
 } tui_canvas_attri_t;
 tui_obj_t * tui_canvas_create(tui_obj_t * par);
 int tui_canvas_set_attri(tui_obj_t *canvas, tui_canvas_attri_t *attri);
@@ -969,20 +969,20 @@ void tui_canvas_draw_img(tui_obj_t * canvas, tui_coord_t x, tui_coord_t y, const
 const uint32_t * tui_canvas_get_argb_buffer(tui_obj_t * canvas, uint32_t * out_width, uint32_t * out_height);
 
 /*------------------------
- *  qrcodeäºŒç»´ç 
+ *  qrcode¶şÎ¬Âë
  *------------------------*/
 typedef void(*tui_qrcode_cb_t)(tui_obj_t *obj, tui_event_e event, const char * str);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* äºŒç»´ç è§¦å‘å›è°ƒå‡½æ•°ï¼Œè¿”å›å½“å‰äºŒç»´ç å­—ç¬¦ä¸² */
+        /* ¶şÎ¬Âë´¥·¢»Øµ÷º¯Êı£¬·µ»Øµ±Ç°¶şÎ¬Âë×Ö·û´® */
         tui_qrcode_cb_t cb;
-        /* ç”»å¸ƒçš„bufferï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* »­²¼µÄbuffer£¬¹©ÄÚ²¿Ê¹ÓÃ */
         uint32_t *cbuf;
 
-        uint32_t bg_color;                      /* å¤–éƒ¨é…ç½®ï¼ŒäºŒç»´ç çš„åº•è‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
-        uint32_t fg_color;                      /* å¤–éƒ¨é…ç½®ï¼ŒäºŒç»´ç çš„å‰æ™¯è‰²ï¼ˆ0xFF112233  FFæ˜¯é€æ˜åº¦ï¼›11æ˜¯Rï¼›22æ˜¯Gï¼›33æ˜¯Bï¼‰ */
-        char *qrcode_chars;                     /* å¤–éƒ¨é…ç½®ï¼ŒäºŒç»´ç å­—ç¬¦å†…å®¹ */
+        uint32_t bg_color;                      /* Íâ²¿ÅäÖÃ£¬¶şÎ¬ÂëµÄµ×É«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
+        uint32_t fg_color;                      /* Íâ²¿ÅäÖÃ£¬¶şÎ¬ÂëµÄÇ°¾°É«£¨0xFF112233  FFÊÇÍ¸Ã÷¶È£»11ÊÇR£»22ÊÇG£»33ÊÇB£© */
+        char *qrcode_chars;                     /* Íâ²¿ÅäÖÃ£¬¶şÎ¬Âë×Ö·ûÄÚÈİ */
 } tui_qrcode_attri_t;
 tui_obj_t * tui_qrcode_create(tui_obj_t * par);
 int tui_qrcode_set_attri(tui_obj_t *qrcode, tui_qrcode_attri_t *attri);
@@ -991,25 +991,25 @@ const char * tui_qrcode_get_text(const tui_obj_t * qrcode);
 void tui_qrcode_set_text(tui_obj_t * qrcode, const char * qrcode_chars);
 
 /*------------------------
- *  soundå£°éŸ³
+ *  soundÉùÒô
  *------------------------*/
 void tui_sound_enable(bool able);
 typedef void (*tui_sound_cb_t)(tui_obj_t *obj, tui_event_e event);
 typedef struct {
-        /* é€šç”¨å±æ€§ */
+        /* Í¨ÓÃÊôĞÔ */
         tui_object_attri_t obj;
-        /* å£°éŸ³å›è°ƒå‡½æ•°ï¼Œè¿”å›å½“å‰äº‹ä»¶ */
+        /* ÉùÒô»Øµ÷º¯Êı£¬·µ»Øµ±Ç°ÊÂ¼ş */
         tui_sound_cb_t cb;
-        /* å£°éŸ³bufferä¿å­˜ï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ÉùÒôbuffer±£´æ£¬¹©ÄÚ²¿Ê¹ÓÃ */
         int16_t *sound;
-        /* å£°éŸ³bufferä¿å­˜ï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ÉùÒôbuffer±£´æ£¬¹©ÄÚ²¿Ê¹ÓÃ */
         int32_t sound_len;
-        /* å£°éŸ³è®¡æ•°ï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ÉùÒô¼ÆÊı£¬¹©ÄÚ²¿Ê¹ÓÃ */
         int32_t play_cnt;
-        /* å£°éŸ³å¥æŸ„ï¼Œä¾›å†…éƒ¨ä½¿ç”¨ */
+        /* ÉùÒô¾ä±ú£¬¹©ÄÚ²¿Ê¹ÓÃ */
         tui_obj_t * me;
 
-        int32_t play_mode;                      /* å¤–éƒ¨é…ç½®ï¼Œå£°éŸ³æ§ä»¶æ’­æ”¾æ¨¡å¼ï¼Œ 0æ˜¯æ’­æ”¾ä¸€æ¬¡ï¼Œ1æ˜¯å¾ªç¯æ’­æ”¾  */
+        int32_t play_mode;                      /* Íâ²¿ÅäÖÃ£¬ÉùÒô¿Ø¼ş²¥·ÅÄ£Ê½£¬ 0ÊÇ²¥·ÅÒ»´Î£¬1ÊÇÑ­»·²¥·Å  */
 } tui_sound_attri_t;
 tui_obj_t * tui_sound_create(tui_obj_t * par);
 int tui_sound_set_attri(tui_obj_t *sound, tui_sound_attri_t *attri);
@@ -1019,5 +1019,6 @@ int tui_sound_set_sound_src_one_hz(tui_obj_t *sound, const char *gb2312_one_zh);
 int tui_sound_play(tui_obj_t *sound);
 int tui_sound_stop(tui_obj_t *sound);
 bool tui_sound_is_play(tui_obj_t *sound);
+
 
 #endif /* __TUI_H__ */
