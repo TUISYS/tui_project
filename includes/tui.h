@@ -351,6 +351,7 @@ void tui_obj_get_coords(const tui_obj_t * obj, tui_area_t * cords_p);
  *  object对象动画
  *------------------------*/
 typedef void(*tui_object_anim_cb_t)(tui_obj_t * obj);
+typedef void(*tui_object_anim_value_cb_t)(tui_obj_t * obj, int32_t value);
 void tui_obj_anim_stop(tui_obj_t * obj);
 void tui_obj_anim_fade_in(tui_obj_t * obj, uint32_t need_time_ms, tui_object_anim_cb_t end_cb);
 void tui_obj_anim_fade_out(tui_obj_t * obj, uint32_t need_time_ms, tui_object_anim_cb_t end_cb);
@@ -358,6 +359,7 @@ void tui_obj_anim_mov_x(tui_obj_t * obj, uint32_t need_time_ms, tui_coord_t star
 void tui_obj_anim_mov_y(tui_obj_t * obj, uint32_t need_time_ms, tui_coord_t start_y, tui_coord_t end_y, tui_anim_path_e path_type, tui_object_anim_cb_t end_cb);
 void tui_obj_anim_set_width(tui_obj_t * obj, uint32_t need_time_ms, tui_coord_t start_width, tui_coord_t end_width, tui_anim_path_e path_type, tui_object_anim_cb_t end_cb);
 void tui_obj_anim_set_height(tui_obj_t * obj, uint32_t need_time_ms, tui_coord_t start_height, tui_coord_t end_height, tui_anim_path_e path_type, tui_object_anim_cb_t end_cb);
+void tui_obj_anim_set_vaule(tui_obj_t * obj, uint32_t need_time_ms, int32_t start_value, int32_t end_value, tui_anim_path_e path_type, tui_object_anim_value_cb_t value_cb, tui_object_anim_cb_t end_cb);
 void tui_screen_load_anim(tui_obj_t * new_scr, tui_obj_t * old_scr, tui_scr_load_anim_e anim_type, uint32_t need_time_ms, bool auto_del_old_scr, tui_object_anim_cb_t end_cb);
 
 /*------------------------
@@ -594,9 +596,11 @@ typedef struct {
         /* 供内部使用 */
         bool pressed;
         /* 所有图片buffer保存，供内部使用 */
-        void *img_pressed[16];
+		void *img_pressed[16];
+		int8_t img_pressed_type[16];
         /* 所有图片buffer保存，供内部使用 */
-        void *img_release[16];
+		void *img_release[16];
+		int8_t img_release_type[16];
 
         int16_t img_index;                      /* 外部配置，图片按键，当前图片的索引 */
         int16_t img_num;                        /* 外部配置，图片按键，有多少张图片总和, 不要超过16张图片 */
@@ -668,6 +672,7 @@ int tui_image_set_attri(tui_obj_t *image, tui_image_attri_t *attri);
 int tui_image_get_attri(tui_obj_t *image, tui_image_attri_t *attri);
 int tui_image_set_image_src(tui_obj_t *image, int16_t img_index, char *path);
 int tui_image_set_image_argb_buf(tui_obj_t *image, int16_t img_index, const void *buf, int32_t img_w, int32_t img_h);
+int tui_image_set_image_rgba_buf(tui_obj_t *image, int16_t img_index, const void *buf, int32_t img_w, int32_t img_h);
 int tui_image_set_cur_img_index(tui_obj_t *image, int16_t img_index);
 void tui_image_set_offset_x(tui_obj_t * image, tui_coord_t x);
 void tui_image_set_offset_y(tui_obj_t * image, tui_coord_t y);
