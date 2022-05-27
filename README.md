@@ -9,6 +9,7 @@
 * TUI提供了上位机uistudio工具，通过工具可以实现界面的可视化编辑，整个界面视图的UI开发，类似搭积木的拖拽控件，并且实现了视图、资源和逻辑的分离。
 * TUI提供的上位机uistudio工具，还支持工程逆向，通过UStudio.Rever可以修改`res.disk`，方便不懂编程的人员，替换图片和更改坐标，完成固件修改。
 * TUI的设计非常严谨，可以把它看成一个非常独立的模块，TUI整个生命周期有三步，初始化函数（ *tui_start_init()* ）、运行函数（ *tui_run_loop()* ）、销毁函数（ *tui_end_uninit()* ）三个函数控制，里面有完整地debug调试函数（ *tui_dbg_core_information_dump()* 导出所有内核资源信息 ），退出的时候不会有内存泄漏和异常问题。
+* TUI支持自动化测试，在PC端记录轨迹坐标，保存文件后，可以通过 *tui_pointer_run_auto_test()* 函数自动循环执行
 
 ## 结构目录：
 * :file_folder:**“apps”**&ensp;&ensp;&ensp;&ensp;文件夹，里面存放了用户的逻辑代码，其中每个app里面的view视图代码是uistudio工具自动生成。
