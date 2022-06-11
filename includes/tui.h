@@ -83,6 +83,21 @@ typedef enum tag_obj_event {
         TUI_EVENT_IMAGE_ANIMATION_END = 26,     /* 对象动画播放结束事件 */
 } tui_event_e;
 
+typedef enum tag_tui_key_value {
+        TUI_KEY_HOME                  = 2,
+        TUI_KEY_END                   = 3,
+        TUI_KEY_BACKSPACE             = 8,
+        TUI_KEY_NEXT                  = 9,
+        TUI_KEY_ENTER                 = 10,
+        TUI_KEY_PREV                  = 11,
+        TUI_KEY_UP                    = 17,
+        TUI_KEY_DOWN                  = 18,
+        TUI_KEY_RIGHT                 = 19,
+        TUI_KEY_LEFT                  = 20,
+        TUI_KEY_ESC                   = 27,
+        TUI_KEY_DEL                   = 127,
+} tui_key_value_e;
+
 typedef enum tag_timer_prio {
         TUI_TIMER_PRIO_OFF = 0,
         TUI_TIMER_PRIO_LOWEST,                  /* 最低优先级 */
@@ -189,7 +204,7 @@ typedef enum tag_tui_anim_path {
 /*------------------------
  *  TUI生命周期，初始化、运行、销毁
  *------------------------*/
-void tui_start_init(const char * res_path, int screen_hor_res, int screen_ver_res);
+void tui_start_init(const char * res_path);
 void tui_run_loop(void);
 void tui_end_uninit(void);
 
@@ -221,6 +236,7 @@ int tui_config_get_screen_resolution(int *screen_hor_res, int *screen_ver_res);
 const char * tui_config_get_version(void);
 int tui_config_password_compare(const char * password);
 int tui_config_get_serial_port(int *baudrate, int *bytesize, int *parity, int *stopbits);
+int tui_config_get_screen_rotate_angle(void);
 
 /*------------------------
  *  language多国语言
@@ -253,22 +269,22 @@ void tui_sleep(uint32_t ms);
 /*------------------------
  *  串口接口，兼容PC驱动模拟
  *------------------------*/
-typedef int(*serial_port_read_cb_t)(const char *read_buff, int buf_len);
-int serial_port_open(char *com_name, int baudrate, int bytesize, int parity, int stopbits, serial_port_read_cb_t read_cb);
-void serial_port_close(void);
-int serial_port_write(char *write_buff, int buf_len);
+typedef int(*tui_serial_port_read_cb_t)(const char *read_buff, int buf_len);
+int tui_serial_port_open(char *com_name, int baudrate, int bytesize, int parity, int stopbits, tui_serial_port_read_cb_t read_cb);
+void tui_serial_port_close(void);
+int tui_serial_port_write(char *write_buff, int buf_len);
 
 /*------------------------
  *  tui input获取触摸和按键值
  *------------------------*/
-typedef void (*indev_point_trigger_cb_t)(uint8_t state, int32_t x, int32_t y);
-typedef void (*indev_key_trigger_cb_t)(uint8_t state, uint32_t key_value);
-void indev_point_trigger_cb_reg(indev_point_trigger_cb_t cb);
-void indev_point_trigger_cb_unreg(indev_point_trigger_cb_t cb);
-void indev_key_trigger_cb_reg(indev_key_trigger_cb_t cb);
-void indev_key_trigger_cb_unreg(indev_key_trigger_cb_t cb);
-void indev_get_point_value(uint8_t *st, int32_t *x, int32_t *y);
-void indev_get_key_value(uint8_t *st, uint32_t *key_value);
+typedef void (*tui_point_trigger_cb_t)(uint8_t state, int32_t x, int32_t y);
+typedef void (*tui_key_trigger_cb_t)(uint8_t state, uint32_t key_value);
+void tui_point_trigger_cb_reg(tui_point_trigger_cb_t cb);
+void tui_point_trigger_cb_unreg(tui_point_trigger_cb_t cb);
+void tui_key_trigger_cb_reg(tui_key_trigger_cb_t cb);
+void tui_key_trigger_cb_unreg(tui_key_trigger_cb_t cb);
+void tui_get_point_value(uint8_t *st, int32_t *x, int32_t *y);
+void tui_get_key_value(uint8_t *st, uint32_t *key_value);
 
 /*------------------------
  *  group按键组
@@ -283,6 +299,7 @@ tui_obj_t * tui_group_get_focused(void);
  *  调试信息
  *------------------------*/
 void tui_dbg_core_information_dump(void);
+void tui_pointer_run_auto_test(char *rec_path, int is_loop_run);
 
 /*------------------------
  *  所有object对象的根节点
@@ -361,11 +378,14 @@ void tui_obj_anim_set_width(tui_obj_t * obj, uint32_t need_time_ms, tui_coord_t 
 void tui_obj_anim_set_height(tui_obj_t * obj, uint32_t need_time_ms, tui_coord_t start_height, tui_coord_t end_height, tui_anim_path_e path_type, tui_object_anim_cb_t end_cb);
 void tui_obj_anim_set_vaule(tui_obj_t * obj, uint32_t need_time_ms, int32_t start_value, int32_t end_value, tui_anim_path_e path_type, tui_object_anim_value_cb_t value_cb, tui_object_anim_cb_t end_cb);
 void tui_screen_load_anim(tui_obj_t * new_scr, tui_obj_t * old_scr, tui_scr_load_anim_e anim_type, uint32_t need_time_ms, bool auto_del_old_scr, tui_object_anim_cb_t end_cb);
+void tui_screen_load_anim_in_ext(tui_obj_t * new_scr, tui_obj_t * old_scr, tui_point_t anim_start_pt, uint32_t need_time_ms, bool auto_del_old_scr, tui_object_anim_cb_t end_cb);
+void tui_screen_load_anim_out_ext(tui_obj_t * new_scr, tui_obj_t * old_scr, tui_point_t anim_start_pt, uint32_t need_time_ms, bool auto_del_old_scr, tui_object_anim_cb_t end_cb);
 
 /*------------------------
  *  view视图容器
  *------------------------*/
 tui_obj_t * tui_view_create(const char *layout_view_path, tui_map_cb_t map_cb[]);
+void tui_view_reg_func(char *component_reg_cb_map[]);
 
 /*------------------------
  *  container容器
@@ -471,9 +491,11 @@ int tui_label_set_attri(tui_obj_t *label, tui_label_attri_t *attri);
 int tui_label_get_attri(tui_obj_t *label, tui_label_attri_t *attri);
 int tui_label_set_txt(tui_obj_t *label, const char *txt);
 void tui_label_set_txt_color(tui_obj_t *label, uint32_t color);
+void tui_label_set_recolor(tui_obj_t * label, bool en);
 void tui_label_set_long_mode(tui_obj_t * label, tui_label_long_mode_e long_mode);
 void tui_label_set_align(tui_obj_t * label, tui_label_align_e align);
 void tui_label_set_align_mid(tui_obj_t * label, bool able);
+void tui_label_set_align_bottom(tui_obj_t * label, bool able);
 void tui_label_set_input_able(tui_obj_t * label, bool able);
 
 /*------------------------
@@ -514,6 +536,7 @@ void tui_arc_set_bg_angles(tui_obj_t * arc, uint16_t start, uint16_t end);
 void tui_arc_set_angles(tui_obj_t * arc, uint16_t start, uint16_t end);
 void tui_arc_set_rounded(tui_obj_t * arc, bool is_rounded);
 void tui_arc_set_anim_loading(tui_obj_t * arc, uint32_t lap_need_time_ms, bool is_loading);
+tui_point_t tui_arc_get_circle_point(int angle, int radius, tui_point_t pt0);
 
 /*------------------------
  *  bar_progress进度条
@@ -546,19 +569,30 @@ typedef struct {
         tui_object_attri_t obj;
         /* 滑动触发回调函数，返回当前值 */
         tui_bar_slider_cb_t cb;
+		tui_obj_t *bg_img_obj;
+		tui_obj_t *fg_img_obj;
+		tui_obj_t *knob_img_obj;
+		bool is_img;
+		bool is_hor;
         /* 供内部使用 */
         tui_style_t knob_style;
         /* 供内部使用 */
         tui_style_t fg_style;
 
-        int16_t value;                          /* 外部配置，滑条的值，范围是0~100 */
+        int16_t value;                          /* 外部配置，滑条的值，范围是0~1000 */
         uint32_t bg_color;                      /* 外部配置，滑条的底色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
         uint32_t fg_color;                      /* 外部配置，滑条的前景色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
-        uint32_t knob_color;                    /* 外部配置，滑块的前景色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
+        uint32_t knob_color;                    /* 外部配置，滑块的控钮色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
+
+		char *bg_img_path;                   /* 外部配置，滑条的底色图片 */
+		char *fg_img_path;                   /* 外部配置，滑条的前景色图片 */
+		char *knob_img_path;                 /* 外部配置，滑块的控钮图片 */
 } tui_bar_slider_attri_t;
 tui_obj_t * tui_bar_slider_create(tui_obj_t * par);
+tui_obj_t * tui_bar_slider_create_ext(tui_obj_t * par, bool is_img);
 int tui_bar_slider_set_attri(tui_obj_t *bar_slider, tui_bar_slider_attri_t *attri);
 int tui_bar_slider_get_attri(tui_obj_t *bar_slider, tui_bar_slider_attri_t *attri);
+void tui_bar_slider_set_knob_disable_move(tui_obj_t *bar_slider);
 int16_t tui_bar_slider_get_value(tui_obj_t *bar_slider);
 void tui_bar_slider_set_value(tui_obj_t *bar_slider, int16_t vaule);
 
@@ -783,7 +817,6 @@ int tui_line_get_attri(tui_obj_t *line, tui_line_attri_t *attri);
 void tui_line_set_points(tui_obj_t * line, tui_point_t point_a, tui_point_t point_b);
 void tui_line_set_line_width(tui_obj_t * line, uint32_t width);
 void tui_line_set_line_color(tui_obj_t * line, uint32_t color);
-void tui_line_set_point0_angle(tui_obj_t * line, int radius, int angle);
 void tui_line_set_some_points_line(tui_obj_t * line, tui_point_t *point_a, uint16_t point_num, bool is_bezier);
 
 /*------------------------
@@ -827,7 +860,7 @@ typedef struct {
 
         int16_t cur_index;                      /* 外部配置，当前下拉菜单的索引值 */
         int16_t options_num;                    /* 外部配置，当前下拉菜单的个数 */
-        char options[128][64];                  /* 外部配置，下拉菜单的文本设置 */
+        char options[210][40];                  /* 外部配置，下拉菜单的文本设置 */
         uint32_t bar_color;                     /* 外部配置，下拉菜单bar的底色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
         uint32_t list_color;                    /* 外部配置，下拉菜单列表的底色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
         uint32_t text_color;                    /* 外部配置，下拉菜单字符的颜色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
@@ -842,6 +875,7 @@ char ** tui_dropdown_get_selected_str(tui_obj_t *dropdown, int16_t *options_num)
 uint16_t tui_dropdown_get_selected_index(tui_obj_t *dropdown);
 void tui_dropdown_set_selected_index(tui_obj_t *dropdown, int16_t index);
 void tui_dropdown_set_symbol(tui_obj_t *dropdown, bool able);
+void tui_dropdown_set_max_height(tui_obj_t *dropdown, tui_coord_t h);
 
 /*------------------------
  *  textbox文本输入框

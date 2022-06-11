@@ -7,27 +7,17 @@ static tui_point_t points_new;
 static void draw_app9_exit(void);
 tui_obj_t * draw_app9_draw_view_view_create(void);
 
-void draw_app9_anim_cb(tui_obj_t * obj)
-{
-	draw_app9_exit();
-	tui_sys_msg_send(TUI_USER_MSG_APP_ENTER_HOME, NULL, NULL);
-}
-
 static int32_t draw_app9_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 {
 	tui_point_t points[2];
-	tui_coord_t w, h;
+
 	printf("draw_app9 system message:0x%x\n", cmd);
 	switch (cmd)
 	{
 	case TUI_USER_MSG_APP_BACK:
 	case TUI_USER_MSG_APP_HOME:
-		w = tui_obj_get_width(this_app_obj);
-		h = tui_obj_get_height(this_app_obj);
-		tui_obj_anim_mov_x(this_app_obj, 1000, 0, w/2, TUI_ANIM_PATH_EASE_OUT, NULL);
-		tui_obj_anim_mov_y(this_app_obj, 1000, 0, h/2, TUI_ANIM_PATH_EASE_OUT, NULL);
-		tui_obj_anim_set_width(this_app_obj, 1000, w, 0, TUI_ANIM_PATH_EASE_OUT, NULL);
-		tui_obj_anim_set_height(this_app_obj, 1000, h, 0, TUI_ANIM_PATH_EASE_OUT, draw_app9_anim_cb);
+		draw_app9_exit();
+		tui_sys_msg_send(TUI_USER_MSG_APP_ENTER_HOME, NULL, NULL);
 		break;
 	case TUI_USER_MSG_APP9_CLICK:
 		points[0].x = points_new.x;

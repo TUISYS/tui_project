@@ -53,7 +53,7 @@ static int32_t uart_app7_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 		strcat(uart_string, send_txt);
 		tui_label_set_txt(obj, uart_string);
 
-		serial_port_write(send_txt, strlen(send_txt));
+		tui_serial_port_write(send_txt, strlen(send_txt));
 		break;
 	default:
 		break;
@@ -68,7 +68,7 @@ tui_obj_t * uart_app7_enter(void)
 		uart_string[0] = '\0';
 	}
 	/* 初始化硬件串口 */
-	serial_port_open("COM6", -1, -1, -1, -1, serial_port_read_cb);
+	tui_serial_port_open("COM6", -1, -1, -1, -1, serial_port_read_cb);
 
 	tui_sys_msg_reg(uart_app7_sys_msg_cb);
 
@@ -82,7 +82,7 @@ static void uart_app7_exit(void)
 	tui_sys_msg_unreg(uart_app7_sys_msg_cb);
 
 	/* 关闭硬件串口 */
-	serial_port_close();
+	tui_serial_port_close();
 
 	if (uart_string) {
 		free(uart_string);

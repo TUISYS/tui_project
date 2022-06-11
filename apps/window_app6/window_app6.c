@@ -119,7 +119,7 @@ tui_obj_t * window_app6_enter(void)
 
 	this_app_obj = window_app6_window_view_view_create();
 
-	indev_point_trigger_cb_reg(window_app6_indev_point_trigger_cb);
+	tui_point_trigger_cb_reg(window_app6_indev_point_trigger_cb);
 
 	return this_app_obj;
 }
@@ -148,7 +148,7 @@ static void window_app6_exit(void)
 		this_timer = NULL;
 	}
 
-	indev_point_trigger_cb_unreg(window_app6_indev_point_trigger_cb);
+	tui_point_trigger_cb_unreg(window_app6_indev_point_trigger_cb);
 
 	tui_sys_msg_unreg(window_app6_sys_msg_cb);
 }

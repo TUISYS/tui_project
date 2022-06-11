@@ -10,7 +10,7 @@ static void canvas_190_cb_190(tui_obj_t *obj, tui_event_e event) {
 	int32_t x, y;
 	uint8_t st;
 
-	indev_get_point_value(&st, &x, &y);
+	tui_get_point_value(&st, &x, &y);
 
 	if (event == TUI_EVENT_PRESSED)
 		tui_sys_msg_send(TUI_USER_MSG_APP9_CLICK_PRESSED, (void*)x, (void*)y);
