@@ -1,7 +1,9 @@
 #ifdef AW_MELIS4
+
 #include <kapi.h>
 
 int home_create(void);
+
 void tui_run(void)
 {
 	home_create();
