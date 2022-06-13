@@ -18,7 +18,7 @@ int main(int argc, char** argv)
 		tui_end_uninit();
 	}
 
-	home_create();
+	home_create("../../res.disk");
 
 	return 0;
 }
