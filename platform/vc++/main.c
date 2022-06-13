@@ -1,7 +1,7 @@
 #ifdef WIN32
 #include "tui.h"
 
-extern int home_create(void);
+extern int home_create(char *res_path);
 
 int main(int argc, char** argv)
 {
