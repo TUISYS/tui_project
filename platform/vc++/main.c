@@ -5,6 +5,7 @@ extern int home_create(void);
 
 int main(int argc, char** argv)
 {
+	/* 为UIStudio模拟显示使用 */
 	if (argc > 2) {
 		tui_start_init(argv[1]);
 
@@ -16,7 +17,6 @@ int main(int argc, char** argv)
 
 		tui_end_uninit();
 	}
-
 
 	home_create();
 
