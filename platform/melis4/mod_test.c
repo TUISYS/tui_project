@@ -42,16 +42,6 @@ __mp ftest_mp = {0, 0};
 void mod_test_thread(void *para)
 {
 	tui_run();
-
-	/* kill app_tui self */
-	esEXEC_PDel(EXEC_pidself);
-
-	/* del app_tui main thread */
-	__log("app_tui thread: Bye Bye!\n");
-
-	esKRNL_TDel(OS_PRIO_SELF);
-
-	esKRNL_TimeDly(100);
 }
 
 /*
