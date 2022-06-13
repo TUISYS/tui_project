@@ -3,11 +3,11 @@
 
 #include "epdk.h"
 
-extern int home_create(void);
+extern int home_create(char *res_path);
 
 __s32 app_tui(void)
 {
-	home_create();
+	home_create("F:\\res.disk");
 
 	/* kill app_tui self */
 	esEXEC_PDel(EXEC_pidself);
