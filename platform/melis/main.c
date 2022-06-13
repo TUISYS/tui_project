@@ -1,3 +1,4 @@
+#ifdef AW_MELIS
 #ifndef AW_MELIS4
 
 #include "epdk.h"
@@ -22,3 +23,4 @@ __s32 app_tui(void)
 }
 
 #endif /* AW_MELIS4 */
+#endif
