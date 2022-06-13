@@ -1,7 +1,7 @@
 #include "tui.h"
 
 /*
- * ¾²Ì¬±äÁ¿¿ØÖÆ
+ * é™æ€å˜é‡æ§åˆ¶
  */
 static int g_loop_flag;
 static int g_exit_flag;
@@ -16,7 +16,7 @@ static uint8_t cur_app_index;
 static tui_timer_t * date_timer;
 
 /*
- * logo¡¢Ö÷½çÃæ¡¢×´Ì¬À¸ÊÓÍ¼´´½¨
+ * logoã€ä¸»ç•Œé¢ã€çŠ¶æ€æ è§†å›¾åˆ›å»º
  */
 tui_obj_t * logo_logo_view_view_create(void);
 tui_obj_t * home_main_view_view_create(void);
@@ -24,7 +24,7 @@ tui_obj_t * home_login_view_view_create(void);
 tui_obj_t * global_bar_status_bar_view_create(void);
 
 /*
- * ¸÷¸öappµÄÈë¿Úº¯Êı
+ * å„ä¸ªappçš„å…¥å£å‡½æ•°
  */
 tui_obj_t * adjust_enter(void);
 tui_obj_t * arc_app0_enter(void);
@@ -41,7 +41,7 @@ tui_obj_t * setting_app10_enter(void);
 tui_obj_t * logon_app11_enter(void);
 
 /*
- * ×´Ì¬À¸Ê±¼äË¢ĞÂ¶¨Ê±Æ÷»Øµ÷º¯Êı
+ * çŠ¶æ€æ æ—¶é—´åˆ·æ–°å®šæ—¶å™¨å›è°ƒå‡½æ•°
  */
 static void home_date_ref_cb(tui_timer_t * t)
 {
@@ -61,7 +61,7 @@ static void yu_animation_object_anim_cb(tui_obj_t * obj)
 }
 
 /*
- * home½çÃæÏµÍ³ÏûÏ¢½ÓÊÕ»Øµ÷º¯Êı
+ * homeç•Œé¢ç³»ç»Ÿæ¶ˆæ¯æ¥æ”¶å›è°ƒå‡½æ•°
  */
 static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 {	
@@ -320,13 +320,13 @@ static void create_key_tone(void)
 {
 	/* Create an sound */
 	tui_sound_attri_t attri_sound = { 0 };
-	/* ´´½¨¶ÔÏó */
+	/* åˆ›å»ºå¯¹è±¡ */
 	sound_play_f = 0;
 	sound_tone = tui_sound_create(tui_layer_normal());
-	/* ÉèÖÃÊôĞÔ */
+	/* è®¾ç½®å±æ€§ */
 	tui_sound_set_attri(sound_tone, &attri_sound);
-	/* ÉèÖÃÒôÔ´ */
-	tui_sound_set_sound_src(sound_tone, "V:\\sound\\tone.wav");/* È·±£¼ÓÔØÁËres.iso£¬²¢ÇÒÂ·¾¶ÎÄ¼ş´æÔÚ */
+	/* è®¾ç½®éŸ³æº */
+	tui_sound_set_sound_src(sound_tone, "V:\\sound\\tone.wav");/* ç¡®ä¿åŠ è½½äº†res.isoï¼Œå¹¶ä¸”è·¯å¾„æ–‡ä»¶å­˜åœ¨ */
 }
 
 static void indev_point_trigger(uint8_t state, int32_t x, int32_t y)
@@ -341,21 +341,14 @@ static void indev_point_trigger(uint8_t state, int32_t x, int32_t y)
 }
 
 /*
- * Ó¦ÓÃÈë¿Úº¯Êı
+ * åº”ç”¨å…¥å£å‡½æ•°
  */
-int home_create(void)
+int home_create(char *res_path)
 {
 	FILE* tp_config;
 	
-	/* ³õÊ¼»¯TUI×ÊÔ´ */
-#ifdef __EOS__
-	tui_start_init("/mnt/sdcard/res.disk");
-#elif defined (AW_MELIS)
-	//tui_start_init("D:\\apps\\res.disk");
-	tui_start_init("F:\\res.disk");
-#else
-	tui_start_init("../../res.disk");
-#endif
+	/* åˆå§‹åŒ–TUIèµ„æº */
+	tui_start_init(res_path);
 	
 	g_exit_flag = 0;
 	g_loop_flag = 1;
@@ -366,17 +359,17 @@ int home_create(void)
 		fclose(tp_config);
 		tui_sys_msg_send(TUI_USER_MSG_APP_ADJUT_OK, NULL, NULL);
 	} else {
-		/* ´´½¨logo½çÃæÊÓÍ¼ */
+		/* åˆ›å»ºlogoç•Œé¢è§†å›¾ */
 		this_adjust_obj = adjust_enter();
 	}
 	
-	/* ×¢²áhome½çÃæÏµÍ³ÏûÏ¢»Øµ÷º¯Êı */
+	/* æ³¨å†Œhomeç•Œé¢ç³»ç»Ÿæ¶ˆæ¯å›è°ƒå‡½æ•° */
 	tui_sys_msg_reg(home_sys_msg_cb);
 
 	create_key_tone();
 	tui_point_trigger_cb_reg(indev_point_trigger);
 
-	/* TUI´¦ÀíÆ÷ */
+	/* TUIå¤„ç†å™¨ */
 	while (g_loop_flag) {
 		tui_run_loop();
 	}
@@ -384,7 +377,7 @@ int home_create(void)
 	if (sound_tone)
 		tui_obj_del(sound_tone);
 
-	/* ÊÍ·ÅTUI×ÊÔ´ÍË³ö */
+	/* é‡Šæ”¾TUIèµ„æºé€€å‡º */
 	tui_end_uninit();
 	
 	return 0;
