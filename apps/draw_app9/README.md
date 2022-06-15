@@ -4,7 +4,7 @@
 这个app里面只有画板控件的使用。
 
 <p align="center">
-<img src="https://gitee.com/tuisys/image/raw/main/draw.gif">
+<img src="https://i.postimg.cc/sfpjvgs7/draw.gif">
 </p>
 <p align="center">
 画板控件应用例子展示
