@@ -4,7 +4,7 @@
 这个app里面有列表控件、下拉菜单控件等控件的使用，多国语言的使用。
 
 <p align="center">
-<img src="https://gitee.com/tuisys/image/raw/main/setting.gif">
+<img src="https://i.postimg.cc/5txvkRgk/setting.gif">
 </p>
 <p align="center">
 各个控件应用例子展示
