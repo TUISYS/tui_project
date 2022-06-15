@@ -4,7 +4,7 @@
 这个app里面有弧形控件、图片控件动画、标签控件、以及定时器的使用。
 
 <p align="center">
-<img src="https://gitee.com/tuisys/image/raw/main/arc.gif">
+<img src="https://i.postimg.cc/rwyw626W/arc.gif">
 </p>
 <p align="center">
 各个控件应用例子展示
