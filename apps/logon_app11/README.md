@@ -4,7 +4,7 @@
 这个app里面使用了比较多得控件主要有文本输入框控件、复选框控件、表格控件、以及标签中文输入发的使用。
 
 <p align="center">
-<img src="https://i.postimg.cc/SN2GW316/logon.gif">
+<img src="https://s1.imagehub.cc/images/2022/06/16/logon.gif">
 </p>
 <p align="center">
 各个控件应用例子展示
