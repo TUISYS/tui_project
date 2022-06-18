@@ -1,18 +1,23 @@
 #include "tui.h"
 #ifdef AW_MELIS
+#ifndef AW_MELIS4
 #include "epdk.h"
+#endif
 #endif
 
 static tui_obj_t * this_app_obj;
 #ifdef AW_MELIS
+#ifndef AW_MELIS4
 static ES_FILE  *hdle = NULL;
 static __ev_tp_pos_t *cross_pos;
+#endif
 #endif
 
 tui_obj_t * adjust_adjust_view_view_create(void);
 static void adjust_exit(void);
 
 #ifdef AW_MELIS
+#ifndef AW_MELIS4
 static int tpdrv_open(void)
 {
 	hdle = eLIBs_fopen("b:\\input\\TP", "r+");
@@ -154,6 +159,7 @@ static void adjust_thread_entry(void *parameter)
 	return;
 }
 #endif
+#endif
 
 static int32_t adjust_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 {
@@ -233,7 +239,9 @@ tui_obj_t * adjust_enter(void)
 	
 	this_app_obj = adjust_adjust_view_view_create();
 #ifdef AW_MELIS
+#ifndef AW_MELIS4
 	esKRNL_TCreate(adjust_thread_entry, NULL, 0x800, KRNL_priolevel4);
+#endif
 #endif
 	return this_app_obj;
 }
@@ -242,6 +250,8 @@ static void adjust_exit(void)
 {
 	tui_sys_msg_unreg(adjust_sys_msg_cb);
 #ifdef AW_MELIS
+#ifndef AW_MELIS4
 	tpdrv_close();
+#endif
 #endif
 }

@@ -296,10 +296,15 @@ void tui_group_focus_obj(tui_obj_t * obj);
 tui_obj_t * tui_group_get_focused(void);
 
 /*------------------------
- *  调试信息
+ *  调试方法
  *------------------------*/
 void tui_dbg_core_information_dump(void);
 void tui_pointer_run_auto_test(char *rec_path, int is_loop_run);
+
+/*------------------------
+ *  视频图层使能
+ *------------------------*/
+void tui_video_screen_transp(bool able);        /* TUI图层透明设置，透明后CPU负荷会增加，视频图层能叠加UI */
 
 /*------------------------
  *  所有object对象的根节点
