@@ -1,6 +1,7 @@
 #ifdef AW_MELIS4
 
 #include <kapi.h>
+#include "elibs_stdio.h"
 
 int home_create(char *res_path);
 

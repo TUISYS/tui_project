@@ -1,4 +1,4 @@
-ccflags-y   +=  -I$(srctree)/emodules/mod_test/includes\
+ccflags-y   +=  -I$(srctree)/emodules/tui_project/includes\
                 -DAW_MELIS
 ccflags-y   +=  -DAW_MELIS4
 
@@ -21,16 +21,6 @@ usrlibs-y += -L$(srctree) \
 objy += ./magic.o
 objy += ./main.o
 objy += ./mod_test.o
-
-objy += ../../component/calendar.o
-objy += ../../component/chart.o
-objy += ../../component/clock.o
-objy += ../../component/component_reg.o
-objy += ../../component/dial.o
-objy += ../../component/msgbox.o
-objy += ../../component/template.o
-objy += ../../component/volti.o
-
 
 objy  += ../../apps/home/view/login_view.o
 objy  += ../../apps/uart_app7/uart_app7.o
