@@ -20,7 +20,7 @@
 * :file_folder:**“apps”**&ensp;&ensp;&ensp;&ensp;文件夹，里面存放了用户的逻辑代码，代码兼容各个系统平台。其中每个app里面的view视图代码是uistudio工具自动生成。
 * :file_folder:**“includes”**&ensp;文件夹，里面存放了TUI所有接口函数头文件[“查看相关详细说明”](./includes/)。
 * :file_folder:**“platform”**&ensp;文件夹，里面存放各个OS系统平台的工程编译入口文件夹（*melis、vc++、tina、linux*）。
-* :file_folder:**“component”**&ensp;文件夹，里面存放开源的组件代码，都是TUI内核函数和基础控件实现的组件。**（可选）**
+* ~~:file_folder:**“component”**&ensp;文件夹，里面存放开源的组件代码，都是TUI内核函数和基础控件实现的组件。**（可选）**~~
 * :file_folder:**“res”**&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;文件夹被uistudio使用，里面存放app开发的资源字体、图片、多国语言、视图布局结构、声音等其它应用资源。
 * :file_folder:**“uistudio”**&ensp;&ensp;文件夹里面存放所见即所得工具所需要的工程文件。
 * :handbag:**“res.disk”**&ensp;&ensp;镜像包，该文件是uistudio工具，把res里面的资源处理后打包制作成一个**镜像资源文件**。<br>
