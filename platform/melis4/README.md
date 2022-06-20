@@ -2,7 +2,7 @@
 
 ## 注意事项：
 * 注意查看`MakeFile`对应的路径修改，需要根据自己平台的SDK适当调整
-* 支持F133芯片
+* 支持`F133`芯片
 ```
 #头文件路径，定义AW_MELIS和AW_MELIS4宏定义
 ccflags-y   +=  -I$(srctree)/emodules/tui_project/includes\
