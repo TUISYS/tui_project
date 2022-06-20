@@ -1,7 +1,8 @@
-<h1 align="center"> 全志MELIS嵌入式平台说明 </h1>
+<h1 align="center"> 全志MELIS2.0嵌入式平台说明 </h1>
 
 ## 注意事项：
 * 将:file_folder:tui_project工程文件夹，放到melis应用路径下面`.\livedesk\beetles`。
+* 支持`F1C100`、`F1C200`等平台
 * 通过`cygwin`，`cd`进入`.\tui_project\platform\melis`执行命令`make clean;make`。
 * 在根目录`tui_project`下会生成`app_tui.axf`，该文件是melis嵌入式系统的可执行文件。
 * 把生成的`app_tui.axf`和`res.disk`放进U盘，执行命令`run F:/app_tui.axf`，就可以运行看到效果了。<br>
