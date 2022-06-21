@@ -4,10 +4,10 @@ ROOT    = .
 INCLUDES =  -I$(ROOT)/../../includes\
 
 
-LOCALTARGET = tui_demo
+LOCALTARGET = $(ROOT)/../../app_tui
 
 CC        = gcc
-CFLAGS    = -DLINUX $(INCLUDES)
+CFLAGS    = -DLINUX_GCC $(INCLUDES)
 TUI_LIB   = ./lib/libtui.a
 
 

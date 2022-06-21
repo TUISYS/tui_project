@@ -2,9 +2,9 @@ ccflags-y   +=  -I$(srctree)/emodules/tui_project/includes\
                 -DAW_MELIS
 ccflags-y   +=  -DAW_MELIS4
 
-MOD_NAME := ftest
+MOD_NAME := app_tui
 SUF_NAME := mod
-PRJ_PATH := $(srctree)/projects/${TARGET_BOARD}/data/UDISK/mod/
+PRJ_PATH := $(srctree)/emodules/tui_project/
 TEMP_PATH := $(srctree)/emodules/staging
 
 usrlibs-y += -L$(srctree) \

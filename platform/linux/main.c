@@ -1,5 +1,5 @@
 
-#ifdef LINUX
+#ifdef LINUX_GCC
 
 extern int home_create(char *res_path);
 

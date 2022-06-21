@@ -4,7 +4,7 @@ ROOT    = .
 INCLUDES =  -I$(ROOT)/../../includes\
 
 
-LOCALTARGET = tui_demo
+LOCALTARGET = $(ROOT)/../../app_tui
 
 CC        = /home/tina/f133/prebuilt/gcc/linux-x86/riscv/toolchain-thead-glibc/riscv64-glibc-gcc-thead_20200702/bin/riscv64-unknown-linux-gnu-gcc
 CFLAGS    = -DLINUX_TINA $(INCLUDES)
