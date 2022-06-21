@@ -10,6 +10,8 @@
     "stopbits": 0
   },
   "screen_rotate": 0,
+  "mouse_icon": 0,
+  "cpu_mem_lable": 1,
   "language": 1,
   "ers_id": "VjIuMA==",
   "ass_id": "",
