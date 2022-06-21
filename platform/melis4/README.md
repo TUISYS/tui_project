@@ -2,7 +2,8 @@
 
 ## 注意事项：
 * 注意查看`MakeFile`对应的路径修改，需要根据自己平台的SDK适当调整
-* 支持`F133`芯片
+* `melis4/lib/libtui.a`库文件需要放到对应的SDK存放库文件夹的目录
+* 支持全志`F133`芯片
 ```
 #头文件路径，定义AW_MELIS和AW_MELIS4宏定义
 ccflags-y   +=  -I$(srctree)/emodules/tui_project/includes\
