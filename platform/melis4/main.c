@@ -5,7 +5,7 @@
 
 int home_create(char *res_path);
 
-void tui_run(void)
+void app_tui(void)
 {
 	home_create("F:\\res.disk");
 
