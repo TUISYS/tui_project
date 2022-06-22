@@ -34,14 +34,14 @@
 #include <mod_defs.h>
 #include <kapi.h>
 
-void tui_run(void);
+void app_tui(void);
 
 __mp ftest_mp = {0, 0};
 
 
 void mod_test_thread(void *para)
 {
-	tui_run();
+	app_tui();
 }
 
 /*
