@@ -5,7 +5,7 @@
 
 int home_create(char *res_path);
 
-void app_tui(void)
+int app_tui(void *p_arg)
 {
 	home_create("F:\\res.disk");
 
@@ -18,5 +18,7 @@ void app_tui(void)
 	esKRNL_TDel(OS_PRIO_SELF);
 
 	esKRNL_TimeDly(100);
+	
+	return EPDK_OK;
 }
 #endif
