@@ -34,7 +34,7 @@
 #include <mod_defs.h>
 #include <kapi.h>
 
-void app_tui(void);
+int app_tui(void *p_arg);
 
 __mp ftest_mp = {0, 0};
 
