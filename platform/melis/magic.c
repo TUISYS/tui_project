@@ -16,7 +16,7 @@
 #ifndef AW_MELIS4
 #include "epdk.h"
 
-extern __s32 app_tui(void *p_arg);
+extern int app_tui(void *p_arg);
 #pragma arm section rodata="MAGIC"
 const __exec_mgsec_t exfinfo =
 {
