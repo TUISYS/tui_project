@@ -2,5 +2,6 @@
 
 ## 注意事项：
 * 采用的gcc编译链，可以`make clean`或者`make`，在根目录`tui_project`下会生成可执行文件`app_tui`
+* 在main()函数调用应用接口的时候会把res.disk资源路径传进去
 * 显示部分采用`"/dev/fb0"`
 * 触摸部分采用`"/dev/input/event0"`
