@@ -41,7 +41,7 @@ __mp ftest_mp = {0, 0};
 
 void mod_test_thread(void *para)
 {
-	app_tui();
+	app_tui(NULL);
 }
 
 /*

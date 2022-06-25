@@ -7,7 +7,7 @@ int home_create(char *res_path);
 
 int app_tui(void *p_arg)
 {
-	home_create("F:\\res.disk");
+	home_create("d:\\res\\res.disk");
 
 	/* kill app_tui self */
 	esEXEC_PDel(EXEC_pidself);
