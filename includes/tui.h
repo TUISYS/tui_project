@@ -311,6 +311,7 @@ void tui_video_screen_transp(bool able);        /* TUIÍ¼²ãÍ¸Ã÷ÉèÖÃ£¬Í¸Ã÷ºóCPU¸ºº
  *------------------------*/
 tui_obj_t * tui_layer_normal(void);             /* ÆÕÍ¨¸ù½Úµã¶ÔÏóÍ¼²ã */
 tui_obj_t * tui_layer_top(void);                /* ÁíÍâÒ»¸ö£¬ÖÃ¶¥¸ù½Úµã¶ÔÏóÍ¼²ã */
+
 /*------------------------
  *  object¶ÔÏóÊôĞÔ
  *------------------------*/
@@ -564,6 +565,7 @@ int tui_bar_progress_set_attri(tui_obj_t *bar_progress, tui_bar_progress_attri_t
 int tui_bar_progress_get_attri(tui_obj_t *bar_progress, tui_bar_progress_attri_t *attri);
 int16_t tui_bar_progress_get_value(tui_obj_t *bar_progress);
 void tui_bar_progress_set_value(tui_obj_t *bar_progress, int16_t vaule);
+void tui_bar_set_range(tui_obj_t *bar_progress, int16_t min, int16_t max);
 
 /*------------------------
  *  bar_slider»¬Ìõ
@@ -600,6 +602,7 @@ int tui_bar_slider_get_attri(tui_obj_t *bar_slider, tui_bar_slider_attri_t *attr
 void tui_bar_slider_set_knob_disable_move(tui_obj_t *bar_slider);
 int16_t tui_bar_slider_get_value(tui_obj_t *bar_slider);
 void tui_bar_slider_set_value(tui_obj_t *bar_slider, int16_t vaule);
+void tui_bar_slider_set_range(tui_obj_t *bar_slider, int16_t min, int16_t max);
 
 /*------------------------
  *  button°´¼ü
