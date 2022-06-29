@@ -2,7 +2,7 @@
 
 ## 注意事项：
 * 将:file_folder:tui_project工程文件夹，放到melis应用路径下面`.\livedesk\beetles`。
-* 支持`F1C100`、`F1C200`等平台
+* 支持`F1C100s`、`F1C200s`等平台
 * 通过`cygwin`，`cd`进入`.\tui_project\platform\melis`执行命令`make clean;make`。
 * 在根目录`tui_project`下会生成`app_tui.axf`，该文件是melis嵌入式系统的可执行文件。
 * 在app_tui()函数调用应用接口的时候会把res.disk资源路径传进去
