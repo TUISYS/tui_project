@@ -352,7 +352,7 @@ int home_create(char *res_path)
 	
 	g_exit_flag = 0;
 	g_loop_flag = 1;
-
+#if 0
 	tp_config = fopen("E:\\tpcfg.ini", "rb");
 
 	if (tp_config) {
@@ -362,6 +362,9 @@ int home_create(char *res_path)
 		/* 创建logo界面视图 */
 		this_adjust_obj = adjust_enter();
 	}
+#else
+    tui_sys_msg_send(TUI_USER_MSG_APP_ADJUT_OK, NULL, NULL);
+#endif
 	
 	/* 注册home界面系统消息回调函数 */
 	tui_sys_msg_reg(home_sys_msg_cb);

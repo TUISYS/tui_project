@@ -12,8 +12,8 @@
 * Version : V1.00
 *********************************************************************************************************
 */
-#ifdef AW_MELIS
-#ifndef AW_MELIS4
+#ifdef AW_MELIS2
+
 #include "epdk.h"
 
 extern int app_tui(void *p_arg);
@@ -35,5 +35,5 @@ const __exec_mgsec_t exfinfo =
     KRNL_priolevel1		
 };
 #pragma arm section 
-#endif
+
 #endif

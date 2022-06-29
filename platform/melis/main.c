@@ -1,5 +1,4 @@
-#ifdef AW_MELIS
-#ifndef AW_MELIS4
+#ifdef AW_MELIS2
 
 #include "epdk.h"
 
@@ -22,5 +21,4 @@ int app_tui(void *p_arg)
 	return EPDK_OK;
 }
 
-#endif /* AW_MELIS4 */
 #endif
