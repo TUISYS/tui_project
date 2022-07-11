@@ -619,12 +619,17 @@ typedef struct {
         uint32_t bg_color;                      /* 外部配置，按键的背景颜色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
         uint32_t border_color;                  /* 外部配置，按键的边框颜色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
         uint32_t border_width;                  /* 外部配置，按键的边框线宽度 */
+		bool radius;                            /* 外部配置，是否有圆角 */
+		bool shadow;                            /* 外部配置，是否有立体阴影 */
+		bool zoom;                              /* 外部配置，是否点击缩放 */
+		uint32_t click_color;                   /* 外部配置，按键点击的背景颜色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
 } tui_button_attri_t;
 tui_obj_t * tui_button_create(tui_obj_t * par);
 int tui_button_set_attri(tui_obj_t *button, tui_button_attri_t *attri);
 int tui_button_get_attri(tui_obj_t *button, tui_button_attri_t *attri);
 void tui_button_set_shadow(tui_obj_t *button, bool able);
 void tui_button_set_click_zoom(tui_obj_t *button, bool able);
+void tui_button_set_pressed_color(tui_obj_t *button, uint32_t color);
 
 /*------------------------
  *  image_btn图片按键
@@ -884,6 +889,38 @@ uint16_t tui_dropdown_get_selected_index(tui_obj_t *dropdown);
 void tui_dropdown_set_selected_index(tui_obj_t *dropdown, int16_t index);
 void tui_dropdown_set_symbol(tui_obj_t *dropdown, bool able);
 void tui_dropdown_set_max_height(tui_obj_t *dropdown, tui_coord_t h);
+
+/*------------------------
+ *  roller滚筒选择
+ *------------------------*/
+typedef void(*tui_roller_cb_t)(tui_obj_t *obj, tui_event_e event, int16_t index);
+typedef struct {
+	/* 通用属性 */
+	tui_object_attri_t obj;
+	/* 点击触发回调函数，返回当前索引值 */
+	tui_roller_cb_t cb;
+	/* 供内部使用 */
+	tui_style_t bg_style;
+	/* 供内部使用 */
+	tui_style_t select_style;
+
+	int16_t cur_index;                      /* 外部配置，当前滚筒选择的索引值 */
+	int16_t options_num;                    /* 外部配置，当前滚筒选择的个数 */
+	char options[512];                      /* 外部配置，滚筒选择的文本设置,字符不要设置超过512,\n为分割符，如："0\n1\n2\n3\n4\n5\n6\n7\n8\n9" */
+	uint32_t bg_color;                      /* 外部配置，滚筒选择的底色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
+	uint32_t select_color;                  /* 外部配置，滚筒选择的选择色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
+	uint32_t text_color;                    /* 外部配置，滚筒选择的字符颜色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
+	int16_t text_font_size;                 /* 外部配置，滚筒选择字符字体大小 */
+	uint32_t select_text_color;             /* 外部配置，滚筒选择选中的字符颜色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
+	int16_t select_text_font_size;          /* 外部配置，滚筒选择选中字符字体大小 */
+} tui_roller_attri_t;
+tui_obj_t * tui_roller_create(tui_obj_t * par);
+int tui_roller_set_attri(tui_obj_t *roller, tui_roller_attri_t *attri);
+int tui_roller_get_attri(tui_obj_t *roller, tui_roller_attri_t *attri);
+void tui_roller_set_selected_str(tui_obj_t *roller, const char * options);
+const char *tui_roller_get_selected_str(tui_obj_t *roller);
+uint16_t tui_roller_get_selected_index(tui_obj_t *roller);
+void tui_roller_set_selected_index(tui_obj_t *roller, int16_t index);
 
 /*------------------------
  *  textbox文本输入框
