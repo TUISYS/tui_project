@@ -347,6 +347,10 @@ int home_create(char *res_path)
 {
 	FILE* tp_config;
 	
+	/* 使能TUI组件，用户不用关心 */
+#ifdef TUI_COMPONENT_ENABEL
+	tui_com_reg_func_map();
+#endif	
 	/* 初始化TUI资源 */
 	tui_start_init(res_path);
 	
