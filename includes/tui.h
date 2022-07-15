@@ -215,6 +215,7 @@ typedef int32_t (*tui_sys_msg_cb_t)(uint32_t cmd, void *param0, void *param1);
 int32_t tui_sys_msg_reg(tui_sys_msg_cb_t cb);
 int32_t tui_sys_msg_unreg(tui_sys_msg_cb_t cb);
 int32_t tui_sys_msg_send(uint32_t cmd, void *param0, void *param1);
+int32_t tui_sys_msg_send_sync(uint32_t cmd, void *param0, void *param1);
 int32_t tui_sys_msg_send_dly(uint32_t cmd, uint32_t dly_ms, void *param0, void *param1);
 
 /*------------------------
@@ -328,8 +329,10 @@ typedef struct {
 /*------------------------
  *  创建和销毁object对象
  *------------------------*/
+typedef void(*tui_obj_del_cb_t)(void);
 tui_obj_t * tui_obj_create(tui_obj_t * parent);
 void tui_obj_del(tui_obj_t * obj);
+void tui_obj_set_del_cb(tui_obj_t * obj, tui_obj_del_cb_t cb);
 /*------------------------
  *  object对象set
  *------------------------*/
@@ -400,8 +403,8 @@ typedef void (*tui_container_cb_t)(tui_obj_t *obj, tui_event_e event);
 typedef struct {
         /* 通用属性 */
         tui_object_attri_t obj;
-		/* 组件属性 */
-		void *attri_com;
+        /* 组件属性 */
+        void *attri_com;
         /* 容器回调函数，返回当前事件 */
         tui_container_cb_t cb;
 
@@ -505,6 +508,27 @@ void tui_label_set_align_bottom(tui_obj_t * label, bool able);
 void tui_label_set_input_able(tui_obj_t * label, bool able);
 
 /*------------------------
+ *  led灯
+ *------------------------*/
+typedef void(*tui_led_cb_t)(tui_obj_t *obj, tui_event_e event);
+typedef struct {
+        /* 通用属性 */
+        tui_object_attri_t obj;
+        /* 点击触发回调函数，返回当前事件 */
+        tui_led_cb_t cb;
+
+        uint32_t bg_color;                      /* 外部配置，灯的背景颜色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
+        uint32_t shadow_color;                  /* 外部配置，灯光的颜色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
+        uint32_t shadow_width;                  /* 外部配置，灯光的范围 */
+        int16_t bright;                         /* 外部配置，灯光的亮度0~100 */
+} tui_led_attri_t;
+tui_obj_t * tui_led_create(tui_obj_t * par);
+int tui_led_set_attri(tui_obj_t *led, tui_led_attri_t *attri);
+int tui_led_get_attri(tui_obj_t *led, tui_led_attri_t *attri);
+void tui_led_set_bright(tui_obj_t *led, int16_t bright);
+int16_t tui_led_get_bright(tui_obj_t *led);
+
+/*------------------------
  *  arc弧形
  *------------------------*/
 /*       .0
@@ -576,11 +600,11 @@ typedef struct {
         tui_object_attri_t obj;
         /* 滑动触发回调函数，返回当前值 */
         tui_bar_slider_cb_t cb;
-		tui_obj_t *bg_img_obj;
-		tui_obj_t *fg_img_obj;
-		tui_obj_t *knob_img_obj;
-		bool is_img;
-		bool is_hor;
+        tui_obj_t *bg_img_obj;
+        tui_obj_t *fg_img_obj;
+        tui_obj_t *knob_img_obj;
+        bool is_img;
+        bool is_hor;
         /* 供内部使用 */
         tui_style_t knob_style;
         /* 供内部使用 */
@@ -591,9 +615,9 @@ typedef struct {
         uint32_t fg_color;                      /* 外部配置，滑条的前景色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
         uint32_t knob_color;                    /* 外部配置，滑块的控钮色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
 
-		char *bg_img_path;                   /* 外部配置，滑条的底色图片 */
-		char *fg_img_path;                   /* 外部配置，滑条的前景色图片 */
-		char *knob_img_path;                 /* 外部配置，滑块的控钮图片 */
+        char *bg_img_path;                      /* 外部配置，滑条的底色图片 */
+        char *fg_img_path;                      /* 外部配置，滑条的前景色图片 */
+        char *knob_img_path;                    /* 外部配置，滑块的控钮图片 */
 } tui_bar_slider_attri_t;
 tui_obj_t * tui_bar_slider_create(tui_obj_t * par);
 tui_obj_t * tui_bar_slider_create_ext(tui_obj_t * par, bool is_img);
@@ -619,10 +643,10 @@ typedef struct {
         uint32_t bg_color;                      /* 外部配置，按键的背景颜色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
         uint32_t border_color;                  /* 外部配置，按键的边框颜色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
         uint32_t border_width;                  /* 外部配置，按键的边框线宽度 */
-		bool radius;                            /* 外部配置，是否有圆角 */
-		bool shadow;                            /* 外部配置，是否有立体阴影 */
-		bool zoom;                              /* 外部配置，是否点击缩放 */
-		uint32_t click_color;                   /* 外部配置，按键点击的背景颜色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
+        bool radius;                            /* 外部配置，是否有圆角 */
+        bool shadow;                            /* 外部配置，是否有立体阴影 */
+        bool zoom;                              /* 外部配置，是否点击缩放 */
+        uint32_t click_color;                   /* 外部配置，按键点击的背景颜色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
 } tui_button_attri_t;
 tui_obj_t * tui_button_create(tui_obj_t * par);
 int tui_button_set_attri(tui_obj_t *button, tui_button_attri_t *attri);
@@ -643,11 +667,11 @@ typedef struct {
         /* 供内部使用 */
         bool pressed;
         /* 所有图片buffer保存，供内部使用 */
-		void *img_pressed[16];
-		int8_t img_pressed_type[16];
+        void *img_pressed[16];
+        int8_t img_pressed_type[16];
         /* 所有图片buffer保存，供内部使用 */
-		void *img_release[16];
-		int8_t img_release_type[16];
+        void *img_release[16];
+        int8_t img_release_type[16];
 
         int16_t img_index;                      /* 外部配置，图片按键，当前图片的索引 */
         int16_t img_num;                        /* 外部配置，图片按键，有多少张图片总和, 不要超过16张图片 */
@@ -812,13 +836,13 @@ typedef struct {
         /* 通用属性 */
         tui_object_attri_t obj;
         /* 线回调函数，返回当事件 */
-		tui_line_cb_t cb;
-		/* 多点线，供内部使用 */
-		tui_point_t *point_a[2];
-		/* 多点线，供内部使用 */
-		uint16_t point_num;
-		/* 多点线，供内部使用 */
-		uint16_t point_index;
+        tui_line_cb_t cb;
+        /* 多点线，供内部使用 */
+        tui_point_t *point_a[2];
+        /* 多点线，供内部使用 */
+        uint16_t point_num;
+        /* 多点线，供内部使用 */
+        uint16_t point_index;
 
         uint32_t width;                         /* 外部配置，线的宽度 */
         uint32_t color;                         /* 外部配置，线的颜色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
@@ -846,7 +870,7 @@ typedef struct {
         /* 供内部使用 */
         tui_style_t fg_style;
 
-		bool value;                             /* 外部配置，切换开关的值 ，0或者1*/
+        bool value;                             /* 外部配置，切换开关的值 ，0或者1*/
         uint32_t bg_color;                      /* 外部配置，切换开关的底色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
         uint32_t fg_color;                      /* 外部配置，切换开关的前景色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
         uint32_t knob_color;                    /* 外部配置，切换开关的按钮色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
@@ -895,24 +919,24 @@ void tui_dropdown_set_max_height(tui_obj_t *dropdown, tui_coord_t h);
  *------------------------*/
 typedef void(*tui_roller_cb_t)(tui_obj_t *obj, tui_event_e event, int16_t index);
 typedef struct {
-	/* 通用属性 */
-	tui_object_attri_t obj;
-	/* 点击触发回调函数，返回当前索引值 */
-	tui_roller_cb_t cb;
-	/* 供内部使用 */
-	tui_style_t bg_style;
-	/* 供内部使用 */
-	tui_style_t select_style;
+        /* 通用属性 */
+        tui_object_attri_t obj;
+        /* 点击触发回调函数，返回当前索引值 */
+        tui_roller_cb_t cb;
+        /* 供内部使用 */
+        tui_style_t bg_style;
+        /* 供内部使用 */
+        tui_style_t select_style;
 
-	int16_t cur_index;                      /* 外部配置，当前滚筒选择的索引值 */
-	int16_t options_num;                    /* 外部配置，当前滚筒选择的个数 */
-	char options[512];                      /* 外部配置，滚筒选择的文本设置,字符不要设置超过512,\n为分割符，如："0\n1\n2\n3\n4\n5\n6\n7\n8\n9" */
-	uint32_t bg_color;                      /* 外部配置，滚筒选择的底色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
-	uint32_t select_color;                  /* 外部配置，滚筒选择的选择色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
-	uint32_t text_color;                    /* 外部配置，滚筒选择的字符颜色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
-	int16_t text_font_size;                 /* 外部配置，滚筒选择字符字体大小 */
-	uint32_t select_text_color;             /* 外部配置，滚筒选择选中的字符颜色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
-	int16_t select_text_font_size;          /* 外部配置，滚筒选择选中字符字体大小 */
+        int16_t cur_index;                      /* 外部配置，当前滚筒选择的索引值 */
+        int16_t options_num;                    /* 外部配置，当前滚筒选择的个数 */
+        char options[1024];                     /* 外部配置，滚筒选择的文本设置,字符不要设置超过512,\n为分割符，如："0\n1\n2\n3\n4\n5\n6\n7\n8\n9" */
+        uint32_t bg_color;                      /* 外部配置，滚筒选择的底色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
+        uint32_t select_color;                  /* 外部配置，滚筒选择的选择色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
+        uint32_t text_color;                    /* 外部配置，滚筒选择的字符颜色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
+        int16_t text_font_size;                 /* 外部配置，滚筒选择字符字体大小 */
+        uint32_t select_text_color;             /* 外部配置，滚筒选择选中的字符颜色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
+        int16_t select_text_font_size;          /* 外部配置，滚筒选择选中字符字体大小 */
 } tui_roller_attri_t;
 tui_obj_t * tui_roller_create(tui_obj_t * par);
 int tui_roller_set_attri(tui_obj_t *roller, tui_roller_attri_t *attri);
@@ -932,7 +956,7 @@ typedef struct {
         /* 输入触发回调函数，返回当前字符串 */
         tui_textbox_cb_t cb;
 
-        bool pwd_able;                  /* 外部配置，文本输入框模式，是否是密码输入 */
+        bool pwd_able;                          /* 外部配置，文本输入框模式，是否是密码输入 */
         char *accepted_chars;                   /* 外部配置，文本输入框可以输入的字符限制， 空是支持所有字符 */
 } tui_textbox_attri_t;
 tui_obj_t * tui_textbox_create(tui_obj_t * par);
