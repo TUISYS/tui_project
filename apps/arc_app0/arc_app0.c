@@ -62,7 +62,6 @@ static int32_t arc_app0_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 	{
 		case TUI_USER_MSG_APP_BACK:
 		case TUI_USER_MSG_APP_HOME:
-			arc_app0_exit();
 			tui_sys_msg_send(TUI_USER_MSG_APP_ENTER_HOME, NULL, NULL);
 			break;
 		default:
@@ -268,6 +267,7 @@ tui_obj_t * arc_app0_enter(void)
 	tui_sys_msg_reg(arc_app0_sys_msg_cb);
 
 	this_app_obj = arc_app0_arc_view_view_create();
+	tui_obj_set_del_cb(this_app_obj, arc_app0_exit);
 
 	tui_arc_set_rounded(tui_get_obj_from_id(this_app_obj, ARC_APP0_ARC_VIEW_ARC_28), 1);
 

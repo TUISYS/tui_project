@@ -16,7 +16,6 @@ static int32_t button_app1_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 	{
 	case TUI_USER_MSG_APP_BACK:
 	case TUI_USER_MSG_APP_HOME:
-		button_app1_exit();
 		tui_sys_msg_send(TUI_USER_MSG_APP_ENTER_HOME, NULL, NULL);
 		break;
 	case TUI_USER_MSG_APP1_BTN1:
@@ -65,6 +64,7 @@ tui_obj_t * button_app1_enter(void)
 	tui_sys_msg_reg(button_app1_sys_msg_cb);
 
 	this_app_obj = button_app1_button_view_view_create();
+	tui_obj_set_del_cb(this_app_obj, button_app1_exit);
 
 	return this_app_obj;
 }

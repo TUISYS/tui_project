@@ -15,7 +15,6 @@ static int32_t animation_app4_sys_msg_cb(uint32_t cmd, void *param0, void *param
 	{
 	case TUI_USER_MSG_APP_BACK:
 	case TUI_USER_MSG_APP_HOME:
-		animation_app4_exit();
 		tui_sys_msg_send(TUI_USER_MSG_APP_ENTER_HOME, NULL, NULL);
 		break;
 	case TUI_USER_MSG_APP4_BTN:
@@ -48,7 +47,7 @@ tui_obj_t * animation_app4_enter(void)
 	tui_sys_msg_reg(animation_app4_sys_msg_cb);
 
 	this_app_obj = animation_app4_animation_view_view_create();
-
+	tui_obj_set_del_cb(this_app_obj, animation_app4_exit);
 
 	return this_app_obj;
 }

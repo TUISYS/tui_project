@@ -16,7 +16,6 @@ static int32_t logon_app11_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 	{
 	case TUI_USER_MSG_APP_BACK:
 	case TUI_USER_MSG_APP_HOME:
-		logon_app11_exit();
 		tui_sys_msg_send(TUI_USER_MSG_APP_ENTER_HOME, NULL, NULL);
 		break;
 	case TUI_USER_MSG_APP11_SUBMIT:
@@ -46,6 +45,7 @@ tui_obj_t * logon_app11_enter(void)
 	tui_sys_msg_reg(logon_app11_sys_msg_cb);
 
 	this_app_obj = logon_app11_logon_view_view_create();
+	tui_obj_set_del_cb(this_app_obj, logon_app11_exit);
 
 	tui_label_set_align_mid(tui_get_obj_from_id(this_app_obj, LOGON_APP11_LOGON_VIEW_LABEL_230), 1);
 

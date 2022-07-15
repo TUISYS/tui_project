@@ -16,7 +16,6 @@ static int32_t draw_app9_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 	{
 	case TUI_USER_MSG_APP_BACK:
 	case TUI_USER_MSG_APP_HOME:
-		draw_app9_exit();
 		tui_sys_msg_send(TUI_USER_MSG_APP_ENTER_HOME, NULL, NULL);
 		break;
 	case TUI_USER_MSG_APP9_CLICK:
@@ -53,6 +52,7 @@ tui_obj_t * draw_app9_enter(void)
 	tui_sys_msg_reg(draw_app9_sys_msg_cb);
 
 	this_app_obj = draw_app9_draw_view_view_create();
+	tui_obj_set_del_cb(this_app_obj, draw_app9_exit);
 
 	this_draw_obj = tui_get_obj_from_id(this_app_obj, DRAW_APP9_DRAW_VIEW_CANVAS_190);
 	tui_obj_set_click(this_draw_obj, 1);

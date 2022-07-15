@@ -16,7 +16,6 @@ static int32_t line_app2_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 	{
 	case TUI_USER_MSG_APP_BACK:
 	case TUI_USER_MSG_APP_HOME:
-		line_app2_exit();
 		tui_sys_msg_send(TUI_USER_MSG_APP_ENTER_HOME, NULL, NULL);
 		break;
 	case TUI_USER_MSG_APP2_BTN1:
@@ -65,6 +64,7 @@ tui_obj_t * line_app2_enter(void)
 	tui_sys_msg_reg(line_app2_sys_msg_cb);
 
 	this_app_obj = line_app2_line_view_view_create();
+	tui_obj_set_del_cb(this_app_obj, line_app2_exit);
 
 	btn1_obj = tui_get_obj_from_id(this_app_obj, LINE_APP2_LINE_VIEW_CONTAINER_51);
 	tui_obj_set_ext_click_area(btn1_obj, 20, 20, 20, 20);

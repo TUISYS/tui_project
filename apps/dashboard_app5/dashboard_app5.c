@@ -20,7 +20,6 @@ static int32_t dashboard_app5_sys_msg_cb(uint32_t cmd, void *param0, void *param
 	{
 	case TUI_USER_MSG_APP_BACK:
 	case TUI_USER_MSG_APP_HOME:
-		dashboard_app5_exit();
 		tui_sys_msg_send(TUI_USER_MSG_APP_ENTER_HOME, NULL, NULL);
 		break;
 	case TUI_USER_MSG_APP5_ANGLE:
@@ -45,6 +44,7 @@ tui_obj_t * dashboard_app5_enter(void)
 	tui_sys_msg_reg(dashboard_app5_sys_msg_cb);
 
 	this_app_obj = dashboard_app5_dashboard_view_view_create();
+	tui_obj_set_del_cb(this_app_obj, dashboard_app5_exit);
 
 
 	return this_app_obj;

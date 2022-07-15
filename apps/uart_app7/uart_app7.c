@@ -38,7 +38,6 @@ static int32_t uart_app7_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 	{
 	case TUI_USER_MSG_APP_BACK:
 	case TUI_USER_MSG_APP_HOME:
-		uart_app7_exit();
 		tui_sys_msg_send(TUI_USER_MSG_APP_ENTER_HOME, NULL, NULL);
 		break;
 
@@ -73,6 +72,7 @@ tui_obj_t * uart_app7_enter(void)
 	tui_sys_msg_reg(uart_app7_sys_msg_cb);
 
 	this_app_obj = uart_app7_uart_view_view_create();
+	tui_obj_set_del_cb(this_app_obj, uart_app7_exit);
 
 	return this_app_obj;
 }

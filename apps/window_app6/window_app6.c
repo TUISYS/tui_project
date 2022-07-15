@@ -57,7 +57,6 @@ static int32_t window_app6_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 	{
 	case TUI_USER_MSG_APP_BACK:
 	case TUI_USER_MSG_APP_HOME:
-		window_app6_exit();
 		tui_sys_msg_send(TUI_USER_MSG_APP_ENTER_HOME, NULL, NULL);
 		break;
 	case TUI_USER_MSG_APP6_WIND1:
@@ -118,6 +117,7 @@ tui_obj_t * window_app6_enter(void)
 	tui_sys_msg_reg(window_app6_sys_msg_cb);
 
 	this_app_obj = window_app6_window_view_view_create();
+	tui_obj_set_del_cb(this_app_obj, window_app6_exit);
 
 	tui_point_trigger_cb_reg(window_app6_indev_point_trigger_cb);
 

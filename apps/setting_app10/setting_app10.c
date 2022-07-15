@@ -172,7 +172,6 @@ static int32_t setting_app10_sys_msg_cb(uint32_t cmd, void *param0, void *param1
 	{
 	case TUI_USER_MSG_APP_BACK:
 	case TUI_USER_MSG_APP_HOME:
-		setting_app10_exit();
 		tui_sys_msg_send(TUI_USER_MSG_APP_ENTER_HOME, NULL, NULL);
 		break;
 	case TUI_USER_MSG_APP10_LANG:
@@ -217,6 +216,7 @@ tui_obj_t * setting_app10_enter(void)
 	tui_sys_msg_reg(setting_app10_sys_msg_cb);
 
 	this_app_obj = setting_app10_setting_view_view_create();
+	tui_obj_set_del_cb(this_app_obj, setting_app10_exit);
 
 	this_app_list_obj = tui_get_obj_from_id(this_app_obj, SETTING_APP10_SETTING_VIEW_LIST_245);
 

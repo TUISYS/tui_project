@@ -14,7 +14,6 @@ static int32_t bar_app3_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 	{
 		case TUI_USER_MSG_APP_BACK:
 		case TUI_USER_MSG_APP_HOME:
-			bar_app3_exit();
 			tui_sys_msg_send(TUI_USER_MSG_APP_ENTER_HOME, NULL, NULL);
 			break;
 		case TUI_USER_MSG_APP3_BAR1:
@@ -41,6 +40,7 @@ tui_obj_t * bar_app3_enter(void)
 	tui_sys_msg_reg(bar_app3_sys_msg_cb);
 
 	this_app_obj = bar_app3_bar_view_view_create();
+	tui_obj_set_del_cb(this_app_obj, bar_app3_exit);
 
 	return this_app_obj;
 }
