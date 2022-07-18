@@ -124,6 +124,7 @@ static void setting_fs_items_loader(tui_timer_t * t)
 		tui_button_set_attri(btn, &attri);
 
 		label = tui_label_create(btn);
+		attri_label.obj.obj_id = 11;
 		attri_label.obj.pt.x = 38;
 		attri_label.obj.pt.y = 15;
 		attri_label.obj.size.width = 305 - 80;
@@ -167,6 +168,7 @@ static int32_t setting_app10_sys_msg_cb(uint32_t cmd, void *param0, void *param1
 {
 	char *tmp_str;
 	int index;
+	static int index_old = -1;
 
 	switch (cmd)
 	{
@@ -191,6 +193,11 @@ static int32_t setting_app10_sys_msg_cb(uint32_t cmd, void *param0, void *param1
 			this_app_fs_timer = tui_timer_create(setting_fs_items_loader, 1, TUI_TIMER_PRIO_MID, (void *)this_app_list_obj); /* 定时器加载列表项，避免500以上文件长时间卡住 */
 		} else {
 			printf("select file path : %s\\%s\n", cur_path, fs_items[index].name);
+			tui_label_set_long_mode(tui_get_obj_from_id(tui_list_get_btn_from_index(this_app_list_obj, index), 11), TUI_LABEL_LONG_SROLL_CIRC);
+			if (index_old != -1) {
+				tui_label_set_long_mode(tui_get_obj_from_id(tui_list_get_btn_from_index(this_app_list_obj, index_old), 11), TUI_LABEL_LONG_DOT);
+			}
+			index_old = index;
 		}
 		break;
 	case TUI_USER_MSG_APP10_FS_BACK:

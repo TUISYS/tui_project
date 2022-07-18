@@ -244,6 +244,7 @@ int tui_config_get_screen_rotate_angle(void);
  *------------------------*/
 int tui_get_language_num(void);
 void tui_set_language(int16_t lang_index);
+int16_t tui_get_language(void);
 const char * tui_get_language_utf8_string(const char *str_id);
 
 /*------------------------
