@@ -5,7 +5,7 @@ extern int home_create(char *res_path);
 
 int main(int argc, char** argv)
 {
-	/* 为UIStudio模拟显示使用 */
+	/* argc > 2 为UIStudio模拟显示使用，用户不用关心 */
 	if (argc > 2) {
 		/* 使能TUI组件，用户不用关心 */
 #ifdef TUI_COMPONENT_ENABEL
@@ -20,10 +20,11 @@ int main(int argc, char** argv)
 		}
 
 		tui_end_uninit();
+	} else {
+		home_create("../../res.disk");
 	}
-
-	home_create("../../res.disk");
 
 	return 0;
 }
+
 #endif

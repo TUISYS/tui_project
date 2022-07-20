@@ -20,7 +20,6 @@ usrlibs-y += -L$(srctree) \
 
 objy += ./magic.o
 objy += ./main.o
-objy += ./mod_test.o
 
 objy  += ../../apps/home/view/login_view.o
 objy  += ../../apps/uart_app7/uart_app7.o

@@ -33,13 +33,13 @@
 #include <typedef.h>
 #include <mod_defs.h>
 
-int32_t ftest_MInit(void);
-int32_t ftest_MExit(void);
-__mp *ftest_MOpen(uint32_t mid, uint32_t mode);
-int32_t ftest_MClose(__mp *mp);
-uint32_t ftest_MRead(void *pdata, uint32_t size, uint32_t n, __mp *mp);
-uint32_t ftest_MWrite(const void *pdata, uint32_t size, uint32_t n, __mp *mp);
-long ftest_MIoctrl(__mp *mp, uint32_t cmd, int32_t aux, void *pbuffer);
+int32_t app_tui_MInit(void);
+int32_t app_tui_MExit(void);
+__mp *app_tui_MOpen(uint32_t mid, uint32_t mode);
+int32_t app_tui_MClose(__mp *mp);
+uint32_t app_tui_MRead(void *pdata, uint32_t size, uint32_t n, __mp *mp);
+uint32_t app_tui_MWrite(const void *pdata, uint32_t size, uint32_t n, __mp *mp);
+long app_tui_MIoctrl(__mp *mp, uint32_t cmd, int32_t aux, void *pbuffer);
 
 const __module_mgsec_t __attribute__((section(".magic"))) FlashModInfo =
 {
@@ -50,13 +50,13 @@ const __module_mgsec_t __attribute__((section(".magic"))) FlashModInfo =
     0x400,                                    //.heapsize
     {
         //.mif
-        &ftest_MInit,
-        &ftest_MExit,
-        &ftest_MOpen,
-        &ftest_MClose,
-        &ftest_MRead,
-        &ftest_MWrite,
-        &ftest_MIoctrl
+        &app_tui_MInit,
+        &app_tui_MExit,
+        &app_tui_MOpen,
+        &app_tui_MClose,
+        &app_tui_MRead,
+        &app_tui_MWrite,
+        &app_tui_MIoctrl
     }
 };
 #endif
