@@ -1021,6 +1021,23 @@ uint16_t tui_list_get_size(const tui_obj_t * list);
 void tui_list_set_scrollbar_mode(tui_obj_t * list, tui_scrollbar_mode_e mode);
 
 /*------------------------
+ *  spinner下拉设置
+ *------------------------*/
+typedef void(*tui_spinner_cb_t)(tui_obj_t *obj, tui_event_e event);
+typedef struct {
+	/* 通用属性 */
+	tui_object_attri_t obj;
+	/* 屏幕滑动结束回调函数，返回当前屏幕索引值 */
+	tui_spinner_cb_t cb;
+
+	uint32_t bg_color;                      /* 外部配置，下拉设置的背景颜色（0xFF112233  FF是透明度；11是R；22是G；33是B） */
+} tui_spinner_attri_t;
+tui_obj_t * tui_spinner_create(tui_obj_t * par);
+int tui_spinner_set_attri(tui_obj_t *spinner, tui_spinner_attri_t *attri);
+int tui_spinner_get_attri(tui_obj_t *spinner, tui_spinner_attri_t *attri);
+void tui_spinner_set_show_state(bool is_out);
+
+/*------------------------
  *  multi_screen多屏控件
  *------------------------*/
 typedef void (*tui_multi_screen_cb_t)(tui_obj_t *obj, tui_event_e event, int16_t index);
