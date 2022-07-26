@@ -57,7 +57,7 @@ tui_obj_t * draw_app9_enter(void)
 	this_draw_obj = tui_get_obj_from_id(this_app_obj, DRAW_APP9_DRAW_VIEW_CANVAS_190);
 	tui_obj_set_click(this_draw_obj, 1);
 
-	/* »æÖÆº¯Êý */
+	/* Â»Ã¦Ã–Ã†ÂºÂ¯ÃŠÃ½ */
 	tui_canvas_fill_bg(this_draw_obj, TUI_ARGB_COLOR_MAKE(0x3f, 0xff, 0xff, 0));
 	tui_canvas_draw_pixel(this_draw_obj, 15, 15, TUI_ARGB_COLOR_MAKE(0xff, 0, 0, 0));
 	tui_canvas_draw_line(this_draw_obj, points, 3, 2, TUI_ARGB_COLOR_MAKE(0xff, 0xff, 0, 0));
