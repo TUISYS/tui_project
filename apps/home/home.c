@@ -1,7 +1,7 @@
 #include "tui.h"
 
 /*
- * 静态变量控制
+ * 静态变量控�?
  */
 static int g_loop_flag;
 static int g_exit_flag;
@@ -21,10 +21,9 @@ static tui_timer_t * date_timer;
 tui_obj_t * logo_logo_view_view_create(void);
 tui_obj_t * home_main_view_view_create(void);
 tui_obj_t * home_login_view_view_create(void);
-tui_obj_t * global_bar_status_bar_view_create(void);
 
 /*
- * 各个app的入口函数
+ * 各个app的入口函�?
  */
 tui_obj_t * adjust_enter(void);
 tui_obj_t * arc_app0_enter(void);
@@ -39,9 +38,11 @@ tui_obj_t * page_app8_enter(void);
 tui_obj_t * draw_app9_enter(void);
 tui_obj_t * setting_app10_enter(void);
 tui_obj_t * logon_app11_enter(void);
+tui_obj_t * global_bar_enter(void);
+tui_obj_t * logo_enter(void);
 
 /*
- * 状态栏时间刷新定时器回调函数
+ * 状态栏时间刷新定时器回调函�?
  */
 static void home_date_ref_cb(tui_timer_t * t)
 {
@@ -102,7 +103,7 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 		break;
 	case TUI_USER_MSG_APP_LOGO:
 		if (this_bar_status_obj == NULL) {
-			this_bar_status_obj = global_bar_status_bar_view_create();
+			this_bar_status_obj = global_bar_enter();
 			date_timer = tui_timer_create((tui_timer_cb_t)home_date_ref_cb, 500, TUI_TIMER_PRIO_MID, NULL);
 		}
 		if (this_home_obj == NULL)
@@ -323,10 +324,10 @@ static void create_key_tone(void)
 	/* 创建对象 */
 	sound_play_f = 0;
 	sound_tone = tui_sound_create(tui_layer_normal());
-	/* 设置属性 */
+	/* 设置属�?*/
 	tui_sound_set_attri(sound_tone, &attri_sound);
 	/* 设置音源 */
-	tui_sound_set_sound_src(sound_tone, "V:\\sound\\tone.wav");/* 确保加载了res.iso，并且路径文件存在 */
+	tui_sound_set_sound_src(sound_tone, "V:\\sound\\tone.wav");/* 确保加载了res.iso，并且路径文件存�?*/
 }
 
 static void indev_point_trigger(uint8_t state, int32_t x, int32_t y)
@@ -347,7 +348,7 @@ int home_create(char *res_path)
 {
 	FILE* tp_config;
 	
-	/* 使能TUI组件，用户不用关心 */
+	/* 使能TUI组件，用户不用关�?*/
 #ifdef TUI_COMPONENT_ENABEL
 	tui_com_reg_func_map();
 #endif	
@@ -376,7 +377,7 @@ int home_create(char *res_path)
 	create_key_tone();
 	tui_point_trigger_cb_reg(indev_point_trigger);
 
-	/* TUI处理器 */
+	/* TUI处理�?*/
 	while (g_loop_flag) {
 		tui_run_loop();
 	}
@@ -384,9 +385,10 @@ int home_create(char *res_path)
 	if (sound_tone)
 		tui_obj_del(sound_tone);
 
-	/* 释放TUI资源退出 */
+	/* 释放TUI资源退�?*/
 	tui_end_uninit();
 	
 	return 0;
 }
+
 

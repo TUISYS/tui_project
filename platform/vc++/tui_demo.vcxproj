@@ -83,6 +83,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\apps\draw_app9\draw_app9.c" />
+    <ClCompile Include="..\..\apps\global_bar\global_bar.c" />
     <ClCompile Include="..\..\apps\home\view\login_view.c" />
     <ClCompile Include="..\..\apps\uart_app7\uart_app7.c" />
     <ClCompile Include="..\..\apps\uart_app7\view\uart_view.c" />
@@ -98,7 +100,6 @@
     <ClCompile Include="..\..\apps\button_app1\view\button_view.c" />
     <ClCompile Include="..\..\apps\dashboard_app5\dashboard_app5.c" />
     <ClCompile Include="..\..\apps\dashboard_app5\view\dashboard_view.c" />
-    <ClCompile Include="..\..\apps\draw_app9\draw9_app.c" />
     <ClCompile Include="..\..\apps\draw_app9\view\draw_view.c" />
     <ClCompile Include="..\..\apps\global_bar\view\status_bar.c" />
     <ClCompile Include="..\..\apps\home\home.c" />
