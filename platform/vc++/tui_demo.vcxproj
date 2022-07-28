@@ -86,6 +86,7 @@
     <ClCompile Include="..\..\apps\draw_app9\draw_app9.c" />
     <ClCompile Include="..\..\apps\global_bar\global_bar.c" />
     <ClCompile Include="..\..\apps\home\view\login_view.c" />
+    <ClCompile Include="..\..\apps\home\view\spinner_view.c" />
     <ClCompile Include="..\..\apps\uart_app7\uart_app7.c" />
     <ClCompile Include="..\..\apps\uart_app7\view\uart_view.c" />
     <ClCompile Include="..\..\apps\adjust\adjust.c" />

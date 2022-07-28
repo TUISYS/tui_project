@@ -21,6 +21,7 @@ static tui_timer_t * date_timer;
 tui_obj_t * logo_logo_view_view_create(void);
 tui_obj_t * home_main_view_view_create(void);
 tui_obj_t * home_login_view_view_create(void);
+extern tui_obj_t * home_spinner_view_view_create(void);
 
 /*
  * 各个app的入口函�?
@@ -106,6 +107,9 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 			this_bar_status_obj = global_bar_enter();
 			date_timer = tui_timer_create((tui_timer_cb_t)home_date_ref_cb, 500, TUI_TIMER_PRIO_MID, NULL);
 		}
+		
+		home_spinner_view_view_create();
+
 		if (this_home_obj == NULL)
 			this_home_obj = home_main_view_view_create();
 
@@ -390,5 +394,6 @@ int home_create(char *res_path)
 	
 	return 0;
 }
+
 
 
