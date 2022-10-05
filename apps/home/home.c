@@ -1,7 +1,7 @@
 #include "tui.h"
 
 /*
- * 闈欐�佸彉閲忔帶鍒?
+ * 静态变量控制
  */
 static int g_loop_flag;
 static int g_exit_flag;
@@ -16,7 +16,7 @@ static uint8_t cur_app_index;
 static tui_timer_t * date_timer;
 
 /*
- * logo銆佷富鐣岄潰銆佺姸鎬佹爮瑙嗗浘鍒涘缓
+ * logo、主界面、状态栏视图创建
  */
 tui_obj_t * logo_logo_view_view_create(void);
 tui_obj_t * home_main_view_view_create(void);
@@ -24,7 +24,7 @@ tui_obj_t * home_login_view_view_create(void);
 extern tui_obj_t * home_spinner_view_view_create(void);
 
 /*
- * 鍚勪釜app鐨勫叆鍙ｅ嚱鏁?
+ * 各个app的入口函数
  */
 tui_obj_t * adjust_enter(void);
 tui_obj_t * arc_app0_enter(void);
@@ -43,7 +43,7 @@ tui_obj_t * global_bar_enter(void);
 tui_obj_t * logo_enter(void);
 
 /*
- * 鐘舵�佹爮鏃堕棿鍒锋柊瀹氭椂鍣ㄥ洖璋冨嚱鏁?
+ * 状态栏时间刷新定时器回调函数
  */
 static void home_date_ref_cb(tui_timer_t * t)
 {
@@ -52,7 +52,7 @@ static void home_date_ref_cb(tui_timer_t * t)
 		char time_str[20];
 		t = tui_get_localtime();
 		sprintf(time_str, "%d:%02d:%02d", t.hour, t.min, t.sec);
-		tui_label_set_txt(tui_get_obj_from_id(this_bar_status_obj, GLOBAL_BAR_STATUS_BAR_TIME_26), time_str);
+		tui_label_set_txt(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_TIME_26), time_str);
 	}
 }
 
@@ -62,8 +62,27 @@ static void yu_animation_object_anim_cb(tui_obj_t * obj)
 	tui_obj_anim_mov_x(tui_get_obj_from_id(this_logo_obj, LOGO_LOGO_VIEW_IMAGE_255), 1000, 480, 300, TUI_ANIM_PATH_LINEAR, NULL);
 }
 
+void tui_image_svg_test(tui_obj_t * par)
+{
+	tui_obj_t * obj;
+	tui_image_attri_t attri = { 0 };//注意先清空结构体，避免随机值
+
+	obj = tui_image_create(par);
+
+	/* 通用属性 */
+	attri.obj.pt.x = 300;
+	attri.obj.pt.y = 400;
+	attri.obj.size.width = 250;
+	attri.obj.size.height = 180;
+
+
+	tui_image_set_attri(obj, &attri);
+	tui_image_set_image_src(obj, 0, "V:/other/camera.svg");
+	tui_image_set_cur_img_index(obj, 0);
+}
+
 /*
- * home鐣岄潰绯荤粺娑堟伅鎺ユ敹鍥炶皟鍑芥暟
+ * home界面系统消息接收回调函数
  */
 static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 {	
@@ -99,6 +118,7 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 		}
 		if (this_logo_obj == NULL) {
 			this_logo_obj = logo_logo_view_view_create();
+			tui_image_svg_test(this_logo_obj);
 			tui_obj_anim_mov_x(tui_get_obj_from_id(this_logo_obj, LOGO_LOGO_VIEW_IMAGE_255), 1000, 300, 480, TUI_ANIM_PATH_EASE_OUT, yu_animation_object_anim_cb);
 		}
 		break;
@@ -184,7 +204,11 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 					anim_start_pt.x = 160;
 					anim_start_pt.y = 400;
 				}
-				tui_screen_load_anim_out_ext(this_home_obj, this_app_obj, anim_start_pt, 300, 1, NULL);
+				if (tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)) == 10)
+					tui_screen_load_anim_out_ext(this_home_obj, this_app_obj, anim_start_pt, 300, 1, NULL);
+				else
+					tui_screen_load_anim(this_home_obj, this_app_obj, (tui_scr_load_anim_e)tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)), 300, 1, NULL);
+
 				
 				tui_group_focus_obj(tui_get_obj_from_id(this_home_obj, cur_app_index));
 				this_app_obj = NULL;
@@ -197,7 +221,10 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 		if (this_app_obj == NULL) {
 			tui_point_t anim_start_pt = { 160, 200 };
 			this_app_obj = arc_app0_enter();
-			tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			if (tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)) == 10)
+				tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			else
+				tui_screen_load_anim(this_app_obj, this_home_obj, (tui_scr_load_anim_e)tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)), 300, 1, NULL);
 			this_home_obj = NULL;
 			cur_screen_index = 0;
 			cur_app_index = HOME_MAIN_VIEW_APP_1;
@@ -207,7 +234,10 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 		if (this_app_obj == NULL) {
 			tui_point_t anim_start_pt = { 400, 200 };
 			this_app_obj = button_app1_enter();
-			tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			if (tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)) == 10)
+				tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			else
+				tui_screen_load_anim(this_app_obj, this_home_obj, (tui_scr_load_anim_e)tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)), 300, 1, NULL);
 			this_home_obj = NULL;
 			cur_screen_index = 0;
 			cur_app_index = HOME_MAIN_VIEW_APP_2;
@@ -217,7 +247,10 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 		if (this_app_obj == NULL) {
 			tui_point_t anim_start_pt = { 640, 200 };
 			this_app_obj = line_app2_enter();
-			tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			if (tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)) == 10)
+				tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			else
+				tui_screen_load_anim(this_app_obj, this_home_obj, (tui_scr_load_anim_e)tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)), 300, 1, NULL);
 			this_home_obj = NULL;
 			cur_screen_index = 0;
 			cur_app_index = HOME_MAIN_VIEW_APP_3;
@@ -227,7 +260,10 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 		if (this_app_obj == NULL) {
 			tui_point_t anim_start_pt = { 640, 400 };
 			this_app_obj = bar_app3_enter();
-			tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			if (tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)) == 10)
+				tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			else
+				tui_screen_load_anim(this_app_obj, this_home_obj, (tui_scr_load_anim_e)tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)), 300, 1, NULL);
 			this_home_obj = NULL;
 			cur_screen_index = 0;
 			cur_app_index = HOME_MAIN_VIEW_APP_4;
@@ -237,7 +273,10 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 		if (this_app_obj == NULL) {
 			tui_point_t anim_start_pt = { 400, 400 };
 			this_app_obj = animation_app4_enter();
-			tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			if (tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)) == 10)
+				tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			else
+				tui_screen_load_anim(this_app_obj, this_home_obj, (tui_scr_load_anim_e)tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)), 300, 1, NULL);
 			this_home_obj = NULL;
 			cur_screen_index = 0;
 			cur_app_index = HOME_MAIN_VIEW_APP_5;
@@ -247,7 +286,10 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 		if (this_app_obj == NULL) {
 			tui_point_t anim_start_pt = { 160, 400 };
 			this_app_obj = dashboard_app5_enter();
-			tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			if (tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)) == 10)
+				tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			else
+				tui_screen_load_anim(this_app_obj, this_home_obj, (tui_scr_load_anim_e)tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)), 300, 1, NULL);
 			this_home_obj = NULL;
 			cur_screen_index = 0;
 			cur_app_index = HOME_MAIN_VIEW_APP_6;
@@ -257,7 +299,10 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 		if (this_app_obj == NULL) {
 			tui_point_t anim_start_pt = { 160, 200 };
 			this_app_obj = window_app6_enter();
-			tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			if (tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)) == 10)
+				tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			else
+				tui_screen_load_anim(this_app_obj, this_home_obj, (tui_scr_load_anim_e)tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)), 300, 1, NULL);
 			this_home_obj = NULL;
 			cur_screen_index = 1;
 			cur_app_index = HOME_MAIN_VIEW_APP_7;
@@ -267,7 +312,10 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 		if (this_app_obj == NULL) {
 			tui_point_t anim_start_pt = { 400, 200 };
 			this_app_obj = uart_app7_enter();
-			tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			if (tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)) == 10)
+				tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			else
+				tui_screen_load_anim(this_app_obj, this_home_obj, (tui_scr_load_anim_e)tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)), 300, 1, NULL);
 			this_home_obj = NULL;
 			cur_screen_index = 1;
 			cur_app_index = HOME_MAIN_VIEW_APP_8;
@@ -277,7 +325,10 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 		if (this_app_obj == NULL) {
 			tui_point_t anim_start_pt = { 640, 200 };
 			this_app_obj = page_app8_enter();
-			tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			if (tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)) == 10)
+				tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			else
+				tui_screen_load_anim(this_app_obj, this_home_obj, (tui_scr_load_anim_e)tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)), 300, 1, NULL);
 			this_home_obj = NULL;
 			cur_screen_index = 1;
 			cur_app_index = HOME_MAIN_VIEW_APP_9;
@@ -287,7 +338,10 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 		if (this_app_obj == NULL) {
 			tui_point_t anim_start_pt = { 640, 400 };
 			this_app_obj = draw_app9_enter();
-			tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			if (tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)) == 10)
+				tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			else
+				tui_screen_load_anim(this_app_obj, this_home_obj, (tui_scr_load_anim_e)tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)), 300, 1, NULL);
 			this_home_obj = NULL;
 			cur_screen_index = 1;
 			cur_app_index = HOME_MAIN_VIEW_APP_10;
@@ -297,7 +351,10 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 		if (this_app_obj == NULL) {
 			tui_point_t anim_start_pt = { 400, 400 };
 			this_app_obj = setting_app10_enter();
-			tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			if (tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)) == 10)
+				tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			else
+				tui_screen_load_anim(this_app_obj, this_home_obj, (tui_scr_load_anim_e)tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)), 300, 1, NULL);
 			this_home_obj = NULL;
 			cur_screen_index = 1;
 			cur_app_index = HOME_MAIN_VIEW_APP_11;
@@ -307,7 +364,10 @@ static int32_t home_sys_msg_cb(uint32_t cmd, void *param0, void *param1)
 		if (this_app_obj == NULL) {
 			tui_point_t anim_start_pt = { 160, 400 };
 			this_app_obj = logon_app11_enter();
-			tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			if (tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)) == 10)
+				tui_screen_load_anim_in_ext(this_app_obj, this_home_obj, anim_start_pt, 300, 1, NULL);
+			else
+				tui_screen_load_anim(this_app_obj, this_home_obj, (tui_scr_load_anim_e)tui_dropdown_get_selected_index(TUI_OBJ(GLOBAL_BAR_STATUS_BAR_DROPDOWN_263)), 300, 1, NULL);
 			this_home_obj = NULL;
 			cur_screen_index = 1;
 			cur_app_index = HOME_MAIN_VIEW_APP_12;
@@ -325,12 +385,12 @@ static void create_key_tone(void)
 {
 	/* Create an sound */
 	tui_sound_attri_t attri_sound = { 0 };
-	/* 鍒涘缓瀵硅薄 */
+
 	sound_play_f = 0;
 	sound_tone = tui_sound_create(tui_layer_normal());
-	/* 璁剧疆灞炴�?*/
+
 	tui_sound_set_attri(sound_tone, &attri_sound);
-	/* 璁剧疆闊虫簮 */
+
 	tui_sound_set_sound_src(sound_tone, "V:\\sound\\tone.wav");/* 纭繚鍔犺浇浜唕es.iso锛屽苟涓旇矾寰勬枃浠跺瓨鍦?*/
 }
 
@@ -346,17 +406,17 @@ static void indev_point_trigger(uint8_t state, int32_t x, int32_t y)
 }
 
 /*
- * 搴旂敤鍏ュ彛鍑芥暟
+ * TUI应用入口函数
  */
 int home_create(char *res_path)
 {
 	FILE* tp_config;
 	
-	/* 浣胯兘TUI缁勪欢锛岀敤鎴蜂笉鐢ㄥ叧蹇?*/
+	/* 注册组件 */
 #ifdef TUI_COMPONENT_ENABEL
 	tui_com_reg_func_map();
 #endif	
-	/* 鍒濆鍖朤UI璧勬簮 */
+	/* 初始化TUI资源 */
 	tui_start_init(res_path);
 	
 	g_exit_flag = 0;
@@ -368,20 +428,20 @@ int home_create(char *res_path)
 		fclose(tp_config);
 		tui_sys_msg_send(TUI_USER_MSG_APP_ADJUT_OK, NULL, NULL);
 	} else {
-		/* 鍒涘缓logo鐣岄潰瑙嗗浘 */
+		/* 创建logo界面视图 */
 		this_adjust_obj = adjust_enter();
 	}
 #else
     tui_sys_msg_send(TUI_USER_MSG_APP_ADJUT_OK, NULL, NULL);
 #endif
 	
-	/* 娉ㄥ唽home鐣岄潰绯荤粺娑堟伅鍥炶皟鍑芥暟 */
+	/* 注册home界面系统消息回调函数 */
 	tui_sys_msg_reg(home_sys_msg_cb);
 
 	create_key_tone();
 	tui_point_trigger_cb_reg(indev_point_trigger);
 
-	/* TUI澶勭悊鍣?*/
+	/* TUI处理器 */
 	while (g_loop_flag) {
 		tui_run_loop();
 	}
@@ -389,7 +449,7 @@ int home_create(char *res_path)
 	if (sound_tone)
 		tui_obj_del(sound_tone);
 
-	/* 閲婃斁TUI璧勬簮閫�鍑?*/
+	/* 释放TUI资源退出 */
 	tui_end_uninit();
 	
 	return 0;

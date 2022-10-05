@@ -3,6 +3,13 @@
 
 tui_obj_t *global_bar_status_bar_view_obj;
 
+static void dropdown_263_cb_263(tui_obj_t *obj, tui_event_e event, int16_t index) {
+	 /* obj 下拉菜单对象 */
+	 /* event 下拉菜单的事件值*/
+	 /* index 下拉菜单的当前索引 */
+}
+
+
 static void image_258_cb_258(tui_obj_t *obj, tui_event_e event, int16_t img_index) {
 	 /* obj 图片对象 */
 	 /* event 图片变化的事件状态值 */
@@ -55,6 +62,7 @@ static tui_map_cb_t cb_map[] = {
 	{ GLOBAL_BAR_STATUS_BAR_IMAGE_BTN_102, (void*)image_btn_102_cb_102 },
 	{ GLOBAL_BAR_STATUS_BAR_IMAGE_258, (void*)image_258_cb_258 },
 	{ GLOBAL_BAR_STATUS_BAR_IMAGE_BTN_259, (void*)image_btn_259_cb_259 },
+	{ GLOBAL_BAR_STATUS_BAR_DROPDOWN_263, (void*)dropdown_263_cb_263 },
 	{ 0, (void*)0 }
 };
 
