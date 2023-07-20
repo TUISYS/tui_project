@@ -28,7 +28,7 @@
 由于不是专业美工、开发时间有限，应用里面的所有图片均来自互联网，没有经过特殊处理（不用于商业用途），图片稍加利用，来实现TUI的接口功能。<br>
 下面我们对每个app做个简单的介绍，然后结合tui.h里面的接口，做相关说明。<br><br>
 <p align="center">
-<img src="https://s1.imagehub.cc/images/2022/12/28/3f15a1a7bbcddf7c617666b1728478bf.gif">
+<img src="https://s1.imagehub.cc/images/2022/12/28/cd052856aad23ce9ceb2ad86b0c0e07e.gif">
 </p>
 <p align="center">
 主界面应用例子展示 
