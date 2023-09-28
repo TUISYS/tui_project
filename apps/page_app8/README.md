@@ -4,7 +4,7 @@
 这个app里面有页控件，里面嵌套了不同的控件，展示其效果。
 
 <p align="center">
-<img src="https://s1.imagehub.cc/images/2022/06/16/page.gif">
+<img src="https://s1.imagehub.cc/images/2023/09/28/page.gif">
 </p>
 <p align="center">
 各个控件应用例子展示

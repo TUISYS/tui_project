@@ -4,7 +4,7 @@
 这个app里面有按钮控件、图片按钮控件、标签控件、切换开关控件的使用。
 
 <p align="center">
-<img src="https://s1.imagehub.cc/images/2022/06/16/buttom.gif">
+<img src="https://s1.imagehub.cc/images/2023/09/28/buttom.gif">
 </p>
 <p align="center">
 各个控件应用例子展示

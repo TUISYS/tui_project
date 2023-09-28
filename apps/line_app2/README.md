@@ -4,7 +4,7 @@
 这个app里面有直线控件、按钮控件动画的使用。
 
 <p align="center">
-<img src="https://s1.imagehub.cc/images/2022/06/16/line.gif">
+<img src="https://s1.imagehub.cc/images/2023/09/28/line.gif">
 </p>
 <p align="center">
 各个控件应用例子展示

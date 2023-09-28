@@ -17,10 +17,10 @@
 <br>
 <br>
 <p align="center">
-<img src="https://raw.githubusercontent.com/TUISYS/image/main/hello_vc.gif">
+<img src="https://s1.imagehub.cc/images/2023/09/28/hello_vc.gif">
 </p>
 <br>
 
-动画链接：https://gitee.com/tuisys/image/blob/main/hello_vc.gif
+动画链接：https://s1.imagehub.cc/images/2023/09/28/hello_vc.gif
 
 

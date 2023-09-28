@@ -4,7 +4,7 @@
 这个app里面有水平和垂直进度条控件、水平和垂直滑块控件、标签控件。
 
 <p align="center">
-<img src="https://s1.imagehub.cc/images/2022/06/16/bar.gif">
+<img src="https://s1.imagehub.cc/images/2023/09/28/bar.gif">
 </p>
 <p align="center">
 各个控件应用例子展示

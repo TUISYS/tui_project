@@ -4,7 +4,7 @@
 这个app里面有图片控件、按钮控件、标签控件的使用。
 
 <p align="center">
-<img src="https://s1.imagehub.cc/images/2022/06/16/dashboard.gif">
+<img src="https://s1.imagehub.cc/images/2023/09/28/dashboard.gif">
 </p>
 <br>
 

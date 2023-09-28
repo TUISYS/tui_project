@@ -4,7 +4,7 @@
 这个app里面只有画板控件的使用。
 
 <p align="center">
-<img src="https://s1.imagehub.cc/images/2022/06/16/draw.gif">
+<img src="https://s1.imagehub.cc/images/2023/09/28/draw.gif">
 </p>
 <p align="center">
 画板控件应用例子展示

@@ -4,7 +4,7 @@
 这个app里面有三种动画效果图片控件动画、animation控件动画、以及gif控件的使用。
 
 <p align="center">
-<img src="https://s1.imagehub.cc/images/2022/06/16/animation.gif">
+<img src="https://s1.imagehub.cc/images/2023/09/28/animation.gif">
 </p>
 <p align="center">
 各个动画控件应用例子展示
